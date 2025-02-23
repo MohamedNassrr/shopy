@@ -48,6 +48,8 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(UserLogoutWithGoogleSuccess());
   }
 
+
+
   IconData suffix = Icons.visibility_outlined;
   bool isPassword = true;
 

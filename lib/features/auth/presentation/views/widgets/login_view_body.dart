@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/styles/constance.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
+import 'package:online_shop_app/core/widgets/custom_divider.dart';
 import 'package:online_shop_app/core/widgets/custom_form_field.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/login_cubit/login_cubit.dart';
@@ -89,7 +90,9 @@ class LoginViewBody extends StatelessWidget {
                     Align(
                       alignment: AlignmentDirectional.topEnd,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          GoRouter.of(context).push(AppRouter.kForgetPassView);
+                        },
                         child: Text(
                           'Forget Password?',
                           style: TextStyle(color: Colors.black),
@@ -111,17 +114,7 @@ class LoginViewBody extends StatelessWidget {
                       text: 'Continue',
                     ),
                     SizedBox(height: 27),
-                    SizedBox(
-                      width: 260,
-                      child: Row(
-                        spacing: 10,
-                        children: [
-                          Expanded(child: Divider()),
-                          Text('or'),
-                          Expanded(child: Divider()),
-                        ],
-                      ),
-                    ),
+                    CustomDivider(),
                     SizedBox(height: 20),
                     AdvancedAuth(),
                     SizedBox(height: 20),

@@ -21,10 +21,9 @@ class RegisterViewBody extends StatelessWidget {
 
     return BlocConsumer<RegisterCubit, RegisterStates>(
       listener: (context, state) {
-        if(state is RegisterSuccessStates){
+        if (state is RegisterUserCreateSuccessStates) {
           GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
         }
-
       },
       builder: (context, state) {
         var cubit = BlocProvider.of<RegisterCubit>(context);
@@ -90,7 +89,7 @@ class RegisterViewBody extends StatelessWidget {
                             suffix: cubit.suffix,
                             suffixPressed: cubit.changePasswordVisibilty,
                             validation: (value) {
-                              if (value != passwordController) {
+                              if (value != passwordController.text) {
                                 return 'password didn\'t match';
                               }
                               return null;
@@ -113,7 +112,14 @@ class RegisterViewBody extends StatelessWidget {
                     SizedBox(height: 20),
                     CustomTextButton(
                       onPressed: () {
-                        if (formKey.currentState!.validate()) {}
+                        if (formKey.currentState!.validate()) {
+                          cubit.userRegister(
+                            name: nameController.text,
+                            email: emailController.text,
+                            password: passwordController.text,
+                            phone: phoneController.text,
+                          );
+                        }
                       },
                       isLoading: state is RegisterLoadingStates ? true : false,
                       text: 'Register',
