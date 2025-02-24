@@ -8,6 +8,11 @@ import 'package:online_shop_app/features/auth/presentation/controller/login_cubi
 
 class LoginCubit extends Cubit<LoginStates> {
   final GoogleAuthService authService;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   LoginCubit(this.authService) : super(LoginInitialStates());
 
   Future<void> userLogin({
@@ -31,11 +36,9 @@ class LoginCubit extends Cubit<LoginStates> {
     });
   }
 
-
-
   // Sign in with Google
   Future<void> signInWithGoogle() async {
-     await authService.signInWithGoogle();
+    await authService.signInWithGoogle();
     emit(UserLoginWithGoogleSuccess());
     debugPrint(authService.auth.currentUser!.email);
     debugPrint(authService.auth.currentUser!.uid);
@@ -47,8 +50,6 @@ class LoginCubit extends Cubit<LoginStates> {
     await authService.signOut();
     emit(UserLogoutWithGoogleSuccess());
   }
-
-
 
   IconData suffix = Icons.visibility_outlined;
   bool isPassword = true;
