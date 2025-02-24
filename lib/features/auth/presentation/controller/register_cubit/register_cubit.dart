@@ -7,6 +7,14 @@ import 'package:online_shop_app/features/auth/data/models/user_register_model.da
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_states.dart';
 
 class RegisterCubit extends Cubit<RegisterStates> {
+
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final GlobalKey<FormState>  formKey = GlobalKey<FormState>();
+
   RegisterCubit() : super(RegisterInitialStates());
 
   void userRegister({
