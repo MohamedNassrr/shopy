@@ -1,22 +1,26 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:online_shop_app/core/utils/google_auth_services.dart';
+import 'package:online_shop_app/core/services/google_auth_services.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/login_cubit/login_cubit.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_cubit.dart';
 import 'package:online_shop_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/login_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/register_view.dart';
+import 'package:online_shop_app/features/home/presentation/controller/home_cubit/home_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/views/home_view.dart';
 
 abstract class AppRouter {
-  static const kLoginView = '/';
+  static const kLoginView = '/LoginView';
   static const kRegisterView = '/RegisterView';
-  static const kHomeView = '/HomeView';
+  static const kHomeView = '/';
   static const kForgetPassView = '/ForgetPasswordView';
 
   final GoogleAuthService authService;
 
-  AppRouter(this.authService);
+
+  AppRouter(
+    this.authService,
+  );
 
   static final router = GoRouter(
     routes: [
@@ -40,8 +44,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) => HomeView(),
+        builder: (context, state) =>
+            BlocProvider(create: (context) => HomeCubit(), child: HomeView()),
       ),
     ],
+
   );
 }

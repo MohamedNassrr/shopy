@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:online_shop_app/core/utils/google_auth_services.dart';
+import 'package:online_shop_app/core/services/google_auth_services.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/login_cubit/login_states.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
