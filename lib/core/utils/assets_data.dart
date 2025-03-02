@@ -7,4 +7,6 @@ abstract class AssetsData {
   static const clothesIcon = 'assets/images/clothes_icon.png';
   static const sportIcon = 'assets/images/sports_icon.png';
   static const electronicsIcon = 'assets/images/electronic_icon.png';
+  static const categoryIcon = 'assets/images/category_icon.png';
+  static const testImage = 'assets/images/test_img.png';
 }

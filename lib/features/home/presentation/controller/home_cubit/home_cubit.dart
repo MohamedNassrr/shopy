@@ -10,4 +10,16 @@ class HomeCubit extends Cubit<HomeStates> {
     AssetsData.secondBanner,
     AssetsData.thirdBanner,
   ];
+  List<String> imageIcon = [
+    AssetsData.clothesIcon,
+    AssetsData.electronicsIcon,
+    AssetsData.sportIcon,
+    AssetsData.categoryIcon
+  ];
+  List<String> categoryTitles = [
+    'Clothes',
+    'Electronics',
+    'Sports',
+    'All',
+  ];
 }
