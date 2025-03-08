@@ -35,14 +35,6 @@ class CustomAppBar extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  Icons.shopping_cart_outlined,
-                  color: Colors.black,
-                  size: 23,
-                ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
                   Icons.notifications_none_rounded,
                   color: Colors.black,
                   size: 23,

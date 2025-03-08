@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key});
@@ -8,9 +9,9 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         prefixIcon: Icon(
-          Icons.search_rounded,
+          FontAwesomeIcons.magnifyingGlass,
           color: Color(0xff939393),
-          size: 30,
+          size: 20,
         ),
         contentPadding: EdgeInsets.symmetric(),
         hintText: 'Search here ...',
@@ -24,6 +25,7 @@ class CustomTextField extends StatelessWidget {
       ),
     );
   }
+
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
@@ -32,5 +34,4 @@ class CustomTextField extends StatelessWidget {
       ),
     );
   }
-
 }

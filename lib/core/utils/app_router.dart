@@ -48,6 +48,5 @@ abstract class AppRouter {
             BlocProvider(create: (context) => HomeCubit(), child: HomeView()),
       ),
     ],
-
   );
 }

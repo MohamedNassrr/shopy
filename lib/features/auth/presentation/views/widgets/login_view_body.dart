@@ -26,6 +26,7 @@ class LoginViewBody extends StatelessWidget {
         if (state is UserLoginWithGoogleSuccess) {
           GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
         }
+        
         if (state is LoginFailureStates) {
           SnackBar snackBar =
               SnackBar(content: Text('email or password isn\'t correct'));
@@ -34,6 +35,7 @@ class LoginViewBody extends StatelessWidget {
       },
       builder: (context, state) {
         var cubit = BlocProvider.of<LoginCubit>(context);
+
         return Center(
           child: Padding(
             padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
