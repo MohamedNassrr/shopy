@@ -11,59 +11,62 @@ class CustomGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 3.76,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            //w 170,h112
-            width: MediaQuery.of(context).size.width * 0.53,
-            height: MediaQuery.of(context).size.height * 0.13,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8),
-                topRight: Radius.circular(8),
-              ),
-              image: DecorationImage(
-                image: NetworkImage(
-                  productModel.thumbnail
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              //w 170,h112
+              width: MediaQuery.of(context).size.width * 0.53,
+              height: MediaQuery.of(context).size.height * 0.13,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8),
+                  topRight: Radius.circular(8),
                 ),
-                fit: BoxFit.fill,
+                image: DecorationImage(
+                  image: NetworkImage(
+                    productModel.images![0],
+                  ),
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 13,
-          ),
-          Text(
-            '${productModel.title}',
-            style: TextsStyles.textStyle12,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.51,
-            child: Row(
-              children: [
-                Text(
-                  '\$${productModel.price}',
-                  style: TextsStyles.textStyle14.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Spacer(),
-                IconButton(
-                  onPressed: () {
-                    print('button work');
-                  },
-                  icon: Icon(
-                    FontAwesomeIcons.cartPlus,
-                    size: 15,
-                  ),
-                ),
-              ],
+            SizedBox(
+              height: 13,
             ),
-          ),
-        ],
+            Text(
+              '${productModel.title}',
+              style: TextsStyles.textStyle12,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.51,
+              child: Row(
+                children: [
+                  Text(
+                    '\$${productModel.price}',
+                    style: TextsStyles.textStyle14.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Spacer(),
+                  IconButton(
+                    onPressed: () {
+                      print('button work');
+                    },
+                    icon: Icon(
+                      FontAwesomeIcons.cartPlus,
+                      size: 15,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

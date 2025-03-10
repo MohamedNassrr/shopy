@@ -8,6 +8,7 @@ class ProductModel {
   double? rating;
   int? stock;
   List<String>? tags;
+  List<String>? images;
   String? brand;
   String? availabilityStatus;
   String thumbnail;
@@ -24,6 +25,7 @@ class ProductModel {
     this.tags,
     this.brand,
     this.availabilityStatus,
+    this.images,
     required this.thumbnail,
   });
 
@@ -36,9 +38,11 @@ class ProductModel {
         discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
         rating: (json['rating'] as num?)?.toDouble(),
         stock: json['stock'] as int?,
-        tags: (json['tags'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+        tags:
+            (json['tags'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+    images: (json['images'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
         brand: json['brand'] as String?,
-        thumbnail: json['thumbnail'] as String ?? '',
+        thumbnail: json['thumbnail'] as String,
       );
 
   Map<String, dynamic> toJson() => {
@@ -53,5 +57,6 @@ class ProductModel {
         'tags': tags,
         'brand': brand,
         'thumbnail': thumbnail,
+        'images':images
       };
 }
