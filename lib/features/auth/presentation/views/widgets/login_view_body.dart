@@ -26,7 +26,7 @@ class LoginViewBody extends StatelessWidget {
         if (state is UserLoginWithGoogleSuccess) {
           GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
         }
-        
+
         if (state is LoginFailureStates) {
           SnackBar snackBar =
               SnackBar(content: Text('email or password isn\'t correct'));

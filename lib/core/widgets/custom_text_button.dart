@@ -6,7 +6,7 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     this.width = double.infinity,
     this.height = 45,
-     this.colors = primaryColor,
+    this.colors = primaryColor,
     required this.onPressed,
     required this.text,
     this.textColor = Colors.white,
@@ -33,7 +33,10 @@ class CustomTextButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
       ),
       child: isLoading
-          ? Center(child: CircularProgressIndicator(color: Colors.white,))
+          ? Center(
+              child: CircularProgressIndicator(
+              color: Colors.white,
+            ))
           : TextButton(
               onPressed: onPressed,
               child: Text(

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
+import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_cubit.dart';
+import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_gird_item.dart';
 
 class CustomGridList extends StatelessWidget {
@@ -7,39 +10,50 @@ class CustomGridList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            ' Recent product',
-            style: TextsStyles.textStyle14,
-          ),
-          SizedBox(height: 8),
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            childAspectRatio: 6 / 6.32,
-            physics: NeverScrollableScrollPhysics(),
-            children: List.generate(
-              16,
-              (index) => Padding(
-                padding: const EdgeInsets.only(
-                  right: 20,
-                  top: 5,
+    return BlocBuilder<ProductCubit,ProductStates>(
+      builder:(context, state) {
+        if(state is ProductSuccessStates){
+          return Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  ' Recent product',
+                  style: TextsStyles.textStyle14,
                 ),
-                child: GestureDetector(
-                  onTap: () {
-                    debugPrint('itemPressed');
-                  },
-                  child: CustomGridItem(),
+                SizedBox(height: 8),
+                GridView.count(
+                  crossAxisCount: 2,
+                  shrinkWrap: true,
+                  childAspectRatio: 6 / 6.32,
+                  physics: NeverScrollableScrollPhysics(),
+                  children: List.generate(
+                    state.product.length,
+                        (index) => Padding(
+                      padding: const EdgeInsets.only(
+                        right: 20,
+                        top: 5,
+                      ),
+                      child: GestureDetector(
+                        onTap: () {
+                          debugPrint('itemPressed');
+                        },
+                        child: CustomGridItem(productModel: state.product[index],),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ),
-        ],
-      ),
+          );
+        }else if(state is ProductFailureStates){
+          return Text('there is error${state.errMessage.toString()}');
+        }else{
+          return Center(child: CircularProgressIndicator());
+        }
+
+      },
     );
   }
 }

@@ -31,7 +31,7 @@ class AdvancedAuth extends StatelessWidget {
           ),
         ),
         InkWell(
-          onTap: (){},
+          onTap: () {},
           child: Container(
             height: 40,
             width: 40,

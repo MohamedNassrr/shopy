@@ -31,7 +31,6 @@ class CustomFormField extends StatelessWidget {
       keyboardType: type,
       onFieldSubmitted: onSubmit,
       obscureText: isPassword,
-
       validator: validation,
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -40,11 +39,11 @@ class CustomFormField extends StatelessWidget {
         hintText: hintText,
         suffixIcon: suffix != null
             ? IconButton(
-          onPressed: suffixPressed,
-          icon: Icon(
-            suffix,
-          ),
-        )
+                onPressed: suffixPressed,
+                icon: Icon(
+                  suffix,
+                ),
+              )
             : null,
       ),
     );

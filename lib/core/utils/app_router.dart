@@ -6,7 +6,6 @@ import 'package:online_shop_app/features/auth/presentation/controller/register_c
 import 'package:online_shop_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/login_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/register_view.dart';
-import 'package:online_shop_app/features/home/presentation/controller/home_cubit/home_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/views/home_view.dart';
 
 abstract class AppRouter {
@@ -16,7 +15,6 @@ abstract class AppRouter {
   static const kForgetPassView = '/ForgetPasswordView';
 
   final GoogleAuthService authService;
-
 
   AppRouter(
     this.authService,
@@ -44,8 +42,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) =>
-            BlocProvider(create: (context) => HomeCubit(), child: HomeView()),
+        builder: (context, state) => HomeView(),
       ),
     ],
   );

@@ -11,13 +11,12 @@ class LoginFormFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     var cubit = BlocProvider.of<LoginCubit>(context);
     var formKey = GlobalKey<FormState>();
 
-    return BlocBuilder<LoginCubit,LoginStates>(
+    return BlocBuilder<LoginCubit, LoginStates>(
       builder: (context, state) {
         return Form(
           key: formKey,

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
-import 'package:online_shop_app/core/utils/assets_data.dart';
+import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
 
 class CustomGridItem extends StatelessWidget {
-  const CustomGridItem({super.key});
+  const CustomGridItem({super.key, required this.productModel});
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,8 @@ class CustomGridItem extends StatelessWidget {
                 topRight: Radius.circular(8),
               ),
               image: DecorationImage(
-                image: AssetImage(
-                  AssetsData.testImage,
+                image: NetworkImage(
+                  productModel.thumbnail
                 ),
                 fit: BoxFit.fill,
               ),
@@ -34,7 +35,7 @@ class CustomGridItem extends StatelessWidget {
             height: 13,
           ),
           Text(
-            'Monitor LG 22”inc 4K 120Fps',
+            '${productModel.title}',
             style: TextsStyles.textStyle12,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -44,7 +45,7 @@ class CustomGridItem extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  '\$199.9',
+                  '\$${productModel.price}',
                   style: TextsStyles.textStyle14.copyWith(
                     fontWeight: FontWeight.w600,
                   ),

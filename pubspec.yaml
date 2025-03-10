@@ -44,6 +44,8 @@ dependencies:
   carousel_slider: ^5.0.0
   shared_preferences: ^2.5.2
   font_awesome_flutter: ^10.8.0
+  dio: ^5.8.0+1
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

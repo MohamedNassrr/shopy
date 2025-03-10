@@ -28,10 +28,10 @@ class CategoryListView extends StatelessWidget {
               itemCount: cubit.imageIcon.length,
               shrinkWrap: true,
               itemBuilder: (context, index) => Padding(
-                padding:  EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(8),
-                  onTap: (){
+                  onTap: () {
                     debugPrint('item pressed');
                   },
                   child: Column(

@@ -5,7 +5,9 @@ import 'package:online_shop_app/features/home/presentation/views/widgets/custom_
 import 'package:online_shop_app/features/home/presentation/views/widgets/my_carousal_slider.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

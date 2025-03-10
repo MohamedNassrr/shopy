@@ -25,10 +25,9 @@ class HomeCubit extends Cubit<HomeStates> {
   List<String> categoryTitles = [
     'Clothes',
     'Electronics',
-    'Sports',
+    'Shoes',
     'All',
   ];
-
   List<Widget> screens = [
     HomeViewBody(),
     CartView(),
