@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_text_field.dart';
 
@@ -12,26 +13,52 @@ class CustomAppBar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Delivery address',
-            style: TextsStyles.textStyle11,
-          ),
           Row(
             children: [
-              InkWell(
-                  onTap: () {},
-                  child: Row(
-                    children: [
-                      Text(
-                        'Nasr city, Cairo Egypt',
-                        style: TextsStyles.textStyle12,
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down_outlined,
-                      ),
-                    ],
-                  )),
+              IconButton(
+                onPressed: () {
+                  print('user pressed');
+                },
+                icon: Icon(
+                  FontAwesomeIcons.user,
+                  size: 23,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Delivery address',
+                    style: TextsStyles.textStyle11,
+                  ),
+                  InkWell(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          Text(
+                            'Nasr city, Cairo Egypt',
+                            style: TextsStyles.textStyle12,
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_down_outlined,
+                          ),
+                        ],
+                      )),
+                ],
+              ),
               Spacer(),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.shopping_cart,
+                  color: Colors.black,
+                  size: 23,
+                ),
+              ),
               IconButton(
                 onPressed: () {},
                 icon: Icon(
