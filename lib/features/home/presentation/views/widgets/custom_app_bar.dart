@@ -20,14 +20,12 @@ class CustomAppBar extends StatelessWidget {
                   print('user pressed');
                 },
                 icon: Icon(
-                  FontAwesomeIcons.user,
+                  FontAwesomeIcons.circleUser,
                   size: 23,
                   color: Colors.black,
                 ),
               ),
-              SizedBox(
-                width: 10,
-              ),
+
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

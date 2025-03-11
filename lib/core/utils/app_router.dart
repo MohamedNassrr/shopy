@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/services/google_auth_services.dart';
@@ -9,9 +10,9 @@ import 'package:online_shop_app/features/auth/presentation/views/register_view.d
 import 'package:online_shop_app/features/home/presentation/views/home_view.dart';
 
 abstract class AppRouter {
-  static const kLoginView = '/LoginView';
+  static const kLoginView = '/';
   static const kRegisterView = '/RegisterView';
-  static const kHomeView = '/';
+  static const kHomeView = '/HomeView';
   static const kForgetPassView = '/ForgetPasswordView';
 
   final GoogleAuthService authService;
@@ -21,6 +22,7 @@ abstract class AppRouter {
   );
 
   static final router = GoRouter(
+    initialLocation: initialLocation(),
     routes: [
       GoRoute(
         path: kLoginView,
@@ -45,5 +47,10 @@ abstract class AppRouter {
         builder: (context, state) => HomeView(),
       ),
     ],
+
   );
+ static String initialLocation(){
+   User? user = FirebaseAuth.instance.currentUser;
+   return user != null ? kHomeView : kLoginView;
+ }
 }
