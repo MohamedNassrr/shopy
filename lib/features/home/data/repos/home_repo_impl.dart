@@ -13,9 +13,25 @@ class HomeRepoImpl implements HomeRepo {
   HomeRepoImpl(this.apiService);
 
   @override
-  Future<Either<ApisFailure, List<CategoryModel>>> fetchCategory() {
-    // TODO: implement fetchCategory
-    throw UnimplementedError();
+  Future<Either<ApisFailure, List<CategoryModel>>> fetchCategory() async {
+    try {
+      var data = await apiService.getProduct(endPoint: '/products/categories');
+
+      List<CategoryModel> category = [];
+      for (int i = 0; i < data.length; i++) {
+        try {
+          category.add(CategoryModel.fromJson(data[i]));
+        } catch (e) {
+          category.add(CategoryModel.fromJson(data[i]));
+        }
+      }
+      return right(category);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailures.fromDioError(e));
+      }
+      return left(ServerFailures(e.toString()));
+    }
   }
 
   @override

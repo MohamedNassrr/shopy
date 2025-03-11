@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:online_shop_app/features/home/data/repos/home_repo.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
@@ -13,6 +15,7 @@ class ProductCubit extends Cubit<ProductStates> {
 
     result.fold((failure) {
       emit(ProductFailureStates(failure.errMessage));
+      log(failure.errMessage.toString());
     }, (product) {
       emit(ProductSuccessStates(product));
     });

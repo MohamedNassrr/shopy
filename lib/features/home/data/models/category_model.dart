@@ -1,13 +1,13 @@
 class CategoryModel {
   String? slug;
-  String? name;
+  String name;
   String? url;
 
-  CategoryModel({this.slug, this.name, this.url});
+  CategoryModel({this.slug, required this.name, this.url});
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) => CategoryModel(
         slug: json['slug'] as String?,
-        name: json['name'] as String?,
+        name: json['name'] as String,
         url: json['url'] as String?,
       );
 
