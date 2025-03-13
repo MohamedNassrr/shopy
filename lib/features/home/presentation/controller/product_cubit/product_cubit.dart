@@ -5,9 +5,10 @@ import 'package:online_shop_app/features/home/data/repos/home_repo.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
 
 class ProductCubit extends Cubit<ProductStates> {
-  ProductCubit(this.homeRepo) : super(ProductInitialStates());
+  ProductCubit(this.homeRepo,) : super(ProductInitialStates());
 
   final HomeRepo homeRepo;
+
 
   Future<void> fetchProductData() async {
     emit(ProductLoadingStates());
