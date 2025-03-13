@@ -13,12 +13,12 @@ class RegisterView extends StatelessWidget {
           onPressed: () {
             GoRouter.of(context).pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
         ),
       ),
-      body: RegisterViewBody(),
+      body: const RegisterViewBody(),
     );
   }
 }

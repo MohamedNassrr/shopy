@@ -17,12 +17,12 @@ class ForgetPasswordView extends StatelessWidget {
             onPressed: () {
               GoRouter.of(context).pop();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back,
             ),
           ),
         ),
-        body: ForgetPassViewBody(),
+        body: const ForgetPassViewBody(),
       ),
     );
   }

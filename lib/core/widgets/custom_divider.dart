@@ -5,7 +5,7 @@ class CustomDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: 260,
       child: Row(
         spacing: 10,

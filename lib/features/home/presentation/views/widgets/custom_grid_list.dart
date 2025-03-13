@@ -18,16 +18,16 @@ class CustomGridList extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   ' Recent product',
                   style: TextsStyles.textStyle14,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 GridView.count(
                   crossAxisCount: 2,
                   shrinkWrap: true,
                   childAspectRatio: 6 / 6.32,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   children: List.generate(
                     state.product.length,
                         (index) => Padding(
@@ -50,9 +50,8 @@ class CustomGridList extends StatelessWidget {
         }else if(state is ProductFailureStates){
           return Text('there is error${state.errMessage.toString()}');
         }else{
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
-
       },
     );
   }

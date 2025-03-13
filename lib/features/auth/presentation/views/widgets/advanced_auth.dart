@@ -20,7 +20,7 @@ class AdvancedAuth extends StatelessWidget {
           child: Container(
             height: 50,
             width: 50,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                 image: AssetImage(
@@ -35,7 +35,7 @@ class AdvancedAuth extends StatelessWidget {
           child: Container(
             height: 40,
             width: 40,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                 image: AssetImage(

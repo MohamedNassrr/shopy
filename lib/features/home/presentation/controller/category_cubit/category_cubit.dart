@@ -6,16 +6,17 @@ class CategoryCubit extends Cubit<CategoryStates> {
   CategoryCubit() : super(CategoryInitialStates());
 
   List<String> categoryTitles = [
+    'Beauty',
     'Clothes',
+    'Perfumes',
+    'Decorations',
     'Electronics',
-    'Shoes',
-    'All',
   ];
   List<String> imageIcon = [
+    AssetsData.beautyIcon,
     AssetsData.clothesIcon,
+    AssetsData.perfumesIcon,
+    AssetsData.decorationIcon,
     AssetsData.electronicsIcon,
-    AssetsData.sportIcon,
-    AssetsData.categoryIcon
   ];
-
 }

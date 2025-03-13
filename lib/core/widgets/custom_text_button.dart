@@ -33,7 +33,7 @@ class CustomTextButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
       ),
       child: isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(
               color: Colors.white,
             ))

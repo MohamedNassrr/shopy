@@ -28,23 +28,23 @@ abstract class AppRouter {
         path: kLoginView,
         builder: (context, state) => BlocProvider(
           create: (context) => LoginCubit(GoogleAuthService()),
-          child: LoginView(),
+          child: const LoginView(),
         ),
       ),
       GoRoute(
         path: kRegisterView,
         builder: (context, state) => BlocProvider(
           create: (context) => RegisterCubit(),
-          child: RegisterView(),
+          child: const RegisterView(),
         ),
       ),
       GoRoute(
         path: kForgetPassView,
-        builder: (context, state) => ForgetPasswordView(),
+        builder: (context, state) => const ForgetPasswordView(),
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) => HomeView(),
+        builder: (context, state) => const HomeView(),
       ),
     ],
 

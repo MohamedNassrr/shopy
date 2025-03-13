@@ -15,7 +15,7 @@ class ForgetPassTextButton extends StatelessWidget {
         onPressed: () {
           GoRouter.of(context).push(AppRouter.kForgetPassView);
         },
-        child: Text(
+        child: const Text(
           'Forget Password?',
           style: TextStyle(color: Colors.black),
         ),

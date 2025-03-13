@@ -20,8 +20,8 @@ class MyCarousalSlider extends StatelessWidget {
       options: CarouselOptions(
         enableInfiniteScroll: true,
         autoPlay: true,
-        autoPlayInterval: Duration(seconds: 5),
-        autoPlayAnimationDuration: Duration(seconds: 2),
+        autoPlayInterval: const Duration(seconds: 5),
+        autoPlayAnimationDuration: const Duration(seconds: 2),
         autoPlayCurve: Curves.easeInOutCirc,
         scrollDirection: Axis.horizontal,
         height: MediaQuery.of(context).size.height * 0.2,

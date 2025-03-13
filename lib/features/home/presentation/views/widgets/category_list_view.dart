@@ -14,8 +14,8 @@ class CategoryListView extends StatelessWidget {
       create: (context) => CategoryCubit(),
       child: BlocBuilder<CategoryCubit, CategoryStates>(
         builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+          return const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

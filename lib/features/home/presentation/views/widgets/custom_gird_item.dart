@@ -21,7 +21,7 @@ class CustomGridItem extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.53,
               height: MediaQuery.of(context).size.height * 0.13,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(8),
                   topRight: Radius.circular(8),
                 ),
@@ -33,7 +33,7 @@ class CustomGridItem extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 13,
             ),
             Text(
@@ -52,12 +52,12 @@ class CustomGridItem extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                     onPressed: () {
-                      print('button work');
+                      debugPrint('button work');
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.cartPlus,
                       size: 15,
                     ),

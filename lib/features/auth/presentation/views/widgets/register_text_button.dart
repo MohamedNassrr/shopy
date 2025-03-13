@@ -12,17 +12,17 @@ class RegisterTextButton extends StatelessWidget {
     return Row(
       spacing: 3.2,
       children: [
-        Text('Don\'t have an account yet?'),
+        const Text('Don\'t have an account yet?'),
         InkWell(
           onTap: () {
             GoRouter.of(context).push(AppRouter.kRegisterView);
           },
           child: Text(
             'Register'.toUpperCase(),
-            style: TextStyle(fontWeight: FontWeight.w700),
+            style: const TextStyle(fontWeight: FontWeight.w700),
           ),
         ),
-        Text('Now'),
+        const Text('Now'),
       ],
     );
   }

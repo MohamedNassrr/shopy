@@ -25,7 +25,7 @@ class AuthTextFormField extends StatelessWidget {
               return null;
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           CustomFormField(
             controller: cubit.passwordController,
             hintText: 'password',

@@ -8,14 +8,14 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        prefixIcon: Icon(
+        prefixIcon: const Icon(
           FontAwesomeIcons.magnifyingGlass,
           color: Color(0xff939393),
           size: 20,
         ),
-        contentPadding: EdgeInsets.symmetric(),
+        contentPadding: const EdgeInsets.symmetric(),
         hintText: 'Search here ...',
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           fontSize: 14,
           color: Color(0xffC8C8CB),
         ),
@@ -29,7 +29,7 @@ class CustomTextField extends StatelessWidget {
   OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         color: Color(0xffC8C8CB),
       ),
     );

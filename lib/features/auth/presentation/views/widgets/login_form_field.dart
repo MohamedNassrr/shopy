@@ -33,7 +33,7 @@ class LoginFormFields extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               CustomFormField(
                 controller: passwordController,
                 hintText: 'password',
@@ -56,18 +56,18 @@ class LoginFormFields extends StatelessWidget {
                   }
                 },
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Align(
                 alignment: AlignmentDirectional.topEnd,
                 child: TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Forget Password?',
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CustomTextButton(
                 colors: primaryColor,
                 onPressed: () {

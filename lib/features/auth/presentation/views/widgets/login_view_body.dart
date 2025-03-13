@@ -29,7 +29,7 @@ class LoginViewBody extends StatelessWidget {
 
         if (state is LoginFailureStates) {
           SnackBar snackBar =
-              SnackBar(content: Text('email or password isn\'t correct'));
+              const SnackBar(content: Text('email or password isn\'t correct'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       },
@@ -44,15 +44,15 @@ class LoginViewBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Welcome to e-commerce',
                     style: TextsStyles.textStyle25,
                   ),
-                  SizedBox(height: 45),
-                  AuthTextFormField(),
-                  SizedBox(height: 10),
-                  ForgetPassTextButton(),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 45),
+                  const AuthTextFormField(),
+                  const SizedBox(height: 10),
+                  const ForgetPassTextButton(),
+                  const SizedBox(height: 10),
                   CustomTextButton(
                     colors: primaryColor,
                     onPressed: () {
@@ -66,12 +66,12 @@ class LoginViewBody extends StatelessWidget {
                     isLoading: state is LoginLoadingStates ? true : false,
                     text: 'Continue',
                   ),
-                  SizedBox(height: 27),
-                  CustomDivider(),
-                  SizedBox(height: 20),
-                  AdvancedAuth(),
-                  SizedBox(height: 20),
-                  RegisterTextButton(),
+                  const SizedBox(height: 27),
+                  const CustomDivider(),
+                  const SizedBox(height: 20),
+                  const AdvancedAuth(),
+                  const SizedBox(height: 20),
+                  const RegisterTextButton(),
                 ],
               ),
             ),

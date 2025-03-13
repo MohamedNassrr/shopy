@@ -7,6 +7,10 @@ abstract class AssetsData {
   static const clothesIcon = 'assets/images/clothes_icon.png';
   static const sportIcon = 'assets/images/sports_icon.png';
   static const electronicsIcon = 'assets/images/electronic_icon.png';
-  static const categoryIcon = 'assets/images/category_icon.png';
+  static const categoryIcon = 'assets/images/more_icon.png';
   static const testImage = 'assets/images/test_img.png';
+  static const perfumesIcon = 'assets/images/perfumes.png';
+  static const decorationIcon = 'assets/images/decoration.png';
+  static const beautyIcon = 'assets/images/beauty.png';
+  static const watchIcon = 'assets/images/watch.png';
 }

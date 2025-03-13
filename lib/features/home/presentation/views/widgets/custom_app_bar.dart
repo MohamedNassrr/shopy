@@ -17,9 +17,9 @@ class CustomAppBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  print('user pressed');
+                  debugPrint('user pressed');
                 },
-                icon: Icon(
+                icon: const Icon(
                   FontAwesomeIcons.circleUser,
                   size: 23,
                   color: Colors.black,
@@ -29,13 +29,13 @@ class CustomAppBar extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Delivery address',
                     style: TextsStyles.textStyle11,
                   ),
                   InkWell(
                       onTap: () {},
-                      child: Row(
+                      child: const Row(
                         children: [
                           Text(
                             'Nasr city, Cairo Egypt',
@@ -48,10 +48,10 @@ class CustomAppBar extends StatelessWidget {
                       )),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.shopping_cart,
                   color: Colors.black,
                   size: 23,
@@ -59,7 +59,7 @@ class CustomAppBar extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.notifications_none_rounded,
                   color: Colors.black,
                   size: 23,
@@ -67,8 +67,8 @@ class CustomAppBar extends StatelessWidget {
               ),
             ],
           ),
-          CustomTextField(),
-          SizedBox(height: 7),
+          const CustomTextField(),
+          const SizedBox(height: 7),
         ],
       ),
     );
