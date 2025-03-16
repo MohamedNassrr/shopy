@@ -9,22 +9,25 @@ class MyCarousalSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<HomeCubit>(context);
-    return CarouselSlider.builder(
-      itemCount: cubit.banners.length,
-      itemBuilder: (context, index, realIndex) {
-        return Image.asset(
-          cubit.banners[index],
-          fit: BoxFit.fill,
-        );
-      },
-      options: CarouselOptions(
-        enableInfiniteScroll: true,
-        autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 5),
-        autoPlayAnimationDuration: const Duration(seconds: 2),
-        autoPlayCurve: Curves.easeInOutCirc,
-        scrollDirection: Axis.horizontal,
-        height: MediaQuery.of(context).size.height * 0.2,
+    return AspectRatio(
+      aspectRatio: 3/1.5,
+      child: CarouselSlider.builder(
+        itemCount: cubit.banners.length,
+        itemBuilder: (context, index, realIndex) {
+          return Image.asset(
+            cubit.banners[index],
+            fit: BoxFit.fill,
+          );
+        },
+        options: CarouselOptions(
+          enableInfiniteScroll: true,
+          autoPlay: true,
+          autoPlayInterval: const Duration(seconds: 5),
+          autoPlayAnimationDuration: const Duration(seconds: 2),
+          autoPlayCurve: Curves.easeInOutCirc,
+          scrollDirection: Axis.horizontal,
+          height: MediaQuery.of(context).size.height * 0.2,
+        ),
       ),
     );
   }
