@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
+import 'package:online_shop_app/core/utils/assets_data.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/category_list_view.dart';
@@ -24,17 +25,10 @@ class HomeViewBody extends StatelessWidget {
           slivers: [
             SliverAppBar(
               pinned: true,
-              leading: IconButton(
-                onPressed: () {
-                  debugPrint('user pressed');
-                },
-                icon: const Icon(
-                  FontAwesomeIcons.circleUser,
-                  size: 23,
-                  color: Colors.black,
-                ),
+              leading: Image.asset(
+                AssetsData.logoIcon,
               ),
-              titleSpacing: 0,
+              titleSpacing: 5,
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -60,14 +54,6 @@ class HomeViewBody extends StatelessWidget {
                 ],
               ),
               actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.shopping_cart,
-                    color: Colors.black,
-                    size: 23,
-                  ),
-                ),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(

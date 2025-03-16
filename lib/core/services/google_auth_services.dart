@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -19,7 +21,7 @@ class GoogleAuthService {
           await auth.signInWithCredential(credential);
       return userCredential.user;
     } catch (e) {
-      print("Error signing in with Google: $e");
+      log("Error signing in with Google: $e");
       return null;
     }
   }
