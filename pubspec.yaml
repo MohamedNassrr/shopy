@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+
   flutter:
     sdk: flutter
 
@@ -47,6 +48,11 @@ dependencies:
   dio: ^5.8.0+1
   dartz: ^0.10.1
   get_it: ^8.0.3
+  device_preview: ^1.2.0
+  google_maps_flutter: ^2.10.1
+  location: ^8.0.0
+  geocoding: ^3.0.0
+
 
 dev_dependencies:
   flutter_test:

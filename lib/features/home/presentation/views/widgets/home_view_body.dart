@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
+import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/category_list_view.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_gird_item.dart';
-import 'package:online_shop_app/features/home/presentation/views/widgets/custom_text_field.dart';
+import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/my_carousal_slider.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -33,7 +35,7 @@ class HomeViewBody extends StatelessWidget {
                 ),
               ),
               titleSpacing: 0,
-              title:  Column(
+              title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
@@ -41,7 +43,9 @@ class HomeViewBody extends StatelessWidget {
                     style: TextsStyles.textStyle11,
                   ),
                   InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kGoogleMapsView);
+                      },
                       child: const Row(
                         children: [
                           Text(
@@ -81,15 +85,25 @@ class HomeViewBody extends StatelessWidget {
             ),
             const SliverToBoxAdapter(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // CustomAppBar(),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(),
+                    child: CustomTextField(
+                      hintText: 'Search here ...',
+                      prefixIcon: FontAwesomeIcons.magnifyingGlass,
+                    ),
                   ),
-                  SizedBox(height: 7),
                   MyCarousalSlider(),
                   CategoryListView(),
+                  SizedBox(height: 17),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Recent product',
+                      style: TextsStyles.textStyle14,
+                    ),
+                  ),
                   SizedBox(height: 20),
                 ],
               ),
@@ -100,7 +114,15 @@ class HomeViewBody extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 if (state is ProductSuccessStates) {
-                  return CustomGridItem(productModel: state.product[index]);
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: GestureDetector(
+                        onTap: () {
+                          debugPrint('item pressed');
+                        },
+                        child:
+                            CustomGridItem(productModel: state.product[index])),
+                  );
                 } else if (state is ProductFailureStates) {
                   return Text(
                       'there is error in product: ${state.errMessage.toString()}');
