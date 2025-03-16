@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
+import 'package:online_shop_app/features/home/presentation/controller/category_cubit/category_cubit.dart';
 
-import '../../controller/category_cubit/category_cubit.dart';
 
 class CategoryListItem extends StatelessWidget {
   const CategoryListItem({
@@ -18,7 +18,7 @@ class CategoryListItem extends StatelessWidget {
       shrinkWrap: false,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.all(7.0),
+        padding: const EdgeInsets.symmetric(horizontal: 7),
         child: InkWell(
           borderRadius: BorderRadius.circular(8),
           onTap: () {

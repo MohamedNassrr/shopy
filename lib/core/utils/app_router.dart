@@ -7,6 +7,8 @@ import 'package:online_shop_app/features/auth/presentation/controller/register_c
 import 'package:online_shop_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/login_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/register_view.dart';
+import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_cubit.dart';
+import 'package:online_shop_app/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:online_shop_app/features/home/presentation/views/home_view.dart';
 
 abstract class AppRouter {
@@ -14,6 +16,7 @@ abstract class AppRouter {
   static const kRegisterView = '/RegisterView';
   static const kHomeView = '/HomeView';
   static const kForgetPassView = '/ForgetPasswordView';
+  static const kGoogleMapsView = '/GoogleMapsView';
 
   final GoogleAuthService authService;
 
@@ -45,6 +48,12 @@ abstract class AppRouter {
       GoRoute(
         path: kHomeView,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kGoogleMapsView,
+        builder: (context, state) => BlocProvider(
+          create: (context) => GoogleMapsCubit(),
+            child: const GoogleMapsView()),
       ),
     ],
 

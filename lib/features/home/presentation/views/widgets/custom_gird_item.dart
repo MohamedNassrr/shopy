@@ -16,20 +16,23 @@ class CustomGridItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              //w 170,h112
-              width: MediaQuery.of(context).size.width * 0.53,
-              height: MediaQuery.of(context).size.height * 0.13,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                ),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    productModel.images![0],
+            AspectRatio(
+              aspectRatio: 3/2.3,
+              child: Container(
+                //w 170,h112
+                width: MediaQuery.of(context).size.width * 0.53,
+                height: MediaQuery.of(context).size.height * 0.13,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(8),
+                    topRight: Radius.circular(8),
                   ),
-                  fit: BoxFit.contain,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      productModel.images![0],
+                    ),
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),

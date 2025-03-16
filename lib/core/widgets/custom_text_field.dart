@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+  const CustomTextField(
+      {super.key,
+      this.prefixIcon,
+      required this.hintText,
+      this.fillColor,
+      this.isFilled});
+
+  final IconData? prefixIcon;
+  final String hintText;
+  final Color? fillColor;
+  final bool? isFilled;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        prefixIcon: const Icon(
-          FontAwesomeIcons.magnifyingGlass,
-          color: Color(0xff939393),
+        prefixIcon: Icon(
+          prefixIcon,
+          color: Colors.grey,
           size: 20,
         ),
         contentPadding: const EdgeInsets.symmetric(),
-        hintText: 'Search here ...',
+        hintText: hintText,
         hintStyle: const TextStyle(
           fontSize: 14,
-          color: Color(0xffC8C8CB),
+          color: Colors.grey,
         ),
+        fillColor: fillColor,
+        filled: isFilled,
         border: buildOutlineInputBorder(),
         focusedBorder: buildOutlineInputBorder(),
         enabledBorder: buildOutlineInputBorder(),
