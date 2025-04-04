@@ -4,8 +4,9 @@ import 'package:online_shop_app/features/home/data/repos/home_repo_impl.dart';
 
 final GetIt getIt = GetIt.instance;
 
-void setUp() {
+void serviceLocator() {
   getIt.registerSingleton<ApiService>(ApiService());
+
   getIt.registerSingleton<HomeRepoImpl>(
     HomeRepoImpl(
       getIt.get<ApiService>(),

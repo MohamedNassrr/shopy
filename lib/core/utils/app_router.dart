@@ -56,10 +56,9 @@ abstract class AppRouter {
             child: const GoogleMapsView()),
       ),
     ],
-
   );
- static String initialLocation(){
-   User? user = FirebaseAuth.instance.currentUser;
-   return user != null ? kHomeView : kLoginView;
- }
+  static String initialLocation() {
+    User? user = FirebaseAuth.instance.currentUser;
+    return user != null ? kHomeView : kLoginView;
+  }
 }

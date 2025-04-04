@@ -15,7 +15,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<ApisFailure, List<CategoryModel>>> fetchCategory() async {
     try {
-      var data = await apiService.getProduct(endPoint: '/products/categories');
+      var data = await apiService.get(endPoint: '/products/categories');
 
       List<CategoryModel> category = [];
       for (int i = 0; i < data.length; i++) {
@@ -37,7 +37,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<ApisFailure, List<ProductModel>>> fetchProducts() async {
     try {
-      var data = await apiService.getProduct(
+      var data = await apiService.get(
         endPoint: '/products',
       );
       List<ProductModel> productModel = [];

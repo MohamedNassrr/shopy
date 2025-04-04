@@ -16,7 +16,7 @@ class MyCarousalSlider extends StatelessWidget {
         itemBuilder: (context, index, realIndex) {
           return Image.asset(
             cubit.banners[index],
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           );
         },
         options: CarouselOptions(

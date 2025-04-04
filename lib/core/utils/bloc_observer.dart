@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 
-
 class MyBlocObserver extends BlocObserver {
   @override
   void onCreate(BlocBase bloc) {

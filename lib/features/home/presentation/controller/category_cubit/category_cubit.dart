@@ -19,4 +19,16 @@ class CategoryCubit extends Cubit<CategoryStates> {
     AssetsData.decorationIcon,
     AssetsData.electronicsIcon,
   ];
+
+  // final HomeRepo homeRepo;
+  //
+  // Future<void> fetchCategoryModel() async {
+  //   var result = await homeRepo.fetchCategory();
+  //
+  //   result.fold((failure) {
+  //     emit(CategoryFailureStates(failure.errMessage));
+  //   }, (category) {
+  //     emit(CategorySuccessStates(category));
+  //   });
+  // }
 }

@@ -8,9 +8,7 @@ class CartView extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
         child: Column(
-          children: [
-            Text('Cart screen')
-          ],
+          children: [Text('Cart screen')],
         ),
       ),
     );

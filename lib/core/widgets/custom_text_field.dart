@@ -6,16 +6,18 @@ class CustomTextField extends StatelessWidget {
       this.prefixIcon,
       required this.hintText,
       this.fillColor,
-      this.isFilled});
+      this.isFilled, this.controller});
 
   final IconData? prefixIcon;
   final String hintText;
   final Color? fillColor;
   final bool? isFilled;
+ final dynamic controller;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         prefixIcon: Icon(
           prefixIcon,

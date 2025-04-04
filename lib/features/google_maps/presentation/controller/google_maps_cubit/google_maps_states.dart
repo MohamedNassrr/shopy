@@ -1,23 +1,38 @@
-abstract class GoogleMapsStates{}
+import 'package:online_shop_app/features/google_maps/data/models/places_model/places_model.dart';
 
-class GoogleMapsInitialStates extends GoogleMapsStates{}
+abstract class GoogleMapsStates {}
 
-class GoogleMapsLocationSuccessStates extends GoogleMapsStates{}
+class GoogleMapsInitialStates extends GoogleMapsStates {}
 
-class GoogleMapsLocationFailureStates extends GoogleMapsStates{
-  final String errMessage;
+class GoogleMapsLocationSuccessStates extends GoogleMapsStates {}
 
-  GoogleMapsLocationFailureStates(this.errMessage);
+class GoogleMapsLocationFailureStates extends GoogleMapsStates {
+  final String error;
+
+  GoogleMapsLocationFailureStates(this.error);
 }
 
-class GoogleMapsLocationPermissionException extends GoogleMapsStates{
-  final String errMessage;
+class GoogleMapsLocationServiceException extends GoogleMapsStates {
+  final String error;
 
-  GoogleMapsLocationPermissionException(this.errMessage);
+  GoogleMapsLocationServiceException(this.error);
 }
 
-class GoogleMapsLocationServiceException extends GoogleMapsStates{
-  final String errMessage;
+class GoogleMapsLocationPermissionException extends GoogleMapsStates {
+  final String error;
 
-  GoogleMapsLocationServiceException(this.errMessage);
+  GoogleMapsLocationPermissionException(this.error);
+}
+
+class GoogleMapSearchLoadingStates extends GoogleMapsStates {} // Add loading state
+
+class GoogleMapSearchRefreshedStates extends GoogleMapsStates {
+  final List<PlacesModel> places;
+
+  GoogleMapSearchRefreshedStates(this.places);
+}
+
+class GoogleMapSearchErrorStates extends GoogleMapsStates{
+  final String error;
+  GoogleMapSearchErrorStates(this.error);
 }

@@ -37,9 +37,9 @@ class HomeCubit extends Cubit<HomeStates> {
     ),
     const BottomNavigationBarItem(
       icon: Icon(
-        FontAwesomeIcons.gear,
+        FontAwesomeIcons.user,
       ),
-      label: 'Settings',
+      label: 'Profile',
     ),
   ];
 

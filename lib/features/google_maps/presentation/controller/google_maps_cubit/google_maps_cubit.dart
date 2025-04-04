@@ -14,6 +14,7 @@ class GoogleMapsCubit extends Cubit<GoogleMapsStates> {
   );
   late LocationService locationService = LocationService();
   late GoogleMapController googleMapController;
+  Set<Marker> markers = {};
 
   void updateCurrentLocation() async {
     try {
@@ -22,7 +23,11 @@ class GoogleMapsCubit extends Cubit<GoogleMapsStates> {
         target: LatLng(locationData.latitude!, locationData.longitude!),
         zoom: 16,
       );
-
+      var myLocation = Marker(
+        markerId: const MarkerId('my_location'),
+        position: LatLng(locationData.latitude!, locationData.longitude!),
+      );
+      markers.add(myLocation);
       googleMapController
           .animateCamera(CameraUpdate.newCameraPosition(myCurrentLocation));
       emit(GoogleMapsLocationSuccessStates());

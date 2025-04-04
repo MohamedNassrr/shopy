@@ -11,9 +11,5 @@ class CategoryModel {
         url: json['url'] as String?,
       );
 
-  Map<String, dynamic> toJson() => {
-        'slug': slug,
-        'name': name,
-        'url': url,
-      };
+ 
 }
