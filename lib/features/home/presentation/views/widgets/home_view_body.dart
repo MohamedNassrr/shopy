@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
+import 'package:online_shop_app/core/widgets/custom_error_message.dart';
 import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
@@ -60,18 +61,21 @@ class HomeViewBody extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     child: GestureDetector(
-                        onTap: () {
-                          GoRouter.of(context).push(
-                            AppRouter.kProductDetailsView,
-                            extra: state.product[index],
-                          );
-                        },
-                        child:
-                            CustomGridItem(productModel: state.product[index])),
+                      onTap: () {
+                        GoRouter.of(context).push(
+                          AppRouter.kProductDetailsView,
+                          extra: state.product[index],
+                        );
+                      },
+                      child: CustomGridItem(
+                        productModel: state.product[index],
+                      ),
+                    ),
                   );
                 } else if (state is ProductFailureStates) {
-                  return Text(
-                      'there is error in product: ${state.errMessage.toString()}');
+                  return CustomErrorWidget(
+                    errorMessage: state.errMessage.toString(),
+                  );
                 } else {
                   return const Center(child: CustomCircleIndicator());
                 }

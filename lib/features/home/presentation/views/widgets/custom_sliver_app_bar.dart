@@ -17,10 +17,20 @@ class CustomSliverAppBar extends StatelessWidget {
       titleSpacing: 5,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Delivery address',
-            style: TextsStyles.textStyle11,
+        children: <Widget>[
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.location_on_rounded,
+                color: Colors.grey,
+                size: 15,
+              ),
+              Text(
+                'Delivery address',
+                style: TextsStyles.textStyle11,
+              ),
+            ],
           ),
           InkWell(
               onTap: () {

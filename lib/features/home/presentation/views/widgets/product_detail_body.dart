@@ -25,7 +25,7 @@ class ProductDetailBody extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Text(
-            '\$ ${product.price}',
+            '\$${product.price}',
             style: TextsStyles.textStyle18,
           ),
           const SizedBox(height: 11),
