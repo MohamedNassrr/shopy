@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField(
-      {super.key,
-      this.prefixIcon,
-      required this.hintText,
-      this.fillColor,
-      this.isFilled, this.controller});
+  const CustomTextField({
+    super.key,
+    this.prefixIcon,
+    required this.hintText,
+    this.fillColor,
+    this.isFilled,
+    this.controller,
+    this.suffixIcon, this.suffixPressed,
+  });
 
   final IconData? prefixIcon;
+  final IconData? suffixIcon;
+  final Function()? suffixPressed;
   final String hintText;
   final Color? fillColor;
   final bool? isFilled;
- final dynamic controller;
+  final dynamic controller;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +29,16 @@ class CustomTextField extends StatelessWidget {
           color: Colors.grey,
           size: 20,
         ),
+        suffixIcon: suffixIcon != null
+            ? IconButton(
+          onPressed: suffixPressed,
+          icon: Icon(
+            suffixIcon,
+            size: 15.8,
+            color: Colors.grey,
+          ),
+        )
+            : null,
         contentPadding: const EdgeInsets.symmetric(),
         hintText: hintText,
         hintStyle: const TextStyle(

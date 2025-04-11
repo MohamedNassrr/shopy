@@ -5,6 +5,7 @@ import 'package:online_shop_app/features/home/data/models/product_model/product_
 
 class CustomGridItem extends StatelessWidget {
   const CustomGridItem({super.key, required this.productModel});
+
   final ProductModel productModel;
 
   @override
@@ -17,7 +18,7 @@ class CustomGridItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AspectRatio(
-              aspectRatio: 3/2.3,
+              aspectRatio: 3 / 2.3,
               child: Container(
                 //w 170,h112
                 width: MediaQuery.of(context).size.width * 0.53,
