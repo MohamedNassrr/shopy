@@ -16,4 +16,5 @@ abstract class AssetsData {
   static const beautyIcon = 'assets/images/beauty.png';
   static const watchIcon = 'assets/images/watch.png';
   static const logoIcon = 'assets/images/logo_icon.png';
+  static const shopyIcon = 'assets/images/shopy_icon_clear.png';
 }

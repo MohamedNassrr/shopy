@@ -1,3 +1,3 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
-const primaryColor = Color(0xff67C4A7);
+const primaryColor = Colors.black;

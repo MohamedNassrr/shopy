@@ -12,7 +12,7 @@ class CustomSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       pinned: true,
       leading: Image.asset(
-        AssetsData.logoIcon,
+        AssetsData.shopyIcon,
       ),
       titleSpacing: 5,
       title: Column(

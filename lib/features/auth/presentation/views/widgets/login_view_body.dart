@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/styles/constance.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
+import 'package:online_shop_app/core/utils/assets_data.dart';
 import 'package:online_shop_app/core/widgets/custom_divider.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/login_cubit/login_cubit.dart';
@@ -44,8 +45,12 @@ class LoginViewBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Image.asset(
+                      AssetsData.shopyIcon,
+                    scale: 5.5,
+                  ),
                   const Text(
-                    'Welcome to e-commerce',
+                    'Welcome to Shopy',
                     style: TextsStyles.textStyle25,
                   ),
                   const SizedBox(height: 45),
