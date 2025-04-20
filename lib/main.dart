@@ -12,6 +12,7 @@ void main() async {
   await Firebase.initializeApp();
   serviceLocator();
   await dotenv.load(fileName: ".env");
+
   
   runApp( const Shopy());
 }
