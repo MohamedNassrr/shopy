@@ -27,28 +27,31 @@ class HomeViewBody extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             const CustomSliverAppBar(),
-            const SliverToBoxAdapter(
+             SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: CustomTextField(
                       hintText: 'Search here ...',
+                      onTap: (){
+                        GoRouter.of(context).push(AppRouter.kSearchView);
+                      },
                       prefixIcon: FontAwesomeIcons.magnifyingGlass,
                     ),
                   ),
-                  MyCarousalSlider(),
-                  CategoryListView(),
-                  SizedBox(height: 17),
-                  Padding(
+                  const MyCarousalSlider(),
+                  const CategoryListView(),
+                  const SizedBox(height: 17),
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
                       'Recent product',
                       style: TextsStyles.textStyle14,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

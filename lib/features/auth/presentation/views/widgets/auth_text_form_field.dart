@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/core/widgets/custom_form_field.dart';
+import 'package:online_shop_app/features/auth/data/models/login_input.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/login_cubit/login_cubit.dart';
 
 class AuthTextFormField extends StatelessWidget {
-  const AuthTextFormField({super.key});
+  final LoginInput loginInput;
+  const AuthTextFormField({super.key, required this.loginInput});
 
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<LoginCubit>(context);
+    var loginInputProvider = context.read<LoginInput>();
     return Form(
-      key: cubit.formKey,
+      key: context.read<LoginInput>().formKey,
       child: Column(
         children: [
           CustomFormField(
-            controller: cubit.emailController,
+            controller:  loginInputProvider.emailController,
             hintText: 'email address',
             type: TextInputType.emailAddress,
             suffix: Icons.email_rounded,
@@ -27,7 +30,7 @@ class AuthTextFormField extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           CustomFormField(
-            controller: cubit.passwordController,
+            controller: loginInputProvider.passwordController,
             hintText: 'password',
             type: TextInputType.visiblePassword,
             isPassword: cubit.isPassword,
@@ -40,10 +43,10 @@ class AuthTextFormField extends StatelessWidget {
             suffix: cubit.suffix,
             suffixPressed: cubit.changePasswordVisibilty,
             onSubmit: (value) {
-              if (cubit.formKey.currentState!.validate()) {
+              if (loginInputProvider.formKey.currentState!.validate()) {
                 cubit.userLogin(
-                  email: cubit.emailController.text,
-                  password: cubit.passwordController.text,
+                  email:loginInputProvider.emailController.text,
+                  password: loginInputProvider.passwordController.text,
                 );
               }
             },

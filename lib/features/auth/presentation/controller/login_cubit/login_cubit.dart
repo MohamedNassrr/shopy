@@ -9,11 +9,8 @@ import 'package:online_shop_app/features/auth/presentation/controller/login_cubi
 class LoginCubit extends Cubit<LoginStates> {
   final GoogleAuthService authService;
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
   LoginCubit(this.authService) : super(LoginInitialStates());
+
 
   Future<void> userLogin({
     required String email,

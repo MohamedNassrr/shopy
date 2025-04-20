@@ -7,5 +7,5 @@ import 'package:online_shop_app/features/home/data/models/search_model/search_mo
 abstract class HomeRepo{
   Future<Either<ApisFailure,List<ProductModel>>> fetchProducts();
   Future<Either<ApisFailure,List<CategoryModel>>> fetchCategory();
-  Future<Either<ApisFailure,List<SearchModel>>> fetchSearch();
+  Future<Either<ApisFailure,List<SearchModel>>> fetchSearch({required String query});
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/core/styles/constance.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
@@ -8,18 +9,19 @@ class CustomFormField extends StatelessWidget {
     required this.type,
     this.onSubmit,
     this.radius = 16,
-    required this.validation,
+     this.validation,
     this.suffix,
     this.suffixPressed,
-    this.isPassword = false,
+    this.isPassword = false, this.onChanged,
   });
 
   final TextEditingController controller;
   final String hintText;
   final TextInputType type;
   final Function(String)? onSubmit;
+  final Function(String)? onChanged;
   final Function()? suffixPressed;
-  final FormFieldValidator<String> validation;
+  final FormFieldValidator<String>? validation;
   final double radius;
   final IconData? suffix;
   final bool isPassword;
@@ -29,13 +31,13 @@ class CustomFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       keyboardType: type,
+      onChanged: onChanged,
       onFieldSubmitted: onSubmit,
       obscureText: isPassword,
       validator: validation,
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(radius),
-        ),
+        focusedBorder: buildOutlineInputBorder(),
+        border: buildOutlineInputBorder(),
         hintText: hintText,
         suffixIcon: suffix != null
             ? IconButton(
@@ -46,6 +48,13 @@ class CustomFormField extends StatelessWidget {
               )
             : null,
       ),
+    );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder() {
+    return OutlineInputBorder(
+      borderSide: const BorderSide(color: primaryColor),
+      borderRadius: BorderRadius.circular(radius),
     );
   }
 }

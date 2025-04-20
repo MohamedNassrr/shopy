@@ -7,6 +7,7 @@ import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/features/google_maps/data/models/places_model/places_model.dart';
 import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_cubit.dart';
 import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_states.dart';
+import 'package:online_shop_app/features/google_maps/presentation/views/widgets/google_maps_list_view.dart';
 
 class GoogleMapsViewBody extends StatefulWidget {
   const GoogleMapsViewBody({super.key});
@@ -38,6 +39,11 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
         places.clear();
         places.addAll(result);
         setState(() {});
+      }else{
+        places.clear();
+        setState(() {
+
+        });
       }
     });
   }
@@ -80,38 +86,16 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
                         searchController.clear();
                       },
                     ),
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12),
-                        ),
-                      ),
-                      child: ListView.separated(
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            leading: const Icon(Icons.location_on_rounded),
-                            title: Text(places[index].description!),
-                            trailing: IconButton(
-                              onPressed: () async {
-                                var searchedPlace =
-                                    await googlePlaceService.getPlaceDetails(
-                                  placeId: places[index].placeId.toString(),
-                                );
-                               
-                              },
-                              icon: const Icon(Icons.chevron_right_outlined),
-                            ),
-                          );
-                        },
-                        separatorBuilder: (context, index) => const SizedBox(
-                          height: 10,
-                          child: Divider(),
-                        ),
-                        itemCount: places.length,
-                      ),
+                    GoogleMapsListView(
+                      googlePlacesService: googlePlaceService,
+                      places: places,
+                      onPlaceSelect: (){
+                        searchController.clear();
+                        places.clear();
+                        setState(() {
+
+                        });
+                      },
                     ),
                   ],
                 )),
@@ -151,3 +135,5 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
     );
   }
 }
+
+

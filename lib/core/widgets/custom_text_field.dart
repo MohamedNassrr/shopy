@@ -8,7 +8,9 @@ class CustomTextField extends StatelessWidget {
     this.fillColor,
     this.isFilled,
     this.controller,
-    this.suffixIcon, this.suffixPressed,
+    this.suffixIcon,
+    this.suffixPressed,
+    this.onTap,
   });
 
   final IconData? prefixIcon;
@@ -18,10 +20,12 @@ class CustomTextField extends StatelessWidget {
   final Color? fillColor;
   final bool? isFilled;
   final dynamic controller;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onTap: onTap,
       controller: controller,
       decoration: InputDecoration(
         prefixIcon: Icon(

@@ -13,7 +13,7 @@ class CartListView extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) => const CartListItem(),
         separatorBuilder: (context, index) => const Divider(),
-        itemCount: 12,
+        itemCount: 1,
       ),
     );
   }

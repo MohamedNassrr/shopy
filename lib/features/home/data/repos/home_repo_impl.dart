@@ -58,8 +58,23 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<ApisFailure, List<SearchModel>>> fetchSearch() {
-    // TODO: implement fetchSearch
-    throw UnimplementedError();
+  Future<Either<ApisFailure, List<SearchModel>>> fetchSearch({required String query}) async {
+    try {
+      var data = await apiService.get(endPoint: 'products/search?q=$query');
+      List<SearchModel> searchModel = [];
+      for (var item in data['products']) {
+        try {
+          searchModel.add(SearchModel.fromJson(item));
+        } catch (e) {
+          searchModel.add(SearchModel.fromJson(item));
+        }
+      }
+      return right(searchModel);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailures.fromDioError(e));
+      }
+      return left(ServerFailures(e.toString()));
+    }
   }
 }

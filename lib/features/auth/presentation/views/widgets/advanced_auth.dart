@@ -30,21 +30,6 @@ class AdvancedAuth extends StatelessWidget {
             ),
           ),
         ),
-        InkWell(
-          onTap: () {},
-          child: Container(
-            height: 40,
-            width: 40,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage(
-                  AssetsData.facebookLogo,
-                ),
-              ),
-            ),
-          ),
-        ),
       ],
     );
   }

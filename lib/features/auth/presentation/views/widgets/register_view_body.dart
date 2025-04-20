@@ -4,59 +4,67 @@ import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/utils/assets_data.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
+import 'package:online_shop_app/features/auth/data/models/register_input.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_cubit.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_states.dart';
 import 'package:online_shop_app/features/auth/presentation/views/widgets/register_text_form_fields.dart';
+import 'package:provider/provider.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterStates>(
-      listener: (context, state) {
-        if (state is RegisterUserCreateSuccessStates) {
-          GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
-        }
-      },
-      builder: (context, state) {
-        var cubit = BlocProvider.of<RegisterCubit>(context);
-        return Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
-              child: Column(
-                spacing: 20,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional.center,
-                    child: Image.asset(
-                      AssetsData.shopyIcon,
-                      scale: 5.5,
+    final registerInput = RegisterInput();
+
+    return Provider.value(
+      value: registerInput,
+      child: BlocConsumer<RegisterCubit, RegisterStates>(
+        listener: (context, state) {
+          if (state is RegisterUserCreateSuccessStates) {
+            GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
+          }
+        },
+        builder: (context, state) {
+          var cubit = BlocProvider.of<RegisterCubit>(context);
+          var registerInputProvider = context.read<RegisterInput>();
+          return Center(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                child: Column(
+                  spacing: 20,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional.center,
+                      child: Image.asset(
+                        AssetsData.shopyIcon,
+                        scale: 5.5,
+                      ),
                     ),
-                  ),
-                  RegisterTextFormFields(cubit: cubit),
-                  CustomTextButton(
-                    onPressed: () {
-                      if (cubit.formKey.currentState!.validate()) {
-                        cubit.userRegister(
-                          name: cubit.userNameController.text,
-                          email: cubit.emailController.text,
-                          password: cubit.passwordController.text,
-                          phone: cubit.phoneController.text,
-                        );
-                      }
-                    },
-                    isLoading: state is RegisterLoadingStates ? true : false,
-                    text: 'Register',
-                  ),
-                ],
+                    RegisterTextFormFields(cubit: cubit, registerInput: registerInput,),
+                    CustomTextButton(
+                      onPressed: () {
+                        if (context.read<RegisterInput>().formKey.currentState!.validate()) {
+                          cubit.userRegister(
+                            name: registerInputProvider.userNameController.text,
+                            email: registerInputProvider.emailController.text,
+                            password: registerInputProvider.passwordController.text,
+                            phone: registerInputProvider.phoneController.text,
+                          );
+                        }
+                      },
+                      isLoading: state is RegisterLoadingStates ? true : false,
+                      text: 'Register',
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
