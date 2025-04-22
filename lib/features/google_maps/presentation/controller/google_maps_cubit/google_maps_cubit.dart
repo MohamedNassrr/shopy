@@ -42,4 +42,31 @@ class GoogleMapsCubit extends Cubit<GoogleMapsStates> {
       log(e.toString());
     }
   }
+
+  Future setCurrentLocation({required double latitude, required double longitude}) async {
+    try {
+      var locationData = await locationService.getLocation();
+      CameraPosition myCurrentLocation = CameraPosition(
+        target: LatLng(latitude, longitude),
+        zoom: 16,
+      );
+      var myLocation = Marker(
+        markerId: const MarkerId('my_location_2'),
+        position: LatLng(locationData.latitude!, locationData.longitude!),
+      );
+      markers.add(myLocation);
+      googleMapController
+          .animateCamera(CameraUpdate.newCameraPosition(myCurrentLocation));
+      emit(GoogleMapsLocationSuccessStates());
+    } on LocationServiceException catch (e) {
+      emit(GoogleMapsLocationServiceException(e.toString()));
+      log(e.toString());
+    } on LocationPermissionException catch (e) {
+      emit(GoogleMapsLocationPermissionException(e.toString()));
+      log(e.toString());
+    } catch (e) {
+      emit(GoogleMapsLocationFailureStates(e.toString()));
+      log(e.toString());
+    }
+  }
 }

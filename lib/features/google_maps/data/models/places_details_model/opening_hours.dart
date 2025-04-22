@@ -12,7 +12,6 @@ class OpeningHours {
 				periods: (json['periods'] as List<dynamic>?)
 						?.map((e) => Period.fromJson(e as Map<String, dynamic>))
 						.toList(),
-				weekdayText: json['weekday_text'] as List<String>?,
 			);
 
 	Map<String, dynamic> toJson() => {

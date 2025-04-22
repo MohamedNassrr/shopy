@@ -9,6 +9,7 @@ class CustomSliverAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return SliverAppBar(
       pinned: true,
       leading: Image.asset(

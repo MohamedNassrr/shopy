@@ -39,11 +39,9 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
         places.clear();
         places.addAll(result);
         setState(() {});
-      }else{
+      } else {
         places.clear();
-        setState(() {
-
-        });
+        setState(() {});
       }
     });
   }
@@ -56,18 +54,18 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    var searchCubit = BlocProvider.of<GoogleMapsCubit>(context);
+    var mapsCubit = BlocProvider.of<GoogleMapsCubit>(context);
     return BlocBuilder<GoogleMapsCubit, GoogleMapsStates>(
       builder: (context, state) {
         return Stack(
           children: [
             GoogleMap(
-              markers: searchCubit.markers,
-              initialCameraPosition: searchCubit.initialCameraPosition,
+              markers: mapsCubit.markers,
+              initialCameraPosition: mapsCubit.initialCameraPosition,
               zoomControlsEnabled: false,
               onMapCreated: (controller) {
-                searchCubit.googleMapController = controller;
-                searchCubit.updateCurrentLocation();
+                mapsCubit.googleMapController = controller;
+                mapsCubit.updateCurrentLocation();
               },
             ),
             Positioned(
@@ -89,12 +87,16 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
                     GoogleMapsListView(
                       googlePlacesService: googlePlaceService,
                       places: places,
-                      onPlaceSelect: (){
+                      onPlaceSelect: (placeDetailsModel) {
                         searchController.clear();
                         places.clear();
-                        setState(() {
+                        setState(() {});
+                        mapsCubit.setCurrentLocation(
+                          latitude: placeDetailsModel.geometry!.location!.lat!,
+                          longitude: placeDetailsModel.geometry!.location!.lng!,
+                        );
 
-                        });
+                        setState(() {});
                       },
                     ),
                   ],
@@ -104,9 +106,11 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
               left: 16,
               right: 16,
               child: ElevatedButton(
-                style: const ButtonStyle(
+                style:  const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(primaryColor)),
-                onPressed: () {},
+                onPressed: () {
+
+                },
                 child: Text(
                   'confirm location'.toUpperCase(),
                   style: const TextStyle(
@@ -121,7 +125,7 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
               child: FloatingActionButton(
                 backgroundColor: Colors.white,
                 onPressed: () {
-                  searchCubit.updateCurrentLocation();
+                  mapsCubit.updateCurrentLocation();
                 },
                 child: const Icon(
                   Icons.pin_drop,
@@ -135,5 +139,3 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
     );
   }
 }
-
-

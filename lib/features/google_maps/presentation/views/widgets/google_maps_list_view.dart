@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/core/services/google_place_service.dart';
+import 'package:online_shop_app/features/google_maps/data/models/places_details_model/places_details_model.dart';
 import 'package:online_shop_app/features/google_maps/data/models/places_model/places_model.dart';
 
 class GoogleMapsListView extends StatelessWidget {
@@ -12,7 +13,7 @@ class GoogleMapsListView extends StatelessWidget {
 
   final List<PlacesModel> places;
   final GooglePlaceService googlePlacesService;
-  final VoidCallback onPlaceSelect;
+  final void Function(PlacesDetailsModel) onPlaceSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class GoogleMapsListView extends StatelessWidget {
                 var searchedPlace = await googlePlacesService.getPlaceDetails(
                   placeId: places[index].placeId.toString(),
                 );
-                onPlaceSelect();
+                onPlaceSelect(searchedPlace);
               },
               icon: const Icon(Icons.chevron_right_outlined),
             ),
