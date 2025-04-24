@@ -7,9 +7,9 @@ class GooglePlaceService{
   final Dio dio = Dio();
   final String baseUrl = 'https://maps.googleapis.com/maps/api/place';
 
-  Future<List<PlacesModel>> getPredict({required String input}) async {
+  Future<List<PlacesModel>> getPredict({required String input, required String sessionToken}) async {
     var response  = await dio.get(
-      '$baseUrl/autocomplete/json?key=${dotenv.env['PLACE_KEY']}&input=$input',
+      '$baseUrl/autocomplete/json?key=${dotenv.env['PLACE_KEY']}&input=$input&sessiontoken=$sessionToken',
     );
     if(response.statusCode == 200){
       var data = response.data;

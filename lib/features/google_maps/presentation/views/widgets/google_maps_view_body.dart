@@ -11,6 +11,7 @@ import 'package:online_shop_app/features/google_maps/data/models/places_model/pl
 import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_cubit.dart';
 import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_states.dart';
 import 'package:online_shop_app/features/google_maps/presentation/views/widgets/google_maps_list_view.dart';
+import 'package:uuid/uuid.dart';
 
 class GoogleMapsViewBody extends StatefulWidget {
   const GoogleMapsViewBody({super.key});
@@ -24,6 +25,8 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
   late GooglePlaceService googlePlaceService;
   late GeoCodingService geoCodingService;
   late LocationService locationService;
+  late Uuid uuid;
+  String? sessionToken;
   List<PlacesModel> places = [];
 
   @override
@@ -31,7 +34,7 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
     searchController = TextEditingController();
     googlePlaceService = GooglePlaceService();
     locationService = LocationService();
-
+    uuid = const Uuid();
     geoCodingService = GeoCodingService();
     super.initState();
     fetchPrediction();
@@ -39,8 +42,11 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
 
   void fetchPrediction() {
     searchController.addListener(() async {
+      sessionToken ??= uuid.v4();
+      debugPrint(sessionToken);
       if (searchController.text.isNotEmpty) {
         var result = await googlePlaceService.getPredict(
+          sessionToken: sessionToken!,
           input: searchController.text,
         );
 
@@ -103,7 +109,7 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
                           latitude: placeDetailsModel.geometry!.location!.lat!,
                           longitude: placeDetailsModel.geometry!.location!.lng!,
                         );
-
+                        sessionToken = null;
                         setState(() {});
                       },
                     ),
