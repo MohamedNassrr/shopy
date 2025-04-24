@@ -1,11 +1,20 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/utils/assets_data.dart';
 
-class CustomSliverAppBar extends StatelessWidget {
+class CustomSliverAppBar extends StatefulWidget {
   const CustomSliverAppBar({super.key});
+
+  @override
+  State<CustomSliverAppBar> createState() => _CustomSliverAppBarState();
+}
+
+class _CustomSliverAppBarState extends State<CustomSliverAppBar> {
+  String? selectedLocation;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +27,7 @@ class CustomSliverAppBar extends StatelessWidget {
       titleSpacing: 5,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+        children:[
           const Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -34,16 +43,28 @@ class CustomSliverAppBar extends StatelessWidget {
             ],
           ),
           InkWell(
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kGoogleMapsView);
-              },
-              child: const Row(
+              onTap: () async {
+                final result =
+                    await GoRouter.of(context).push<Map<String,dynamic>>(AppRouter.kGoogleMapsView);
+                if (result != null && result['placeName'] != null) {
+                  setState(() {
+                    selectedLocation = result['placeName'];
+                  });
+                  log(selectedLocation.toString());
+                }
+                },
+              child:  Row(
                 children: [
-                  Text(
-                    'Nasr city, Cairo Egypt',
-                    style: TextsStyles.textStyle12,
+                  Expanded(
+                    child: Text(
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+
+                      selectedLocation ?? 'select your delivery address',
+                      style: TextsStyles.textStyle12,
+                    ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.keyboard_arrow_down_outlined,
                   ),
                 ],

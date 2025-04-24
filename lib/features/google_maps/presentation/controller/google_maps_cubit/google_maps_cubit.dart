@@ -16,6 +16,7 @@ class GoogleMapsCubit extends Cubit<GoogleMapsStates> {
   late GoogleMapController googleMapController;
   Set<Marker> markers = {};
 
+
   void updateCurrentLocation() async {
     try {
       var locationData = await locationService.getLocation();

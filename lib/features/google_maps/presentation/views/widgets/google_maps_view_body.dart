@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:online_shop_app/core/services/geo_coding_service.dart';
 import 'package:online_shop_app/core/services/google_place_service.dart';
+import 'package:online_shop_app/core/services/location_service.dart';
 import 'package:online_shop_app/core/styles/constance.dart';
 import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/features/google_maps/data/models/places_model/places_model.dart';
@@ -19,12 +22,17 @@ class GoogleMapsViewBody extends StatefulWidget {
 class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
   late TextEditingController searchController;
   late GooglePlaceService googlePlaceService;
+  late GeoCodingService geoCodingService;
+  late LocationService locationService;
   List<PlacesModel> places = [];
 
   @override
   void initState() {
     searchController = TextEditingController();
     googlePlaceService = GooglePlaceService();
+    locationService = LocationService();
+
+    geoCodingService = GeoCodingService();
     super.initState();
     fetchPrediction();
   }
@@ -106,10 +114,18 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
               left: 16,
               right: 16,
               child: ElevatedButton(
-                style:  const ButtonStyle(
+                style: const ButtonStyle(
                     backgroundColor: WidgetStatePropertyAll(primaryColor)),
-                onPressed: () {
+                onPressed: () async {
+                  var locationData = await locationService.getLocation();
+                  final placeName = await geoCodingService.getGeoCoding(
+                    latitude: locationData.latitude!,
+                    longitude: locationData.longitude!,
+                  );
 
+                  GoRouter.of(context).pop({
+                    'placeName': placeName[0].formattedAddress,
+                  });
                 },
                 child: Text(
                   'confirm location'.toUpperCase(),
