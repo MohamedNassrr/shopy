@@ -73,32 +73,6 @@ class CustomSliverAppBar extends StatelessWidget {
                     )),
               ],
             ),
-            actions: [
-              Stack(
-                children: [
-                  const Positioned(
-                    right: 9,
-                    top: 7.8,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.red,
-                      radius: 7,
-                      child: Text(
-                        '10',
-                        style: TextStyle(color: Colors.white, fontSize: 9),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.notifications_none_rounded,
-                      color: Colors.black,
-                      size: 23,
-                    ),
-                  ),
-                ],
-              ),
-            ],
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 color: Colors.white,

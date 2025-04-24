@@ -13,7 +13,5 @@ void main() async {
   serviceLocator();
   await dotenv.load(fileName: ".env");
 
-  
-  runApp( const Shopy());
+  runApp(const Shopy());
 }
-
