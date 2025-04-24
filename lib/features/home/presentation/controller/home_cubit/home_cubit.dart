@@ -56,7 +56,8 @@ class HomeCubit extends Cubit<HomeStates> {
     emit(HomeChangeNavStates());
   }
 
-
-
+ setLocation(String locationName)  {
+    emit(HomeSetLocationNameStates(locationName));
+    return locationName;
   }
-
+}
