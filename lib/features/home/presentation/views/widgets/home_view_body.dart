@@ -1,11 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
-import 'package:online_shop_app/core/widgets/custom_error_message.dart';
 import 'package:online_shop_app/core/widgets/custom_text_field.dart';
+import 'package:online_shop_app/core/widgets/failure_snack_bar.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/category_list_view.dart';
@@ -22,7 +24,14 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductCubit, ProductStates>(
+    return BlocConsumer<ProductCubit, ProductStates>(
+      listener: (context, state) {
+        if(state is ProductFailureStates){
+          SnackBar snackBar = SnackBar(content: FailureSnackBar(errMessage: state.errMessage));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          log(state.errMessage.toString());
+        }
+      },
       builder: (context, state) {
         return CustomScrollView(
           slivers: [
@@ -75,8 +84,6 @@ class HomeViewBody extends StatelessWidget {
                       ),
                     ),
                   );
-                } else if (state is ProductFailureStates) {
-                  return CustomErrorWidget(errorMessage: state.errMessage,);
                 } else {
                   return const Center(child: CustomCircleIndicator());
                 }
