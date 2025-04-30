@@ -27,6 +27,8 @@ class CartCubit extends Cubit<CartStates> {
     emit(CartLoadingStates());
     var result = await cartRepo.fetchCartItems();
 
+
+
     result.fold(
       (failure) {
         emit(CartFailureStates(failure.errMessage));
@@ -34,6 +36,8 @@ class CartCubit extends Cubit<CartStates> {
       },
       (cart) {
         emit(CartSuccessStates(cart));
+        log(cart.toString());
+
       },
     );
   }

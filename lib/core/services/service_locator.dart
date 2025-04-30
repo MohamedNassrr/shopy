@@ -17,6 +17,7 @@ void serviceLocator() {
     ),
   );
 
+
   getIt.registerSingleton<CartService>(CartService());
   getIt.registerSingleton<CartRepoImpl>(
     CartRepoImpl(getIt.get<CartService>()),

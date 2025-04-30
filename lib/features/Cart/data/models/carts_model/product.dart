@@ -1,32 +1,32 @@
 class Product {
-	int? id;
-	String title;
-	int? price;
-	int? quantity;
+	int id;
+	String? title;
+	double? price;
+	int quantity;
 	double? total;
 	double? discountPercentage;
-	double? discountedTotal;
+	int? discountedPrice;
 	String? thumbnail;
 
 	Product({
-		this.id, 
-		required this.title,
+		required this.id,
+		this.title,
 		this.price, 
-		this.quantity, 
-		this.total, 
+		required this.quantity,
+		this.total,
 		this.discountPercentage, 
-		this.discountedTotal, 
+		this.discountedPrice, 
 		this.thumbnail,
 	});
 
 	factory Product.fromJson(Map<String, dynamic> json) => Product(
-				id: json['id'] as int?,
-				title: json['title'] as String,
-				price: (json['price'] as num?)?.toInt(),
-				quantity: json['quantity'] as int?,
+				id: json['id'] as int,
+				title: json['title'] as String?,
+				price: (json['price'] as num?)?.toDouble(),
+				quantity: json['quantity'] as int,
 				total: (json['total'] as num?)?.toDouble(),
 				discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
-				discountedTotal: (json['discountedTotal'] as num?)?.toDouble(),
+				discountedPrice: json['discountedPrice'] as int?,
 				thumbnail: json['thumbnail'] as String?,
 			);
 
@@ -37,7 +37,7 @@ class Product {
 				'quantity': quantity,
 				'total': total,
 				'discountPercentage': discountPercentage,
-				'discountedTotal': discountedTotal,
+				'discountedPrice': discountedPrice,
 				'thumbnail': thumbnail,
 			};
 }
