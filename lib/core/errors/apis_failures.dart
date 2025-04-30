@@ -31,10 +31,8 @@ class ServerFailures extends ApisFailure {
           return ServerFailures('No Internet Connection');
         }
         return ServerFailures('Unexpected Error, Please Try Again');
-      default:
-        return ServerFailures(
-            'Opps There Was an Error, Please try again later');
-    }
+      }
+
   }
 
   factory ServerFailures.fromResponse(int statusCode, dynamic response) {

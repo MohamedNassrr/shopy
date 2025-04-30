@@ -76,9 +76,7 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   );
                 } else if (state is ProductFailureStates) {
-                  return CustomErrorWidget(
-                    errorMessage: state.errMessage.toString(),
-                  );
+                  return CustomErrorWidget(errorMessage: state.errMessage,);
                 } else {
                   return const Center(child: CustomCircleIndicator());
                 }

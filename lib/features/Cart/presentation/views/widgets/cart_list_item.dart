@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
-import 'package:online_shop_app/core/utils/assets_data.dart';
 import 'package:online_shop_app/core/widgets/custom_icon_button.dart';
+import 'package:online_shop_app/features/Cart/data/models/cart_model/cart_model.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_states.dart';
 
 class CartListItem extends StatelessWidget {
-  const CartListItem({super.key});
+  const CartListItem({super.key, required this.cartModel});
+  final CartModel cartModel;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +26,11 @@ class CartListItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Image(
-                image: AssetImage(
-                  AssetsData.testImage,
+              child:  Image(
+                image: NetworkImage(
+                  cartModel.products![0].thumbnail ?? 'no image',
                 ),
+
               ),
             ),
             Expanded(
@@ -36,21 +38,18 @@ class CartListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 6,
                 children: [
-                  const Text(
-                    'Monitor LG 22 inc 4k 120 fps',
+                   Text(
+                    cartModel.products![0].title,
                     style: TextsStyles.textStyle14,
                   ),
-                  Text(
-                    'LG',
-                    style: TextsStyles.textStyle12.copyWith(color: Colors.grey),
-                  ),
+
                   const SizedBox(height: 2),
                   Row(
                     spacing: 7,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text(
-                        '\$ 1900',
+                       Text(
+                         '\$ ${cartModel.products![0].price ?? '0'}',
                         style: TextsStyles.textStyle14,
                       ),
                       const Spacer(),
@@ -62,7 +61,7 @@ class CartListItem extends StatelessWidget {
                         icon: Icons.remove,
                       ),
                       Text(
-                        '${cartCubit.counter}',
+                        '${cartModel.products![0].quantity}',
                         style: TextsStyles.textStyle14,
                       ),
                       CustomIconButton(
