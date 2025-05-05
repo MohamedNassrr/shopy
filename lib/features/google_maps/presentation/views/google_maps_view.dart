@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:online_shop_app/core/styles/constance.dart';
+import 'package:online_shop_app/constance.dart';
 import 'package:online_shop_app/core/utils/assets_data.dart';
 import 'package:online_shop_app/features/google_maps/data/models/places_model/places_model.dart';
 

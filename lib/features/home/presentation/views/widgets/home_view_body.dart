@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/core/widgets/failure_snack_bar.dart';
@@ -53,11 +52,11 @@ class HomeViewBody extends StatelessWidget {
                   const MyCarousalSlider(),
                   const CategoryListView(),
                   const SizedBox(height: 17),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                   Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
                       'Recent product',
-                      style: TextsStyles.textStyle14,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                   const SizedBox(height: 20),

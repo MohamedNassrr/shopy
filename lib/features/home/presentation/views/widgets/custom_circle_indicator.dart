@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop_app/core/styles/constance.dart';
+import 'package:online_shop_app/constance.dart';
 
 class  CustomCircleIndicator extends StatelessWidget {
   const  CustomCircleIndicator({super.key});

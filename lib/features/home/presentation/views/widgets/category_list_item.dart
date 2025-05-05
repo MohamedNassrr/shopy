@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/features/home/presentation/controller/category_cubit/category_cubit.dart';
 
 
@@ -40,9 +39,7 @@ class CategoryListItem extends StatelessWidget {
               ),
               Text(
                 cubit.categoryTitles[index],
-                style: TextsStyles.textStyle12.copyWith(
-                  color: const Color(0xff939393),
-                ),
+                style: Theme.of(context).textTheme.labelMedium
               ),
             ],
           ),

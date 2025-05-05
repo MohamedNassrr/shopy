@@ -3,13 +3,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/core/widgets/failure_snack_bar.dart';
-import 'package:online_shop_app/features/Cart/data/models/carts_model/carts_model.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_states.dart';
+import 'package:online_shop_app/features/Cart/presentation/views/widgets/cart_empty_screen.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/cart_list_item.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
-
-import 'cart_empty_screen.dart';
 
 class CartListView extends StatelessWidget {
   const CartListView({super.key});
@@ -37,7 +35,9 @@ class CartListView extends StatelessWidget {
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return CartListItem(cartsModel: CartsModel(products: [state.cart.products[index]]));
+                    return CartListItem(
+                      products: state.cart.products[index],
+                    );
                   },
                   separatorBuilder: (context, index) => const Divider(),
                   itemCount: state.cart.products.length),

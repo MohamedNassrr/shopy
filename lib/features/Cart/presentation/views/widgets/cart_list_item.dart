@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/widgets/custom_icon_button.dart';
-import 'package:online_shop_app/features/Cart/data/models/carts_model/carts_model.dart';
+import 'package:online_shop_app/features/Cart/data/models/carts_model/product.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_states.dart';
 
 class CartListItem extends StatelessWidget {
-  const CartListItem({super.key, required this.cartsModel});
-  final CartsModel cartsModel;
+  const CartListItem({super.key, required this.products});
+  final Product products;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class CartListItem extends StatelessWidget {
               ),
               child:  Image(
                 image: NetworkImage(
-                  cartsModel.products[0].thumbnail ?? 'no image',
+                  products.thumbnail ?? 'no image',
                 ),
 
               ),
@@ -40,7 +40,7 @@ class CartListItem extends StatelessWidget {
                 spacing: 6,
                 children: [
                    Text(
-                    '${cartsModel.products[0].title}',
+                    '${products.title}',
                     style: TextsStyles.textStyle14,
                   ),
 
@@ -50,7 +50,7 @@ class CartListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                        Text(
-                         '\$ ${cartsModel.products[0].price ?? 'no'}',
+                         '\$ ${products.price ?? 'no'}',
                         style: TextsStyles.textStyle14,
                       ),
                       const Spacer(),
@@ -62,7 +62,7 @@ class CartListItem extends StatelessWidget {
                         icon: Icons.remove,
                       ),
                       Text(
-                        '${cartsModel.products[0].quantity}',
+                        '${products.quantity}',
                         style: TextsStyles.textStyle14,
                       ),
                       CustomIconButton(

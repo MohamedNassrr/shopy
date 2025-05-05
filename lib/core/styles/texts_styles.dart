@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class TextsStyles {
+
   static const textStyle25 = TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.w700,
+    //done
   );
 
   static const textStyle11 = TextStyle(
@@ -28,11 +30,13 @@ abstract class TextsStyles {
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: Colors.black,
+    //done
   );
 
   static const textStyle18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
     color: Colors.black,
+    //done
   );
 }

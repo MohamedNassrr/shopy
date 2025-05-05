@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:online_shop_app/core/services/geo_coding_service.dart';
 import 'package:online_shop_app/core/services/google_place_service.dart';
 import 'package:online_shop_app/core/services/location_service.dart';
-import 'package:online_shop_app/core/styles/constance.dart';
+import 'package:online_shop_app/constance.dart';
 import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/features/google_maps/data/models/places_model/places_model.dart';
 import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_cubit.dart';
@@ -120,9 +120,7 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
               left: 16,
               right: 16,
               child: ElevatedButton(
-                style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(primaryColor)),
-                onPressed: () async {
+                 onPressed: () async {
                   var locationData = await locationService.getLocation();
                   final placeName = await geoCodingService.getGeoCoding(
                     latitude: locationData.latitude!,

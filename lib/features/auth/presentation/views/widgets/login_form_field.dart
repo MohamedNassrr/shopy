@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_shop_app/core/styles/constance.dart';
+import 'package:online_shop_app/constance.dart';
 import 'package:online_shop_app/core/widgets/custom_form_field.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/login_cubit/login_cubit.dart';

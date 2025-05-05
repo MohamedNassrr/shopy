@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
 
 class CustomGridItem extends StatelessWidget {
@@ -42,7 +41,7 @@ class CustomGridItem extends StatelessWidget {
             ),
             Text(
               '${productModel.title}',
-              style: TextsStyles.textStyle12,
+              style: Theme.of(context).textTheme.labelMedium,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
@@ -52,7 +51,7 @@ class CustomGridItem extends StatelessWidget {
                 children: [
                   Text(
                     '\$${productModel.price}',
-                    style: TextsStyles.textStyle14.copyWith(
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),

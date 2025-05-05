@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_shop_app/core/styles/constance.dart';
 import 'package:online_shop_app/features/home/presentation/controller/home_cubit/home_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/home_cubit/home_states.dart';
 
@@ -15,7 +14,6 @@ class HomeView extends StatelessWidget {
         return Scaffold(
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar:BottomNavigationBar(
-            selectedItemColor: primaryColor,
             onTap: (index){
               cubit.changeBottomNavBar(index);
             },
