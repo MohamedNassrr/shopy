@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
+import 'package:provider/provider.dart';
 
 class TotalProducts extends StatelessWidget {
   const TotalProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           'Products',
         ),
         Text(
-          '4',
+          '${context.read<CartCubit>().totalProduct()}',
         ),
       ],
     );

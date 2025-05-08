@@ -3,20 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/widgets/custom_icon_button.dart';
-import 'package:online_shop_app/features/Cart/data/models/carts_model/product.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_states.dart';
+import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
 
 class CartListItem extends StatelessWidget {
-  const CartListItem({super.key, required this.products});
-  final Product products;
+  const CartListItem({super.key, required this.products, required this.quantity});
+  final ProductModel products;
+  final int quantity;
+
 
   @override
   Widget build(BuildContext context) {
 
     return BlocBuilder<CartCubit, CartStates>(
       builder: (context, state) {
-        var cartCubit = BlocProvider.of<CartCubit>(context);
         return Row(
           mainAxisAlignment: MainAxisAlignment.start,
           spacing: 15,
@@ -29,7 +30,7 @@ class CartListItem extends StatelessWidget {
               ),
               child:  Image(
                 image: NetworkImage(
-                  products.thumbnail ?? 'no image',
+                  products.thumbnail,
                 ),
 
               ),
@@ -56,24 +57,26 @@ class CartListItem extends StatelessWidget {
                       const Spacer(),
                       CustomIconButton(
                         onTap: () {
-                          cartCubit.counterMinus();
+                          context.read<CartCubit>().decCartItem(products);
                         },
                         color: Colors.grey.shade200,
                         icon: Icons.remove,
                       ),
                       Text(
-                        '${products.quantity}',
+                        '$quantity',
                         style: TextsStyles.textStyle14,
                       ),
                       CustomIconButton(
                         color: Colors.grey.shade200,
                         onTap: () {
-                          cartCubit.counterAdd();
+                          context.read<CartCubit>().incCartItem(products);
                         },
                         icon: Icons.add,
                       ),
                       CustomIconButton(
-                        onTap: () {},
+                        onTap: () {
+                          context.read<CartCubit>().removeItem(products);
+                        },
                         icon: FontAwesomeIcons.trash,
                       ),
                     ],

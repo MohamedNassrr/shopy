@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
+import 'package:provider/provider.dart';
 
 class CustomGridItem extends StatelessWidget {
   const CustomGridItem({super.key, required this.productModel});
@@ -58,7 +60,7 @@ class CustomGridItem extends StatelessWidget {
                   const Spacer(),
                   IconButton(
                     onPressed: () {
-                      debugPrint('button work');
+                      context.read<CartCubit>().addToCart(productModel);
                     },
                     icon: const Icon(
                       FontAwesomeIcons.cartPlus,

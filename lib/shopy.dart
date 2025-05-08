@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/core/theme/theme_data.dart';
+import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/app_router.dart';
 import 'features/home/data/repos/home_repo_impl.dart';
@@ -23,6 +24,9 @@ class Shopy extends StatelessWidget {
     );
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => CartCubit(),
+        ),
         BlocProvider(
           create: (context) => HomeCubit(),
         ),

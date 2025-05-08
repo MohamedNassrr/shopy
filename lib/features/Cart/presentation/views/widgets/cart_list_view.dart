@@ -26,21 +26,26 @@ class CartListView extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (state is CartSuccessStates) {
+
+        if (state is CartUpdatedStates) {
           return Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView.separated(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return CartListItem(
-                      products: state.cart.products[index],
-                    );
-                  },
-                  separatorBuilder: (context, index) => const Divider(),
-                  itemCount: state.cart.products.length),
+
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  final item = state.cartItem[index];
+                  return CartListItem(
+                    products: item.productModel,
+                    quantity: item.quantity,
+                  );
+                },
+                separatorBuilder: (context, index) => const Divider(),
+                itemCount: state.cartItem.length,
+              ),
             ),
           );
         } else if (state is CartLoadingStates) {
