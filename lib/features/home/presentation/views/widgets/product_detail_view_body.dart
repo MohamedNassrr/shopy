@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
+import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/product_detail_body.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailViewBody extends StatelessWidget {
   const ProductDetailViewBody({super.key, required this.product});
@@ -44,7 +46,9 @@ class ProductDetailViewBody extends StatelessWidget {
             children: [
               Expanded(
                 child: CustomTextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<CartCubit>().addToCart(product);
+                  },
                   text: 'Add to Cart',
                 ),
               ),

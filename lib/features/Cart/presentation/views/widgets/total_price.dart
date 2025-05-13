@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
-import 'package:provider/provider.dart';
 
 class TotalPrice extends StatelessWidget {
   const TotalPrice({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var summeryCubit = context.watch<CartCubit>();
     return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -14,7 +15,7 @@ class TotalPrice extends StatelessWidget {
           'Total',
         ),
         Text(
-          '\$ ${context.read<CartCubit>().totalPrice()}',
+          '\$ ${summeryCubit.totalPrice().toStringAsFixed(1)}',
         ),
       ],
     );

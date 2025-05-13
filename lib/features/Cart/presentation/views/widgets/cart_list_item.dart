@@ -18,6 +18,7 @@ class CartListItem extends StatelessWidget {
 
     return BlocBuilder<CartCubit, CartStates>(
       builder: (context, state) {
+        var cartCubit = BlocProvider.of<CartCubit>(context);
         return Row(
           mainAxisAlignment: MainAxisAlignment.start,
           spacing: 15,
@@ -57,7 +58,7 @@ class CartListItem extends StatelessWidget {
                       const Spacer(),
                       CustomIconButton(
                         onTap: () {
-                          context.read<CartCubit>().decCartItem(products);
+                          cartCubit.decCartItem(products);
                         },
                         color: Colors.grey.shade200,
                         icon: Icons.remove,
@@ -69,13 +70,13 @@ class CartListItem extends StatelessWidget {
                       CustomIconButton(
                         color: Colors.grey.shade200,
                         onTap: () {
-                          context.read<CartCubit>().incCartItem(products);
+                          cartCubit.incCartItem(products);
                         },
                         icon: Icons.add,
                       ),
                       CustomIconButton(
                         onTap: () {
-                          context.read<CartCubit>().removeItem(products);
+                          cartCubit.removeItem(products);
                         },
                         icon: FontAwesomeIcons.trash,
                       ),
