@@ -55,7 +55,6 @@ class CartCubit extends Cubit<CartStates> {
   }
 
   double totalPrice() {
-    emit(CartUpdatedStates(List.from(cartItem)));
     double total = 0;
     for (var item in cartItem) {
       total += item.productModel.price! * item.quantity;
@@ -64,7 +63,6 @@ class CartCubit extends Cubit<CartStates> {
   }
 
   int totalProduct(){
-    emit(CartUpdatedStates(List.from(cartItem)));
     int totalItem = 0;
     for(var item in cartItem){
       totalItem += item.quantity;

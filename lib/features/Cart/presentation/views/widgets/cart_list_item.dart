@@ -52,7 +52,7 @@ class CartListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                        Text(
-                         '\$ ${products.price ?? 'no'}',
+                         '\$ ${products.price ?? '0'}',
                         style: TextsStyles.textStyle14,
                       ),
                       const Spacer(),
@@ -60,7 +60,7 @@ class CartListItem extends StatelessWidget {
                         onTap: () {
                           cartCubit.decCartItem(products);
                         },
-                        color: Colors.grey.shade200,
+                        borderColor: Colors.grey.shade200,
                         icon: Icons.remove,
                       ),
                       Text(
@@ -68,7 +68,7 @@ class CartListItem extends StatelessWidget {
                         style: TextsStyles.textStyle14,
                       ),
                       CustomIconButton(
-                        color: Colors.grey.shade200,
+                        borderColor: Colors.grey.shade200,
                         onTap: () {
                           cartCubit.incCartItem(products);
                         },
