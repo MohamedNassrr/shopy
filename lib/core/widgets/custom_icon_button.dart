@@ -5,7 +5,7 @@ class CustomIconButton extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.icon,
-    this.color,
+    this.borderColor,
   });
 
   final Function() onTap;
@@ -14,7 +14,7 @@ class CustomIconButton extends StatelessWidget {
   final double borderRadius = 5;
   final IconData icon;
   final double iconSize = 15;
-  final Color? color;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class CustomIconButton extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius),
-          color: color,
+          color: borderColor,
         ),
         child: Icon(
           icon,

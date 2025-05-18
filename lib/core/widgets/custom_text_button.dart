@@ -12,6 +12,7 @@ class CustomTextButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.radius = 4,
     this.isLoading = false,
+    this.pressedColor = false,
   });
 
   final double? width;
@@ -22,6 +23,7 @@ class CustomTextButton extends StatelessWidget {
   final Color textColor;
   final double radius;
   final bool isLoading;
+  final bool pressedColor;
 
   @override
   Widget build(BuildContext context) {
