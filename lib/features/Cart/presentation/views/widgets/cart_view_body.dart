@@ -11,7 +11,6 @@ class CartViewBody extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         Padding(
           padding: EdgeInsets.only(left: 20),
           child: Text(

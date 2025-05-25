@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
+import 'package:online_shop_app/features/Cart/presentation/views/widgets/payments_bottom_sheet.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_price.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_products.dart';
 
@@ -9,7 +10,7 @@ class OrderSummery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,12 +20,17 @@ class OrderSummery extends StatelessWidget {
           Text(
             'Order Summery',
             style:
-            TextsStyles.textStyle14.copyWith(fontWeight: FontWeight.w700),
+                TextsStyles.textStyle14.copyWith(fontWeight: FontWeight.w700),
           ),
           const TotalPrice(),
           const TotalProducts(),
           CustomTextButton(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) => const PaymentBottomSheet(),
+              );
+            },
             text: 'Continue for payments',
           ),
         ],

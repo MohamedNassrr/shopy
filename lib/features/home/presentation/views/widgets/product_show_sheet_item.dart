@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:online_shop_app/core/widgets/custom_hover_button.dart';
+import 'package:online_shop_app/core/widgets/custom_button.dart';
 
 class ProductShowSheetItem extends StatelessWidget {
   const ProductShowSheetItem({
@@ -17,7 +17,7 @@ class ProductShowSheetItem extends StatelessWidget {
         child: Column(
           spacing: 10,
           children: [
-            CustomHoverButton(
+            CustomButton(
               onTap: () {},
               mainAxisAlignment: MainAxisAlignment.center,
               icon: FontAwesomeIcons.ccVisa,
@@ -29,7 +29,7 @@ class ProductShowSheetItem extends StatelessWidget {
               width: double.infinity,
               height: 50,
             ),
-            CustomHoverButton(
+            CustomButton(
               onTap: () {},
               mainAxisAlignment: MainAxisAlignment.center,
               borderColor: Colors.black,
