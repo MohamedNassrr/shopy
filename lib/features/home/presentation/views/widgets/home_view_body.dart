@@ -44,7 +44,7 @@ class HomeViewBody extends StatelessWidget {
                     child: CustomTextField(
                       hintText: 'Search here ...',
                       onTap: (){
-                        GoRouter.of(context).push(AppRouter.kSearchView);
+                        GoRouter.of(context).push(AppRouter.rSearchView);
                       },
                       prefixIcon: FontAwesomeIcons.magnifyingGlass,
                     ),
@@ -74,7 +74,7 @@ class HomeViewBody extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         GoRouter.of(context).push(
-                          AppRouter.kProductDetailsView,
+                          AppRouter.rProductDetailsView,
                           extra: state.product[index],
                         );
                       },
