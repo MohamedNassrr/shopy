@@ -15,7 +15,7 @@ class RegisterTextButton extends StatelessWidget {
         const Text('Don\'t have an account yet?'),
         InkWell(
           onTap: () {
-            GoRouter.of(context).push(AppRouter.kRegisterView);
+            GoRouter.of(context).push(AppRouter.rRegisterView);
           },
           child: Text(
             'Register'.toUpperCase(),

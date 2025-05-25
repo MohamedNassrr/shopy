@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CustomHoverButton extends StatelessWidget {
-  const CustomHoverButton({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     super.key,
     required this.onTap,
     required this.icon,
     this.borderColor,
     this.width = 25,
     this.height = 25,
-    this.text = '',
+    required this.text,
     this.iconColor,
     this.borderRadius = 5,
     this.iconSize = 15,
@@ -23,7 +23,7 @@ class CustomHoverButton extends StatelessWidget {
   final IconData icon;
   final double iconSize;
   final Color? borderColor;
-  final String? text;
+  final String text;
   final Color? iconColor;
   final Color? textColor;
   final MainAxisAlignment mainAxisAlignment;
@@ -41,7 +41,7 @@ class CustomHoverButton extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: mainAxisAlignment,
-          spacing: 5,
+          spacing: 10,
           children: [
             Icon(
               icon,
@@ -49,7 +49,7 @@ class CustomHoverButton extends StatelessWidget {
               color: iconColor,
             ),
             Text(
-              '$text',
+              text,
               style: TextStyle(
                 color: textColor,
               ),

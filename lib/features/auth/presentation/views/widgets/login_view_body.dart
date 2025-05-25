@@ -28,10 +28,10 @@ class LoginViewBody extends StatelessWidget {
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
           if (state is LoginSuccessStates) {
-            GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+            GoRouter.of(context).pushReplacement(AppRouter.rHomeView);
           }
           if (state is UserLoginWithGoogleSuccess) {
-            GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+            GoRouter.of(context).pushReplacement(AppRouter.rHomeView);
           }
 
           if (state is LoginFailureStates) {

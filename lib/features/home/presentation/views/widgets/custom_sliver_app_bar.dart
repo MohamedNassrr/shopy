@@ -50,7 +50,7 @@ class CustomSliverAppBar extends StatelessWidget {
                     onTap: () async {
                       final result = await GoRouter.of(context)
                           .push<Map<String, dynamic>>(
-                              AppRouter.kGoogleMapsView);
+                              AppRouter.rGoogleMapsView);
                       if (result != null && result['placeName'] != null) {
                         homeCubit.setLocation(result['placeName']);
                       }

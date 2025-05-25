@@ -22,7 +22,7 @@ class RegisterViewBody extends StatelessWidget {
       child: BlocConsumer<RegisterCubit, RegisterStates>(
         listener: (context, state) {
           if (state is RegisterUserCreateSuccessStates) {
-            GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
+            GoRouter.of(context).pushReplacement(AppRouter.rLoginView);
           }
         },
         builder: (context, state) {

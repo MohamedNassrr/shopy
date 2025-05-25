@@ -13,7 +13,7 @@ class ForgetPassTextButton extends StatelessWidget {
       alignment: AlignmentDirectional.topEnd,
       child: TextButton(
         onPressed: () {
-          GoRouter.of(context).push(AppRouter.kForgetPassView);
+          GoRouter.of(context).push(AppRouter.rForgetPassView);
         },
         child: const Text(
           'Forget Password?',
