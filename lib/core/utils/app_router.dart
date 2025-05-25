@@ -16,46 +16,50 @@ import 'package:online_shop_app/features/home/presentation/controller/search_cub
 import 'package:online_shop_app/features/home/presentation/views/home_view.dart';
 import 'package:online_shop_app/features/home/presentation/views/product_detail_view.dart';
 import 'package:online_shop_app/features/home/presentation/views/search_view.dart';
+import 'package:online_shop_app/features/payment/presentation/views/credit_cards_view.dart';
+import 'package:online_shop_app/features/payment/presentation/views/paypal_view.dart';
 
 abstract class AppRouter {
-  static const kLoginView = '/';
-  static const kRegisterView = '/RegisterView';
-  static const kHomeView = '/HomeView';
-  static const kForgetPassView = '/ForgetPasswordView';
-  static const kGoogleMapsView = '/GoogleMapsView';
-  static const kProductDetailsView = '/ProductDetailView';
-  static const kSearchView = '/SearchView';
+  static const rLoginView = '/';
+  static const rRegisterView = '/RegisterView';
+  static const rHomeView = '/HomeView';
+  static const rForgetPassView = '/ForgetPasswordView';
+  static const rGoogleMapsView = '/GoogleMapsView';
+  static const rProductDetailsView = '/ProductDetailView';
+  static const rSearchView = '/SearchView';
+  static const rCreditView = '/CreditCardsView';
+  static const rPaypalView = '/PaypalView';
 
   static final router = GoRouter(
     initialLocation: initialLocation(),
     routes: [
       GoRoute(
-        path: kLoginView,
+        path: rLoginView,
         builder: (context, state) => const LoginView(),
       ),
       GoRoute(
-        path: kRegisterView,
+        path: rRegisterView,
         builder: (context, state) => BlocProvider(
           create: (context) => RegisterCubit(),
           child: const RegisterView(),
         ),
       ),
       GoRoute(
-        path: kForgetPassView,
+        path: rForgetPassView,
         builder: (context, state) => const ForgetPasswordView(),
       ),
       GoRoute(
-        path: kHomeView,
+        path: rHomeView,
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(
-        path: kProductDetailsView,
+        path: rProductDetailsView,
         builder: (context, state) => ProductDetailView(
           productModel: state.extra as ProductModel,
         ),
       ),
       GoRoute(
-        path: kGoogleMapsView,
+        path: rGoogleMapsView,
         builder: (context, state) => BlocProvider(
             create: (context) => GoogleMapsCubit(),
             child: GoogleMapsView(
@@ -63,7 +67,7 @@ abstract class AppRouter {
             )),
       ),
       GoRoute(
-        path: kSearchView,
+        path: rSearchView,
         builder: (context, state) => BlocProvider(
             create: (context) =>
                 SearchCubit(getIt.get<HomeRepoImpl>()),
@@ -71,11 +75,19 @@ abstract class AppRouter {
               searchModel: SearchModel(),
             )),
       ),
+      GoRoute(
+        path: rCreditView,
+        builder: (context, state) => const CreditCardsView(),
+      ),
+      GoRoute(
+        path: rPaypalView,
+        builder: (context, state) => const PaypalView(),
+      ),
     ],
   );
 
   static String initialLocation() {
     User? user = FirebaseAuth.instance.currentUser;
-    return user != null ? kHomeView : kLoginView;
+    return user != null ? rHomeView : rLoginView;
   }
 }
