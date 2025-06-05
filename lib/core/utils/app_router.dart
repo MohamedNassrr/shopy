@@ -6,6 +6,10 @@ import 'package:online_shop_app/features/auth/presentation/controller/register_c
 import 'package:online_shop_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/login_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/register_view.dart';
+import 'package:online_shop_app/features/category/presentation/views/beauty_view.dart';
+import 'package:online_shop_app/features/category/presentation/views/clothes_view.dart';
+import 'package:online_shop_app/features/category/presentation/views/decoration_view.dart';
+import 'package:online_shop_app/features/category/presentation/views/electronics_view.dart';
 import 'package:online_shop_app/features/google_maps/data/models/places_model/places_model.dart';
 import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_cubit.dart';
 import 'package:online_shop_app/features/google_maps/presentation/views/google_maps_view.dart';
@@ -29,6 +33,10 @@ abstract class AppRouter {
   static const rSearchView = '/SearchView';
   static const rCreditView = '/CreditCardsView';
   static const rPaypalView = '/PaypalView';
+  static const rBeautyView = '/BeautyView';
+  static const rClothesView = '/ClothesView';
+  static const rDecorationView = '/DecorationView';
+  static const rElectronicsView = '/ElectronicsView';
 
   static final router = GoRouter(
     initialLocation: initialLocation(),
@@ -69,8 +77,7 @@ abstract class AppRouter {
       GoRoute(
         path: rSearchView,
         builder: (context, state) => BlocProvider(
-            create: (context) =>
-                SearchCubit(getIt.get<HomeRepoImpl>()),
+            create: (context) => SearchCubit(getIt.get<HomeRepoImpl>()),
             child: SearchView(
               searchModel: SearchModel(),
             )),
@@ -82,6 +89,22 @@ abstract class AppRouter {
       GoRoute(
         path: rPaypalView,
         builder: (context, state) => const PaypalView(),
+      ),
+      GoRoute(
+        path: rBeautyView,
+        builder: (context, state) => const BeautyView(),
+      ),
+      GoRoute(
+        path: rClothesView,
+        builder: (context, state) => const ClothesView(),
+      ),
+      GoRoute(
+        path: rDecorationView,
+        builder: (context, state) => const DecorationView(),
+      ),
+      GoRoute(
+        path: rElectronicsView,
+        builder: (context, state) => const ElectronicsView(),
       ),
     ],
   );
