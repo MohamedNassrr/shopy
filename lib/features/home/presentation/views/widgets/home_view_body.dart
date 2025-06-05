@@ -7,9 +7,9 @@ import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/core/widgets/failure_snack_bar.dart';
+import 'package:online_shop_app/features/category/presentation/views/category_view.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_states.dart';
-import 'package:online_shop_app/features/home/presentation/views/widgets/category_list_view.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_gird_item.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/my_carousal_slider.dart';
@@ -25,8 +25,9 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ProductCubit, ProductStates>(
       listener: (context, state) {
-        if(state is ProductFailureStates){
-          SnackBar snackBar = SnackBar(content: FailureSnackBar(errMessage: state.errMessage));
+        if (state is ProductFailureStates) {
+          SnackBar snackBar =
+              SnackBar(content: FailureSnackBar(errMessage: state.errMessage));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           log(state.errMessage.toString());
         }
@@ -35,7 +36,7 @@ class HomeViewBody extends StatelessWidget {
         return CustomScrollView(
           slivers: [
             const CustomSliverAppBar(),
-             SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -43,16 +44,16 @@ class HomeViewBody extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: CustomTextField(
                       hintText: 'Search here ...',
-                      onTap: (){
+                      onTap: () {
                         GoRouter.of(context).push(AppRouter.rSearchView);
                       },
                       prefixIcon: FontAwesomeIcons.magnifyingGlass,
                     ),
                   ),
                   const MyCarousalSlider(),
-                  const CategoryListView(),
+                  const CategoryView(),
                   const SizedBox(height: 17),
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
                       'Recent product',

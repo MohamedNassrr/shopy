@@ -68,11 +68,7 @@ class LoginViewBody extends StatelessWidget {
                     CustomTextButton(
                       colors: primaryColor,
                       onPressed: () {
-                        if (context
-                            .read<LoginInput>()
-                            .formKey
-                            .currentState!
-                            .validate()) {
+                        if (context.read<LoginInput>().formKey.currentState!.validate()) {
                           cubit.userLogin(
                             email:
                                 context.read<LoginInput>().emailController.text,
