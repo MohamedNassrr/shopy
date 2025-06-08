@@ -8,11 +8,11 @@ import 'package:online_shop_app/features/category/presentation/controller/catego
 class CategoryCubit extends Cubit<CategoryStates> {
   CategoryCubit(this.catRepo) : super(CategoryInitialStates());
 
-  List<String> imageIcon = [
+  List<dynamic> imageIcon = [
     AssetsData.beautyIcon,
-    AssetsData.clothesIcon,
-    AssetsData.decorationIcon,
-    AssetsData.electronicsIcon,
+    AssetsData.fragrancesIcon,
+    AssetsData.furnitureIcon,
+    AssetsData.groceriesIcon,
   ];
 
   final CatRepo catRepo;

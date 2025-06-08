@@ -52,7 +52,7 @@ class HomeViewBody extends StatelessWidget {
                   ),
                   const MyCarousalSlider(),
                   const CategoryView(),
-                  const SizedBox(height: 17),
+                  const SizedBox(height: 8.5),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
