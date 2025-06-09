@@ -16,7 +16,9 @@ class CategoryProductView extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context) => CatProductCubit(getIt.get<CatRepoImpl>())..fetchCatProduct(categoryModel.slug!),
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: Text('${categoryModel.name}'),
+        ),
         body:  const CategoryProductBody(),
       ),
     );

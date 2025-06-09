@@ -30,7 +30,7 @@ class CategoryListView extends StatelessWidget {
               height: 13,
             ),
             SizedBox(
-              height: 78,
+              height: 83,
               child: BlocBuilder<CategoryCubit, CategoryStates>(
                 builder: (context, state) {
                   if (state is CategorySuccessStates) {
@@ -42,9 +42,9 @@ class CategoryListView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final categories = state.categories[index];
                         return AspectRatio(
-                          aspectRatio: 3.25 / 2.8,
+                          aspectRatio: 3/ 2.9,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 7),
+                            padding: const EdgeInsets.symmetric(horizontal: 7,),
                             child: InkWell(
                               borderRadius: BorderRadius.circular(8),
                               onTap: () {
@@ -61,7 +61,7 @@ class CategoryListView extends StatelessWidget {
                                           MediaQuery.of(context).size.height *
                                               .055,
                                       width: MediaQuery.of(context).size.width *
-                                          .14,
+                                          .15,
                                       decoration: BoxDecoration(
                                           color: const Color(0xffEDF7FF),
                                           borderRadius:

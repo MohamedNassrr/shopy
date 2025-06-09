@@ -24,7 +24,7 @@ class ProductDetailViewBody extends StatelessWidget {
         ),
         SizedBox(
           width: double.infinity,
-          height: 350,
+          height: MediaQuery.of(context).size.height * 0.35,
           child: Image(
             image: NetworkImage(product.thumbnail),
           ),
