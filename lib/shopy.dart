@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/core/theme/theme_data.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
-
+import 'package:online_shop_app/features/category/data/repos/cat_repo_impl.dart';
+import 'package:online_shop_app/features/category/presentation/controller/category_cubit/category_cubit.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/app_router.dart';
 import 'features/home/data/repos/home_repo_impl.dart';
@@ -29,6 +30,9 @@ class Shopy extends StatelessWidget {
           create: (context) => CartCubit(),
         ),
         BlocProvider(
+          create: (context) => CategoryCubit(getIt.get<CatRepoImpl>())..fetchCategories(),
+        ),
+        BlocProvider(
           create: (context) => HomeCubit(),
         ),
         BlocProvider(
@@ -39,6 +43,7 @@ class Shopy extends StatelessWidget {
       child: MaterialApp.router(
         themeMode: ThemeMode.light,
         theme: TAppTheme.lightTheme,
+
         darkTheme: TAppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,

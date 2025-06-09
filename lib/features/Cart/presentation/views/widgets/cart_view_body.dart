@@ -14,7 +14,7 @@ class CartViewBody extends StatelessWidget {
           padding: const EdgeInsets.only(left: 20),
           child: Text(
             'Cart',
-            style: const TextTheme().bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
         const SizedBox(height: 10),

@@ -42,7 +42,7 @@ class CartListItem extends StatelessWidget {
                 children: [
                    Text(
                     '${products.title}',
-                    style: const TextTheme().bodySmall,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
 
                   const SizedBox(height: 2),
@@ -52,7 +52,7 @@ class CartListItem extends StatelessWidget {
                     children: [
                        Text(
                          '\$ ${products.price ?? '0'}',
-                        style: const TextTheme().bodySmall,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       const Spacer(),
                       CustomIconButton(
@@ -64,7 +64,7 @@ class CartListItem extends StatelessWidget {
                       ),
                       Text(
                         '$quantity',
-                        style: const TextTheme().bodySmall,
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       CustomIconButton(
                         borderColor: Colors.grey.shade200,

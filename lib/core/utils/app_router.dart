@@ -12,7 +12,6 @@ import 'package:online_shop_app/features/google_maps/data/models/places_model/pl
 import 'package:online_shop_app/features/google_maps/presentation/controller/google_maps_cubit/google_maps_cubit.dart';
 import 'package:online_shop_app/features/google_maps/presentation/views/google_maps_view.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
-import 'package:online_shop_app/features/home/data/models/search_model/search_model.dart';
 import 'package:online_shop_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:online_shop_app/features/home/presentation/controller/search_cubit/search_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/views/home_view.dart';
@@ -73,9 +72,7 @@ abstract class AppRouter {
         path: rSearchView,
         builder: (context, state) => BlocProvider(
             create: (context) => SearchCubit(getIt.get<HomeRepoImpl>()),
-            child: SearchView(
-              searchModel: SearchModel(),
-            )),
+            child: const SearchView()),
       ),
       GoRoute(
         path: rCreditView,

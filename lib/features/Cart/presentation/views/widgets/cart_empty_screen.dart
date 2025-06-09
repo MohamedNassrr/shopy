@@ -11,7 +11,7 @@ class CartEmptyScreen extends StatelessWidget {
         children: [
           Text(
             'cart is empty',
-            style: const TextTheme().bodySmall!.copyWith(fontWeight: FontWeight.w700),
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w700),
           ),
         ],
       ),

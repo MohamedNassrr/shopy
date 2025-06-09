@@ -19,7 +19,7 @@ class OrderSummery extends StatelessWidget {
           Text(
             'Order Summery',
             style:
-            const TextTheme().bodySmall!.copyWith(fontWeight: FontWeight.w700),
+             Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w700),
           ),
           const TotalPrice(),
           const TotalProducts(),

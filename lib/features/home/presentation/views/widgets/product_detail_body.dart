@@ -15,9 +15,7 @@ class ProductDetailBody extends StatelessWidget {
         children: [
           Text(
             '${product.brand}',
-            style: const TextTheme()
-                .titleMedium!
-                .copyWith(fontWeight: FontWeight.w800),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w800),
           ),
           Text(
             '${product.title}',
@@ -26,16 +24,16 @@ class ProductDetailBody extends StatelessWidget {
           const SizedBox(height: 6),
           Text(
             '\$${product.price}',
-            style: const TextTheme().bodyLarge,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           const SizedBox(height: 11),
           Text(
             'Description',
-            style: const TextTheme().bodyLarge,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           Text(
             '${product.description}',
-            style: const TextTheme().labelMedium!.copyWith(color: Colors.grey),
+            style: Theme.of(context).textTheme.labelMedium!.copyWith(color: Colors.grey),
           ),
         ],
       ),

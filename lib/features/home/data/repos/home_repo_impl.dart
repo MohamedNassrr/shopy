@@ -4,7 +4,6 @@ import 'package:online_shop_app/core/errors/apis_failures.dart';
 import 'package:online_shop_app/core/services/api_service.dart';
 import 'package:online_shop_app/core/utils/end_points.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
-import 'package:online_shop_app/features/home/data/models/search_model/search_model.dart';
 import 'package:online_shop_app/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
@@ -37,18 +36,18 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<ApisFailure, List<SearchModel>>> fetchSearch({required String query}) async {
+  Future<Either<ApisFailure, List<ProductModel>>> fetchSearch({required String query}) async {
     try {
-      var data = await apiService.get(endPoint: '${ApiEndPoints.search}=$query');
-      List<SearchModel> searchModel = [];
+      var data = await apiService.get(endPoint: '${ApiEndPoints.search}?q=$query');
+      List<ProductModel> productModel = [];
       for (var item in data['products']) {
         try {
-          searchModel.add(SearchModel.fromJson(item));
+          productModel.add(ProductModel.fromJson(item));
         } catch (e) {
-          searchModel.add(SearchModel.fromJson(item));
+          productModel.add(ProductModel.fromJson(item));
         }
       }
-      return right(searchModel);
+      return right(productModel);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailures.fromDioError(e));

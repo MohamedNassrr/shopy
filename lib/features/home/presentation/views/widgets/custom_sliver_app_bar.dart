@@ -41,7 +41,7 @@ class CustomSliverAppBar extends StatelessWidget {
                     ),
                     Text(
                       'Delivery address',
-                      style: const TextTheme().labelSmall,
+                      style: Theme.of(context).textTheme.labelSmall,
                     ),
                   ],
                 ),
@@ -57,12 +57,12 @@ class CustomSliverAppBar extends StatelessWidget {
                     child: Row(
                       children: [
                         SizedBox(
-                          width: 150,
+                          width: 170,
                           child: Text(
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             selectedLocation ?? 'select your delivery address',
-                            style: const TextTheme().labelMedium,
+                            style: Theme.of(context).textTheme.labelMedium,
                           ),
                         ),
                         const Icon(

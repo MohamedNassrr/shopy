@@ -13,6 +13,7 @@ class CustomFormField extends StatelessWidget {
     this.suffix,
     this.suffixPressed,
     this.isPassword = false, this.onChanged,
+    this.hintStyle,
   });
 
   final TextEditingController controller;
@@ -24,6 +25,7 @@ class CustomFormField extends StatelessWidget {
   final FormFieldValidator<String>? validation;
   final double radius;
   final IconData? suffix;
+  final TextStyle? hintStyle;
   final bool isPassword;
 
   @override
@@ -39,6 +41,7 @@ class CustomFormField extends StatelessWidget {
         focusedBorder: buildOutlineInputBorder(),
         border: buildOutlineInputBorder(),
         hintText: hintText,
+        hintStyle: hintStyle,
         suffixIcon: suffix != null
             ? IconButton(
                 onPressed: suffixPressed,
