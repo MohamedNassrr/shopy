@@ -1,68 +1,97 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:online_shop_app/core/utils/app_router.dart';
+import 'package:online_shop_app/core/widgets/custom_error_message.dart';
 import 'package:online_shop_app/core/widgets/custom_form_field.dart';
-import 'package:online_shop_app/features/home/data/models/search_model/search_model.dart';
 import 'package:online_shop_app/features/home/presentation/controller/search_cubit/search_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/search_cubit/search_states.dart';
+import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key, required this.searchModel});
+  const SearchViewBody({super.key});
 
-  final SearchModel searchModel;
 
   @override
   Widget build(BuildContext context) {
     var searchController = TextEditingController();
-    return BlocBuilder<SearchCubit, SearchStates>(
-      builder: (context, state) {
-        var searchCubit = BlocProvider.of<SearchCubit>(context);
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      GoRouter.of(context).pop();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back,
-                    ),
-                  ),
-                  Expanded(
-                    child: CustomFormField(
-                      controller: searchController,
-                      hintText: 'Search here ... ',
-                      type: TextInputType.text,
-                      onSubmit: (value){
-                        searchCubit.fetchSearchItems(query: value);
-                      },
-
-                    ),
-                  ),
-                ],
+              IconButton(
+                onPressed: () {
+                  GoRouter.of(context).pop();
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                ),
               ),
               Expanded(
-                child: ListView.builder(
-                  scrollDirection: Axis.vertical,
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text('${searchModel.title}'),
-                      trailing: const Icon(Icons.arrow_forward),
-                    );
-                  },
-                  itemCount: 1,
+                child: CustomFormField(
+                  controller: searchController,
+                  hintText: 'Search here ... ',
+                  hintStyle: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14),
+                  type: TextInputType.text,
+                  onChanged: (_){
+                    context.read<SearchCubit>().fetchSearchItems(query: searchController.text);
+                 },
+
                 ),
               ),
             ],
           ),
-        );
-      },
+          BlocBuilder<SearchCubit,SearchStates>(
+            builder: (context, state) {
+              if(state is SearchSuccessStates){
+                return Expanded(
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      final search = state.productModel[index];
+                      return ListTile(
+                        title: Text('${search.title}'),
+                        trailing: IconButton(
+                            onPressed: (){
+                              GoRouter.of(context).push(AppRouter.rProductDetailsView,extra: state.productModel[index],);
+                            },
+                            icon: const Icon(Icons.arrow_forward)
+                        ),
+                      );
+                    },
+                    itemCount: state.productModel.length,
+                  ),
+                );
+              }else if (state is SearchFailureStates) {
+                return CustomErrorWidget(errorMessage: state.failure);
+              }else if (state is SearchLoadingStates){
+                return Padding(
+                  padding: const EdgeInsets.only(top: 260),
+                  child: const Center(child: CustomCircleIndicator(),),
+                );
+              }else{
+                return  Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const SizedBox(height: 260,),
+                    Text(
+                      'search for anything',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.grey),
+                    ),
+                  ],
+                );
+              }
+            },
+          ),
+        ],
+      ),
     );
+
   }
 }

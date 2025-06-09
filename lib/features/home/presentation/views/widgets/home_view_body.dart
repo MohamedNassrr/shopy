@@ -40,24 +40,29 @@ class HomeViewBody extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      width: double.infinity,
-                      height: 47,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: Colors.grey
-                        )
-                      ),
-                      child:  Row(
-                        spacing: 5,
-                        children: [
-                          const Icon(Icons.search),
-                          Text(
-                              'search here...',
-                            style: const TextTheme().displaySmall,
+                    child: GestureDetector(
+                      onTap: (){
+                        GoRouter.of(context).push(AppRouter.rSearchView);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 47,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: Colors.grey
                           )
-                        ],
+                        ),
+                        child:  Row(
+                          spacing: 5,
+                          children: [
+                            const Icon(Icons.search),
+                            Text(
+                                'search here...',
+                              style: Theme.of(context).textTheme.displaySmall,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
