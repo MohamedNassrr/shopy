@@ -12,7 +12,6 @@ import 'package:online_shop_app/features/home/presentation/views/widgets/custom_
 class CategoryListView extends StatelessWidget {
   const CategoryListView({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -50,21 +49,23 @@ class CategoryListView extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                               onTap: () {
                                 GoRouter.of(context).push(
-                                    AppRouter.rProductCategory,
-                                    extra: categories,
+                                  AppRouter.rProductCategory,
+                                  extra: categories,
                                 );
                               },
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                      height: MediaQuery.of(context).size.height *
-                                          .055,
-                                      width:
-                                      MediaQuery.of(context).size.width * .13,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              .055,
+                                      width: MediaQuery.of(context).size.width *
+                                          .14,
                                       decoration: BoxDecoration(
                                           color: const Color(0xffEDF7FF),
-                                          borderRadius: BorderRadius.circular(8)),
+                                          borderRadius:
+                                              BorderRadius.circular(8)),
                                       child: Image(
                                           image: AssetImage(context
                                               .read<CategoryCubit>()
@@ -72,14 +73,14 @@ class CategoryListView extends StatelessWidget {
                                   Text(
                                     state.categories[index].name!,
                                     style:
-                                    Theme.of(context).textTheme.labelMedium,
+                                        Theme.of(context).textTheme.labelMedium,
                                   ),
                                 ],
                               ),
                             ),
                           ),
                         );
-                      } ,
+                      },
                     );
                   } else if (state is CategoryFailureStates) {
                     return CustomErrorWidget(errorMessage: state.failure);
