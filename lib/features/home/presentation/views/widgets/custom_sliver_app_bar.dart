@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/utils/assets_data.dart';
 import 'package:online_shop_app/features/home/presentation/controller/home_cubit/home_cubit.dart';
@@ -32,17 +31,17 @@ class CustomSliverAppBar extends StatelessWidget {
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Row(
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on_rounded,
                       color: Colors.grey,
                       size: 15,
                     ),
                     Text(
                       'Delivery address',
-                      style: TextsStyles.textStyle11,
+                      style: const TextTheme().labelSmall,
                     ),
                   ],
                 ),
@@ -63,7 +62,7 @@ class CustomSliverAppBar extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             selectedLocation ?? 'select your delivery address',
-                            style: TextsStyles.textStyle12,
+                            style: const TextTheme().labelMedium,
                           ),
                         ),
                         const Icon(

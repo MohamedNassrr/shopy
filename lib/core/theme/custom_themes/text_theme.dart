@@ -33,6 +33,11 @@ class TTextTheme{
       fontWeight: FontWeight.w400,
       color: Color(0xffC8C8CB),
     ),
+    displaySmall: TextStyle(
+      fontSize: 13,
+      fontWeight: FontWeight.w400,
+      color: Colors.grey,
+    ),
   );
   static TextTheme darkTextTheme = const TextTheme(
     titleMedium:  TextStyle(

@@ -2,10 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
-import 'package:online_shop_app/core/widgets/custom_text_field.dart';
 import 'package:online_shop_app/core/widgets/failure_snack_bar.dart';
 import 'package:online_shop_app/features/category/presentation/views/category_view.dart';
 import 'package:online_shop_app/features/home/presentation/controller/product_cubit/product_cubit.dart';
@@ -42,12 +40,25 @@ class HomeViewBody extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: CustomTextField(
-                      hintText: 'Search here ...',
-                      onTap: () {
-                        GoRouter.of(context).push(AppRouter.rSearchView);
-                      },
-                      prefixIcon: FontAwesomeIcons.magnifyingGlass,
+                    child: Container(
+                      width: double.infinity,
+                      height: 47,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: Colors.grey
+                        )
+                      ),
+                      child:  Row(
+                        spacing: 5,
+                        children: [
+                          const Icon(Icons.search),
+                          Text(
+                              'search here...',
+                            style: const TextTheme().displaySmall,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   const MyCarousalSlider(),

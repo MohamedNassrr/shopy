@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/widgets/custom_icon_button.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_states.dart';
@@ -43,7 +42,7 @@ class CartListItem extends StatelessWidget {
                 children: [
                    Text(
                     '${products.title}',
-                    style: TextsStyles.textStyle14,
+                    style: const TextTheme().bodySmall,
                   ),
 
                   const SizedBox(height: 2),
@@ -53,7 +52,7 @@ class CartListItem extends StatelessWidget {
                     children: [
                        Text(
                          '\$ ${products.price ?? '0'}',
-                        style: TextsStyles.textStyle14,
+                        style: const TextTheme().bodySmall,
                       ),
                       const Spacer(),
                       CustomIconButton(
@@ -65,7 +64,7 @@ class CartListItem extends StatelessWidget {
                       ),
                       Text(
                         '$quantity',
-                        style: TextsStyles.textStyle14,
+                        style: const TextTheme().bodySmall,
                       ),
                       CustomIconButton(
                         borderColor: Colors.grey.shade200,

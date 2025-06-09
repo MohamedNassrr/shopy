@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/payments_bottom_sheet.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_price.dart';
@@ -20,7 +19,7 @@ class OrderSummery extends StatelessWidget {
           Text(
             'Order Summery',
             style:
-                TextsStyles.textStyle14.copyWith(fontWeight: FontWeight.w700),
+            const TextTheme().bodySmall!.copyWith(fontWeight: FontWeight.w700),
           ),
           const TotalPrice(),
           const TotalProducts(),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/cart_list_view.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/order_summery.dart';
 
@@ -8,20 +7,20 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 20),
           child: Text(
             'Cart',
-            style: TextsStyles.textStyle16,
+            style: const TextTheme().bodyMedium,
           ),
         ),
-        SizedBox(height: 10),
-        CartListView(),
-        SizedBox(height: 2),
-        OrderSummery(),
+        const SizedBox(height: 10),
+        const CartListView(),
+        const SizedBox(height: 2),
+        const OrderSummery(),
       ],
     );
   }

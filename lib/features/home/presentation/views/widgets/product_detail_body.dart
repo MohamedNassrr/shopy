@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
 
 class ProductDetailBody extends StatelessWidget {
@@ -16,26 +15,27 @@ class ProductDetailBody extends StatelessWidget {
         children: [
           Text(
             '${product.brand}',
-            style:
-                TextsStyles.textStyle25.copyWith(fontWeight: FontWeight.w800),
+            style: const TextTheme()
+                .titleMedium!
+                .copyWith(fontWeight: FontWeight.w800),
           ),
           Text(
             '${product.title}',
-            style: TextsStyles.textStyle16,
+            style: const TextTheme().bodyMedium,
           ),
           const SizedBox(height: 6),
           Text(
             '\$${product.price}',
-            style: TextsStyles.textStyle18,
+            style: const TextTheme().bodyLarge,
           ),
           const SizedBox(height: 11),
-          const Text(
+          Text(
             'Description',
-            style: TextsStyles.textStyle18,
+            style: const TextTheme().bodyLarge,
           ),
           Text(
             '${product.description}',
-            style: TextsStyles.textStyle12.copyWith(color: Colors.grey),
+            style: const TextTheme().labelMedium!.copyWith(color: Colors.grey),
           ),
         ],
       ),

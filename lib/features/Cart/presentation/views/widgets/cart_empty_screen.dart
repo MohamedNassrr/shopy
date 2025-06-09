@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop_app/core/styles/texts_styles.dart';
 
 class CartEmptyScreen extends StatelessWidget {
   const CartEmptyScreen({super.key});
@@ -12,7 +11,7 @@ class CartEmptyScreen extends StatelessWidget {
         children: [
           Text(
             'cart is empty',
-            style: TextsStyles.textStyle14.copyWith(fontWeight: FontWeight.w700),
+            style: const TextTheme().bodySmall!.copyWith(fontWeight: FontWeight.w700),
           ),
         ],
       ),

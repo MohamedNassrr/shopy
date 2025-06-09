@@ -21,6 +21,7 @@ class CategoryCubit extends Cubit<CategoryStates> {
   final CatRepo catRepo;
 
   Future<void> fetchCategories() async {
+
     emit(CategoryLoadingStates());
     var result = await catRepo.fetchCategory();
 
