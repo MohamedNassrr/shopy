@@ -71,9 +71,9 @@ class SearchViewBody extends StatelessWidget {
               }else if (state is SearchFailureStates) {
                 return CustomErrorWidget(errorMessage: state.failure);
               }else if (state is SearchLoadingStates){
-                return Padding(
-                  padding: const EdgeInsets.only(top: 260),
-                  child: const Center(child: CustomCircleIndicator(),),
+                return const Padding(
+                  padding: EdgeInsets.only(top: 260),
+                  child: Center(child: CustomCircleIndicator(),),
                 );
               }else{
                 return  Column(
