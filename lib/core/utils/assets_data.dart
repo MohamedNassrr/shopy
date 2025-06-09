@@ -10,5 +10,8 @@ abstract class AssetsData {
   static const fragrancesIcon = 'assets/images/perfume.png';
   static const furnitureIcon = 'assets/images/furniture.png';
   static const groceriesIcon = 'assets/images/groceries.png';
+  static const decorationIcon = 'assets/images/home_decoration.png';
+  static const kitchenIcon = 'assets/images/kitchen.png';
+  static const laptopIcon = 'assets/images/laptop.png';
 
 }

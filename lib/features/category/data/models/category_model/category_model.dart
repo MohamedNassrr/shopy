@@ -1,17 +1,17 @@
 class CategoryModel {
   String? slug;
-  String name;
+  String? name;
   String? url;
 
   CategoryModel({
     this.slug,
-    required this.name,
+    this.name,
     this.url,
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
     return CategoryModel(
-      slug: json['slug'] as String?,
+      slug: json['slug'] as String,
       name: json['name'] as String,
       url: json['url'] as String?,
     );

@@ -127,6 +127,7 @@ class _GoogleMapsViewBodyState extends State<GoogleMapsViewBody> {
                     longitude: locationData.longitude!,
                   );
 
+                  // ignore: use_build_context_synchronously
                   GoRouter.of(context).pop({
                     'placeName': placeName[0].formattedAddress,
                   });

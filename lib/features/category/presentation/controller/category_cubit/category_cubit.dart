@@ -13,6 +13,9 @@ class CategoryCubit extends Cubit<CategoryStates> {
     AssetsData.fragrancesIcon,
     AssetsData.furnitureIcon,
     AssetsData.groceriesIcon,
+    AssetsData.decorationIcon,
+    AssetsData.kitchenIcon,
+    AssetsData.laptopIcon,
   ];
 
   final CatRepo catRepo;
