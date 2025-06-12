@@ -59,7 +59,7 @@ class HomeViewBody extends StatelessWidget {
                             const Icon(Icons.search),
                             Text(
                                 'search here...',
-                              style: Theme.of(context).textTheme.displaySmall,
+                              style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14),
                             )
                           ],
                         ),

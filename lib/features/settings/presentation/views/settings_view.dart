@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/features/settings/presentation/views/widget/settings_view_body.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -7,11 +8,7 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Text('Settings screen')
-          ],
-        ),
+        child: SettingsViewBody(),
       ),
     );
   }

@@ -72,11 +72,7 @@ class CustomSliverAppBar extends StatelessWidget {
                     )),
               ],
             ),
-            flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                color: Colors.white,
-              ),
-            ),
+
           );
         },
       ),

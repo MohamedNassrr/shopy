@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:online_shop_app/core/services/service_locator.dart';
 import 'package:online_shop_app/core/utils/bloc_observer.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_cubit.dart';
 import 'package:online_shop_app/shopy.dart';
 
 void main() async {
@@ -13,5 +14,8 @@ void main() async {
   serviceLocator();
   await dotenv.load(fileName: ".env");
 
-  runApp(const Shopy());
+  runApp(BlocProvider(
+    create: (BuildContext context) => SettingsCubit()..changeAppMode(),
+    child: const Shopy(),
+  ));
 }
