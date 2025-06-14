@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:online_shop_app/core/theme/theme_data.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/category/data/repos/cat_repo_impl.dart';
@@ -13,6 +14,7 @@ import 'core/utils/app_router.dart';
 import 'features/home/data/repos/home_repo_impl.dart';
 import 'features/home/presentation/controller/home_cubit/home_cubit.dart';
 import 'features/home/presentation/controller/product_cubit/product_cubit.dart';
+import 'generated/l10n.dart';
 
 class Shopy extends StatelessWidget {
   final bool? isDark;
@@ -50,6 +52,14 @@ class Shopy extends StatelessWidget {
         builder: (BuildContext context, state) {
           var settingCubit = BlocProvider.of<SettingsCubit>(context);
           return MaterialApp.router(
+            locale: const Locale('en'),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
             themeMode: settingCubit.isLight ? ThemeMode.dark : ThemeMode.light,
             darkTheme: TAppTheme.darkTheme,
             theme: TAppTheme.lightTheme,

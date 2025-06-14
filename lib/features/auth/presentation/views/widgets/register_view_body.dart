@@ -8,6 +8,7 @@ import 'package:online_shop_app/features/auth/data/models/register_input.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_cubit.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_states.dart';
 import 'package:online_shop_app/features/auth/presentation/views/widgets/register_text_form_fields.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
 class RegisterViewBody extends StatelessWidget {
@@ -56,7 +57,7 @@ class RegisterViewBody extends StatelessWidget {
                         }
                       },
                       isLoading: state is RegisterLoadingStates ? true : false,
-                      text: 'Register',
+                      text: S.of(context).register,
                     ),
                   ],
                 ),

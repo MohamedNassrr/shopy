@@ -13,6 +13,7 @@ import 'package:online_shop_app/features/auth/presentation/views/widgets/advance
 import 'package:online_shop_app/features/auth/presentation/views/widgets/auth_text_form_field.dart';
 import 'package:online_shop_app/features/auth/presentation/views/widgets/forget_pass_text_button.dart';
 import 'package:online_shop_app/features/auth/presentation/views/widgets/register_text_button.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -54,7 +55,7 @@ class LoginViewBody extends StatelessWidget {
                       scale: 5.5,
                     ),
                      Text(
-                      'Welcome to Shopy',
+                      '${S.of(context).loginWelcome}Shopy',
                       style: const TextTheme().titleMedium,
                     ),
                     const SizedBox(height: 45),
@@ -79,7 +80,7 @@ class LoginViewBody extends StatelessWidget {
                         }
                       },
                       isLoading: state is LoginLoadingStates ? true : false,
-                      text: 'Continue',
+                      text: S.of(context).continueButton,
                     ),
                     const SizedBox(height: 27),
                     const CustomDivider(),

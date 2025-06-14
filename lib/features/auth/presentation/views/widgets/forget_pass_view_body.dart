@@ -5,6 +5,7 @@ import 'package:online_shop_app/core/widgets/custom_form_field.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/forget_pass_cubit/forget_pass_cubit.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/forget_pass_cubit/forget_pass_states.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class ForgetPassViewBody extends StatelessWidget {
   const ForgetPassViewBody({super.key});
@@ -31,12 +32,12 @@ class ForgetPassViewBody extends StatelessWidget {
               children: [
                 CustomFormField(
                   controller: emailController,
-                  hintText: 'enter email',
+                  hintText: S.of(context).emailForgetForm,
                   type: TextInputType.emailAddress,
                   suffix: Icons.email_rounded,
                   validation: (value) {
                     if (value!.isEmpty) {
-                      return 'enter your email';
+                      return S.of(context).emailForgetValidation;
                     }
                     return null;
                   },
@@ -55,7 +56,7 @@ class ForgetPassViewBody extends StatelessWidget {
                     }
                   },
                   isLoading: state is ForgetPassLoadingStates ? true : false,
-                  text: 'send code',
+                  text: S.of(context).emailForgetSendButton,
                 ),
               ],
             ),

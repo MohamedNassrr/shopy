@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_shop_app/core/widgets/custom_form_field.dart';
 import 'package:online_shop_app/features/auth/data/models/register_input.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_cubit.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
 class RegisterTextFormFields extends StatelessWidget {
@@ -24,24 +25,24 @@ class RegisterTextFormFields extends StatelessWidget {
         children: [
           CustomFormField(
             controller: registerInputProvider.userNameController,
-            hintText: 'username',
+            hintText: S.of(context).registerUserName,
             type: TextInputType.text,
             suffix: Icons.person,
             validation: (value) {
               if (value!.isEmpty) {
-                return 'username mustn\'t be empty';
+                return S.of(context).registerUserValid;
               }
               return null;
             },
           ),
           CustomFormField(
             controller: registerInputProvider.emailController,
-            hintText: 'name@example.com',
+            hintText: S.of(context).registerEmail,
             type: TextInputType.text,
             suffix: Icons.email_rounded,
             validation: (value) {
               if (value!.isEmpty) {
-                return 'email mustn\'t be empty';
+                return S.of(context).registerEmailValid;
               }
               return null;
             },
@@ -52,14 +53,14 @@ class RegisterTextFormFields extends StatelessWidget {
               Expanded(
                 child: CustomFormField(
                   controller: registerInputProvider.passwordController,
-                  hintText: 'password',
+                  hintText: S.of(context).registerPassword,
                   type: TextInputType.visiblePassword,
                   isPassword: cubit.isPassword,
                   suffix: cubit.suffix,
                   suffixPressed: cubit.changePasswordVisibilty,
                   validation: (value) {
                     if (value!.isEmpty) {
-                      return 'password mustn\'t be empty';
+                      return S.of(context).registerPasswordValid;
                     }
                     return null;
                   },
@@ -68,7 +69,7 @@ class RegisterTextFormFields extends StatelessWidget {
               Expanded(
                 child: CustomFormField(
                   controller: registerInputProvider.confirmPasswordController,
-                  hintText: 'confirm',
+                  hintText: S.of(context).registerPasswordConfirm,
                   type: TextInputType.visiblePassword,
                   isPassword: cubit.isPassword,
                   suffix: cubit.suffix,
@@ -76,7 +77,7 @@ class RegisterTextFormFields extends StatelessWidget {
                   validation: (value) {
                     if (value !=
                         registerInputProvider.passwordController.text) {
-                      return 'password didn\'t match';
+                      return S.of(context).registerPasswordConfirmValid;
                     }
                     return null;
                   },
@@ -86,11 +87,11 @@ class RegisterTextFormFields extends StatelessWidget {
           ),
           CustomFormField(
             controller: registerInputProvider.phoneController,
-            hintText: '01234567890',
+            hintText: S.of(context).registerPhone,
             type: TextInputType.phone,
             validation: (value) {
               if (value!.isEmpty) {
-                return 'phone mustn\'t be empty';
+                return S.of(context).registerPhoneValid;
               }
               return null;
             },
