@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_shop_app/constance.dart';
 import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_cubit.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class SettingsViewBody extends StatelessWidget {
   const SettingsViewBody({super.key});
@@ -8,15 +10,16 @@ class SettingsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String selectedLanguage = 'English';
+    var lang = S.of(context);
     var settingCubit = BlocProvider.of<SettingsCubit>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Settings',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          Text(
+            lang.settings,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 24),
 
@@ -24,11 +27,11 @@ class SettingsViewBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Row(
+              Row(
                 children: [
-                  Icon(Icons.language),
-                  SizedBox(width: 8),
-                  Text('Language'),
+                  const Icon(Icons.language),
+                  const SizedBox(width: 8),
+                  Text(lang.language),
                 ],
               ),
               DropdownButton(
@@ -54,15 +57,16 @@ class SettingsViewBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Row(
+              Row(
                 children: [
-                  Icon(Icons.dark_mode),
-                  SizedBox(width: 8),
-                  Text('Dark Mode'),
+                  const Icon(Icons.dark_mode),
+                  const SizedBox(width: 8),
+                  Text(lang.darkMode),
                 ],
               ),
               Switch(
                 value: settingCubit.isLight,
+                focusColor: primaryColor,
                 onChanged: (_) {
                   settingCubit.changeAppMode();
                 },

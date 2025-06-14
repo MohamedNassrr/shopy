@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "cartProducts": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
+    "darkMode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
     "deliveryAddress": MessageLookupByLibrary.simpleMessage("عنوان التوصيل"),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "emailForgetForm": MessageLookupByLibrary.simpleMessage(
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل نسيت كلمة المرور؟",
     ),
     "homeBottomNav": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "loginWelcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك في"),
     "now": MessageLookupByLibrary.simpleMessage("الآن"),
     "orText": MessageLookupByLibrary.simpleMessage("أو"),
@@ -89,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectDeliveryAddress": MessageLookupByLibrary.simpleMessage(
       "اختر عنوان التوصيل الخاص بك",
     ),
+    "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "totalPrice": MessageLookupByLibrary.simpleMessage("الإجمالي"),
   };
 }

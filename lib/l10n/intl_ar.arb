@@ -38,5 +38,8 @@
   "cartOrderSummery": "ملخص الطلب",
   "cartContinueButton": "المتابعة إلى الدفع",
   "totalPrice": "الإجمالي",
-  "cartProducts": "المنتجات"
+  "cartProducts": "المنتجات",
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "darkMode": "الوضع الليلي"
 }

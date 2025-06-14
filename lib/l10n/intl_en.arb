@@ -39,5 +39,8 @@
   "cartOrderSummery": "Order Summery",
   "cartContinueButton": "Continue for payments",
   "totalPrice": "Total",
-  "cartProducts": "Products"
+  "cartProducts": "Products",
+  "settings": "Settings",
+  "language": "Language",
+  "darkMode": "Dark Mode"
 }

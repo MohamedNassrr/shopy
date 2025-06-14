@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "cartProducts": MessageLookupByLibrary.simpleMessage("Products"),
     "category": MessageLookupByLibrary.simpleMessage("category"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+    "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "deliveryAddress": MessageLookupByLibrary.simpleMessage("Delivery address"),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "emailForgetForm": MessageLookupByLibrary.simpleMessage("enter email"),
@@ -48,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget Password?"),
     "homeBottomNav": MessageLookupByLibrary.simpleMessage("Home"),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
     "loginWelcome": MessageLookupByLibrary.simpleMessage("Welcome to "),
     "now": MessageLookupByLibrary.simpleMessage("Now"),
     "orText": MessageLookupByLibrary.simpleMessage("or"),
@@ -88,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectDeliveryAddress": MessageLookupByLibrary.simpleMessage(
       "select your delivery address",
     ),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "totalPrice": MessageLookupByLibrary.simpleMessage("Total"),
   };
 }
