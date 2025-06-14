@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_shop_app/constance.dart';
-import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_cubit.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/dark_mode_cubit/dark_mode_cubit.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/localization_cubit/localization_cubit.dart';
 import 'package:online_shop_app/generated/l10n.dart';
 
 class SettingsViewBody extends StatelessWidget {
@@ -9,9 +9,9 @@ class SettingsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String selectedLanguage = 'English';
     var lang = S.of(context);
-    var settingCubit = BlocProvider.of<SettingsCubit>(context);
+    var langCubit = context.read<LocalizationCubit>();
+    var darkModeCubit = context.read<DarkModeCubit>();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -35,19 +35,23 @@ class SettingsViewBody extends StatelessWidget {
                 ],
               ),
               DropdownButton(
-                value: selectedLanguage,
+                value: langCubit.currentLocale.languageCode,
                 style: Theme.of(context).textTheme.bodyMedium,
                 items: const [
                   DropdownMenuItem(
-                    value: 'English',
+                    value: 'en',
                     child: Text('English'),
                   ),
                   DropdownMenuItem(
-                    value: 'Arabic',
-                    child: Text('Arabic'),
+                    value: 'ar',
+                    child: Text('العربية'),
                   ),
                 ],
-                onChanged: (_) {},
+                onChanged: (value) {
+                  if (value != null) {
+                    langCubit.changeCurrentLang(value);
+                  }
+                },
               ),
             ],
           ),
@@ -65,10 +69,10 @@ class SettingsViewBody extends StatelessWidget {
                 ],
               ),
               Switch(
-                value: settingCubit.isLight,
-                focusColor: primaryColor,
+                value: darkModeCubit.isLight,
+                activeColor: Colors.white,
                 onChanged: (_) {
-                  settingCubit.changeAppMode();
+                  darkModeCubit.changeAppMode();
                 },
               ),
             ],

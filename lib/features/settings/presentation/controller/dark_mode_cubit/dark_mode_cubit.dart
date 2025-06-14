@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_states.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/dark_mode_cubit/dark_mode_states.dart';
 
-class SettingsCubit extends Cubit<SettingsStates> {
-  SettingsCubit() : super(SettingsInitialStates());
+class DarkModeCubit extends Cubit<DarkModeStates> {
+  DarkModeCubit() : super(SettingsInitialStates());
 
   bool isLight = true;
 
@@ -16,4 +16,5 @@ class SettingsCubit extends Cubit<SettingsStates> {
     }
 
   }
+
 }
