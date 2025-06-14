@@ -42,5 +42,7 @@
   "cartProducts": "Products",
   "settings": "Settings",
   "language": "Language",
-  "darkMode": "Dark Mode"
+  "darkMode": "Dark Mode",
+  "creditCard": "Continue with Credit card",
+  "paypal": "Continue with Paypal"
 }

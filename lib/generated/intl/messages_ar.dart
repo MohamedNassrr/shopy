@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "cartProducts": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
+    "creditCard": MessageLookupByLibrary.simpleMessage(
+      "المتابعة باستخدام بطاقة الائتمان",
+    ),
     "darkMode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
     "deliveryAddress": MessageLookupByLibrary.simpleMessage("عنوان التوصيل"),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
@@ -62,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordValidation": MessageLookupByLibrary.simpleMessage(
       "لا يمكن أن تكون كلمة المرور فارغة",
     ),
+    "paypal": MessageLookupByLibrary.simpleMessage("المتابعة باستخدام باي بال"),
     "profileBottomNav": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "recentProduct": MessageLookupByLibrary.simpleMessage("المنتجات الحديثة"),
     "register": MessageLookupByLibrary.simpleMessage("سجّل"),

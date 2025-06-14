@@ -403,6 +403,26 @@ class S {
   String get darkMode {
     return Intl.message('Dark Mode', name: 'darkMode', desc: '', args: []);
   }
+
+  /// `Continue with Credit card`
+  String get creditCard {
+    return Intl.message(
+      'Continue with Credit card',
+      name: 'creditCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with Paypal`
+  String get paypal {
+    return Intl.message(
+      'Continue with Paypal',
+      name: 'paypal',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

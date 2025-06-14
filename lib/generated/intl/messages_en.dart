@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "cartProducts": MessageLookupByLibrary.simpleMessage("Products"),
     "category": MessageLookupByLibrary.simpleMessage("category"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+    "creditCard": MessageLookupByLibrary.simpleMessage(
+      "Continue with Credit card",
+    ),
     "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
     "deliveryAddress": MessageLookupByLibrary.simpleMessage("Delivery address"),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
@@ -57,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordValidation": MessageLookupByLibrary.simpleMessage(
       "password cannot be empty",
     ),
+    "paypal": MessageLookupByLibrary.simpleMessage("Continue with Paypal"),
     "profileBottomNav": MessageLookupByLibrary.simpleMessage("Profile"),
     "recentProduct": MessageLookupByLibrary.simpleMessage("Recent product"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),

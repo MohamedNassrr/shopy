@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/widgets/custom_button.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class PaymentBottomSheet extends StatelessWidget {
   const PaymentBottomSheet({
@@ -11,6 +12,7 @@ class PaymentBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lang = S.of(context);
     return SizedBox(
       width: double.infinity,
       height: 225,
@@ -31,7 +33,7 @@ class PaymentBottomSheet extends StatelessWidget {
                 },
                 icon: FontAwesomeIcons.ccVisa,
                 iconSize: 25,
-                text: 'Continue with Credit card',
+                text: lang.creditCard,
                 iconColor: Colors.blue,
                 width: double.infinity,
                 height: 45,
@@ -48,7 +50,7 @@ class PaymentBottomSheet extends StatelessWidget {
                 icon: FontAwesomeIcons.ccPaypal,
                 iconColor: Colors.blue,
                 iconSize: 25,
-                text: 'Continue with Paypal',
+                text: lang.paypal,
                 width: double.infinity,
                 height: 45,
               ),
