@@ -263,6 +263,91 @@ class S {
       args: [],
     );
   }
+
+  /// `email or password isn't correct`
+  String get authValidationMessage {
+    return Intl.message(
+      'email or password isn\'t correct',
+      name: 'authValidationMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get homeBottomNav {
+    return Intl.message('Home', name: 'homeBottomNav', desc: '', args: []);
+  }
+
+  /// `Cart`
+  String get cartBottomNav {
+    return Intl.message('Cart', name: 'cartBottomNav', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profileBottomNav {
+    return Intl.message(
+      'Profile',
+      name: 'profileBottomNav',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `search here`
+  String get searchText {
+    return Intl.message('search here', name: 'searchText', desc: '', args: []);
+  }
+
+  /// `Recent product`
+  String get recentProduct {
+    return Intl.message(
+      'Recent product',
+      name: 'recentProduct',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery address`
+  String get deliveryAddress {
+    return Intl.message(
+      'Delivery address',
+      name: 'deliveryAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `select your delivery address`
+  String get selectDeliveryAddress {
+    return Intl.message(
+      'select your delivery address',
+      name: 'selectDeliveryAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `category`
+  String get category {
+    return Intl.message('category', name: 'category', desc: '', args: []);
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message('Description', name: 'description', desc: '', args: []);
+  }
+
+  /// `search for anything`
+  String get searchHintText {
+    return Intl.message(
+      'search for anything',
+      name: 'searchHintText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

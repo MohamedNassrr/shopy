@@ -22,5 +22,15 @@
   "registerPasswordConfirm": "تأكيد",
   "registerPasswordConfirmValid": "كلمة المرور غير متطابقة",
   "registerPhone": "01234567890",
-  "registerPhoneValid": "يجب ألا يكون رقم الهاتف فارغًا"
+  "registerPhoneValid": "يجب ألا يكون رقم الهاتف فارغًا",
+  "homeBottomNav": "الرئيسية",
+  "cartBottomNav": "عربة التسوق",
+  "profileBottomNav": "الملف الشخصي",
+  "searchText": "ابحث هنا",
+  "recentProduct": "المنتجات الحديثة",
+  "deliveryAddress": "عنوان التوصيل",
+  "selectDeliveryAddress": "اختر عنوان التوصيل الخاص بك",
+  "category": "الفئة",
+  "description": "الوصف",
+  "searchHintText": "ابحث عن أي شيء"
 }

@@ -11,6 +11,7 @@ import 'package:online_shop_app/features/home/presentation/controller/product_cu
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_gird_item.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/my_carousal_slider.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 import 'custom_sliver_app_bar.dart';
 
@@ -58,7 +59,7 @@ class HomeViewBody extends StatelessWidget {
                           children: [
                             const Icon(Icons.search),
                             Text(
-                                'search here...',
+                                '${S.of(context).searchText}...',
                               style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14),
                             )
                           ],
@@ -72,7 +73,7 @@ class HomeViewBody extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                      'Recent product',
+                      S.of(context).recentProduct,
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),

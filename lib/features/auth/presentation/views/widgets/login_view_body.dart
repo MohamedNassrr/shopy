@@ -35,8 +35,8 @@ class LoginViewBody extends StatelessWidget {
           }
 
           if (state is LoginFailureStates) {
-            SnackBar snackBar = const SnackBar(
-                content: Text('email or password isn\'t correct'));
+            SnackBar snackBar =  SnackBar(
+                content: Text(S.of(context).authValidationMessage));
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           }
         },

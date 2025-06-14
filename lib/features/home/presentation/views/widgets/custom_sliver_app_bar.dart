@@ -5,6 +5,7 @@ import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/utils/assets_data.dart';
 import 'package:online_shop_app/features/home/presentation/controller/home_cubit/home_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/home_cubit/home_states.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({super.key});
@@ -40,7 +41,7 @@ class CustomSliverAppBar extends StatelessWidget {
                       size: 15,
                     ),
                     Text(
-                      'Delivery address',
+                      S.of(context).deliveryAddress,
                       style: Theme.of(context).textTheme.labelSmall,
                     ),
                   ],
@@ -61,7 +62,7 @@ class CustomSliverAppBar extends StatelessWidget {
                           child: Text(
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
-                            selectedLocation ?? 'select your delivery address',
+                            selectedLocation ??  S.of(context).selectDeliveryAddress,
                             style: Theme.of(context).textTheme.labelMedium,
                           ),
                         ),

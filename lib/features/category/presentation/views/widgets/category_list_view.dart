@@ -6,6 +6,7 @@ import 'package:online_shop_app/core/widgets/custom_error_message.dart';
 import 'package:online_shop_app/features/category/presentation/controller/category_cubit/category_cubit.dart';
 import 'package:online_shop_app/features/category/presentation/controller/category_cubit/category_states.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class CategoryListView extends StatelessWidget {
   const CategoryListView({super.key});
@@ -18,7 +19,7 @@ class CategoryListView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Category',
+            S.of(context).category,
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(

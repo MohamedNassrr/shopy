@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class ProductDetailBody extends StatelessWidget {
   const ProductDetailBody({super.key, required this.product});
@@ -28,7 +29,7 @@ class ProductDetailBody extends StatelessWidget {
           ),
           const SizedBox(height: 11),
           Text(
-            'Description',
+            S.of(context).description,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           Text(

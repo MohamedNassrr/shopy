@@ -22,5 +22,16 @@
   "registerPasswordConfirm": "confirm",
   "registerPasswordConfirmValid": "password didn't match",
   "registerPhone": "01234567890",
-  "registerPhoneValid": "phone mustn't be empty"
+  "registerPhoneValid": "phone mustn't be empty",
+  "authValidationMessage": "email or password isn't correct",
+  "homeBottomNav": "Home",
+  "cartBottomNav": "Cart",
+  "profileBottomNav": "Profile",
+  "searchText": "search here",
+  "recentProduct": "Recent product",
+  "deliveryAddress": "Delivery address",
+  "selectDeliveryAddress": "select your delivery address",
+  "category": "category",
+  "description": "Description",
+  "searchHintText": "search for anything"
 }

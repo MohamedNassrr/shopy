@@ -22,7 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "cartBottomNav": MessageLookupByLibrary.simpleMessage("عربة التسوق"),
+    "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
+    "deliveryAddress": MessageLookupByLibrary.simpleMessage("عنوان التوصيل"),
+    "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "emailForgetForm": MessageLookupByLibrary.simpleMessage(
       "أدخل البريد الإلكتروني",
     ),
@@ -41,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgetPassword": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
+    "homeBottomNav": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "loginWelcome": MessageLookupByLibrary.simpleMessage("مرحبًا بك في"),
     "now": MessageLookupByLibrary.simpleMessage("الآن"),
     "orText": MessageLookupByLibrary.simpleMessage("أو"),
@@ -48,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordValidation": MessageLookupByLibrary.simpleMessage(
       "لا يمكن أن تكون كلمة المرور فارغة",
     ),
+    "profileBottomNav": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "recentProduct": MessageLookupByLibrary.simpleMessage("المنتجات الحديثة"),
     "register": MessageLookupByLibrary.simpleMessage("سجّل"),
     "registerEmail": MessageLookupByLibrary.simpleMessage("name@example.com"),
     "registerEmailValid": MessageLookupByLibrary.simpleMessage(
@@ -70,5 +77,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "يجب ألا يكون اسم المستخدم فارغًا",
     ),
     "registryText": MessageLookupByLibrary.simpleMessage("ليس لديك حساب بعد؟"),
+    "searchHintText": MessageLookupByLibrary.simpleMessage("ابحث عن أي شيء"),
+    "searchText": MessageLookupByLibrary.simpleMessage("ابحث هنا"),
+    "selectDeliveryAddress": MessageLookupByLibrary.simpleMessage(
+      "اختر عنوان التوصيل الخاص بك",
+    ),
   };
 }

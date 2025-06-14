@@ -7,6 +7,7 @@ import 'package:online_shop_app/core/widgets/custom_form_field.dart';
 import 'package:online_shop_app/features/home/presentation/controller/search_cubit/search_cubit.dart';
 import 'package:online_shop_app/features/home/presentation/controller/search_cubit/search_states.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -34,7 +35,7 @@ class SearchViewBody extends StatelessWidget {
               Expanded(
                 child: CustomFormField(
                   controller: searchController,
-                  hintText: 'Search here ... ',
+                  hintText: '${S.of(context).searchText} ... ',
                   hintStyle: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 14),
                   type: TextInputType.text,
                   onChanged: (_){
@@ -81,7 +82,7 @@ class SearchViewBody extends StatelessWidget {
                   children: [
                     const SizedBox(height: 260,),
                     Text(
-                      'search for anything',
+                      S.of(context).searchHintText,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.grey),
                     ),
                   ],

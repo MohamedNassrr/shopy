@@ -22,7 +22,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "authValidationMessage": MessageLookupByLibrary.simpleMessage(
+      "email or password isn\'t correct",
+    ),
+    "cartBottomNav": MessageLookupByLibrary.simpleMessage("Cart"),
+    "category": MessageLookupByLibrary.simpleMessage("category"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+    "deliveryAddress": MessageLookupByLibrary.simpleMessage("Delivery address"),
+    "description": MessageLookupByLibrary.simpleMessage("Description"),
     "emailForgetForm": MessageLookupByLibrary.simpleMessage("enter email"),
     "emailForgetSendButton": MessageLookupByLibrary.simpleMessage("send code"),
     "emailForgetValidation": MessageLookupByLibrary.simpleMessage(
@@ -33,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "email address cannot be empty",
     ),
     "forgetPassword": MessageLookupByLibrary.simpleMessage("Forget Password?"),
+    "homeBottomNav": MessageLookupByLibrary.simpleMessage("Home"),
     "loginWelcome": MessageLookupByLibrary.simpleMessage("Welcome to "),
     "now": MessageLookupByLibrary.simpleMessage("Now"),
     "orText": MessageLookupByLibrary.simpleMessage("or"),
@@ -40,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordValidation": MessageLookupByLibrary.simpleMessage(
       "password cannot be empty",
     ),
+    "profileBottomNav": MessageLookupByLibrary.simpleMessage("Profile"),
+    "recentProduct": MessageLookupByLibrary.simpleMessage("Recent product"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "registerEmail": MessageLookupByLibrary.simpleMessage("name@example.com"),
     "registerEmailValid": MessageLookupByLibrary.simpleMessage(
@@ -63,6 +73,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "registryText": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account yet?",
+    ),
+    "searchHintText": MessageLookupByLibrary.simpleMessage(
+      "search for anything",
+    ),
+    "searchText": MessageLookupByLibrary.simpleMessage("search here"),
+    "selectDeliveryAddress": MessageLookupByLibrary.simpleMessage(
+      "select your delivery address",
     ),
   };
 }
