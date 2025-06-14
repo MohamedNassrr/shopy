@@ -33,5 +33,11 @@
   "selectDeliveryAddress": "select your delivery address",
   "category": "category",
   "description": "Description",
-  "searchHintText": "search for anything"
+  "searchHintText": "search for anything",
+  "cart": "Cart",
+  "cartEmpty": "cart is empty",
+  "cartOrderSummery": "Order Summery",
+  "cartContinueButton": "Continue for payments",
+  "totalPrice": "Total",
+  "cartProducts": "Products"
 }

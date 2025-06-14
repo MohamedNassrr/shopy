@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/cart_list_view.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/order_summery.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -13,7 +14,7 @@ class CartViewBody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Text(
-            'Cart',
+            S.of(context).cart,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),

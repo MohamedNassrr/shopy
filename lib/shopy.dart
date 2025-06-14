@@ -52,7 +52,7 @@ class Shopy extends StatelessWidget {
         builder: (BuildContext context, state) {
           var settingCubit = BlocProvider.of<SettingsCubit>(context);
           return MaterialApp.router(
-            locale: const Locale('en'),
+            locale: const Locale('ar'),
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,

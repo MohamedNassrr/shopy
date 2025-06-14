@@ -25,7 +25,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "authValidationMessage": MessageLookupByLibrary.simpleMessage(
       "email or password isn\'t correct",
     ),
+    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "cartBottomNav": MessageLookupByLibrary.simpleMessage("Cart"),
+    "cartContinueButton": MessageLookupByLibrary.simpleMessage(
+      "Continue for payments",
+    ),
+    "cartEmpty": MessageLookupByLibrary.simpleMessage("cart is empty"),
+    "cartOrderSummery": MessageLookupByLibrary.simpleMessage("Order Summery"),
+    "cartProducts": MessageLookupByLibrary.simpleMessage("Products"),
     "category": MessageLookupByLibrary.simpleMessage("category"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
     "deliveryAddress": MessageLookupByLibrary.simpleMessage("Delivery address"),
@@ -81,5 +88,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectDeliveryAddress": MessageLookupByLibrary.simpleMessage(
       "select your delivery address",
     ),
+    "totalPrice": MessageLookupByLibrary.simpleMessage("Total"),
   };
 }

@@ -3,6 +3,7 @@ import 'package:online_shop_app/core/widgets/custom_text_button.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/payments_bottom_sheet.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_price.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_products.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class OrderSummery extends StatelessWidget {
   const OrderSummery({super.key});
@@ -17,7 +18,7 @@ class OrderSummery extends StatelessWidget {
         children: [
           const Divider(),
           Text(
-            'Order Summery',
+            S.of(context).cartOrderSummery,
             style:
              Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w700),
           ),
@@ -30,7 +31,7 @@ class OrderSummery extends StatelessWidget {
                 builder: (context) => const PaymentBottomSheet(),
               );
             },
-            text: 'Continue for payments',
+            text: S.of(context).cartContinueButton,
           ),
         ],
       ),

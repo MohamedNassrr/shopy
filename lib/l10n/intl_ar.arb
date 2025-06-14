@@ -32,5 +32,11 @@
   "selectDeliveryAddress": "اختر عنوان التوصيل الخاص بك",
   "category": "الفئة",
   "description": "الوصف",
-  "searchHintText": "ابحث عن أي شيء"
+  "searchHintText": "ابحث عن أي شيء",
+  "cart": "عربة التسوق",
+  "cartEmpty": "عربة التسوق فارغة",
+  "cartOrderSummery": "ملخص الطلب",
+  "cartContinueButton": "المتابعة إلى الدفع",
+  "totalPrice": "الإجمالي",
+  "cartProducts": "المنتجات"
 }

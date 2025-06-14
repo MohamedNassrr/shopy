@@ -22,7 +22,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "cart": MessageLookupByLibrary.simpleMessage("عربة التسوق"),
     "cartBottomNav": MessageLookupByLibrary.simpleMessage("عربة التسوق"),
+    "cartContinueButton": MessageLookupByLibrary.simpleMessage(
+      "المتابعة إلى الدفع",
+    ),
+    "cartEmpty": MessageLookupByLibrary.simpleMessage("عربة التسوق فارغة"),
+    "cartOrderSummery": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
+    "cartProducts": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "category": MessageLookupByLibrary.simpleMessage("الفئة"),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
     "deliveryAddress": MessageLookupByLibrary.simpleMessage("عنوان التوصيل"),
@@ -82,5 +89,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectDeliveryAddress": MessageLookupByLibrary.simpleMessage(
       "اختر عنوان التوصيل الخاص بك",
     ),
+    "totalPrice": MessageLookupByLibrary.simpleMessage("الإجمالي"),
   };
 }

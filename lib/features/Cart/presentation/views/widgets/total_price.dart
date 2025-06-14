@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
+import 'package:online_shop_app/generated/l10n.dart';
 
 class TotalPrice extends StatelessWidget {
   const TotalPrice({super.key});
@@ -11,8 +12,8 @@ class TotalPrice extends StatelessWidget {
     return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          'Total',
+         Text(
+          S.of(context).totalPrice,
         ),
         Text(
           '\$ ${summeryCubit.totalPrice().toStringAsFixed(1)}',
