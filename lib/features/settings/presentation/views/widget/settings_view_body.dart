@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/features/settings/presentation/controller/dark_mode_cubit/dark_mode_cubit.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/dark_mode_cubit/dark_mode_states.dart';
 import 'package:online_shop_app/features/settings/presentation/controller/localization_cubit/localization_cubit.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/localization_cubit/localization_states.dart';
 import 'package:online_shop_app/generated/l10n.dart';
 
 class SettingsViewBody extends StatelessWidget {
@@ -34,23 +36,27 @@ class SettingsViewBody extends StatelessWidget {
                   Text(lang.language),
                 ],
               ),
-              DropdownButton(
-                value: langCubit.currentLocale.languageCode,
-                style: Theme.of(context).textTheme.bodyMedium,
-                items: const [
-                  DropdownMenuItem(
-                    value: 'en',
-                    child: Text('English'),
-                  ),
-                  DropdownMenuItem(
-                    value: 'ar',
-                    child: Text('العربية'),
-                  ),
-                ],
-                onChanged: (value) {
-                  if (value != null) {
-                    langCubit.changeCurrentLang(value);
-                  }
+              BlocBuilder<LocalizationCubit, LocalizationStates>(
+                builder: (context, state) {
+                  return DropdownButton(
+                    value: state.locale.languageCode,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    items: const [
+                      DropdownMenuItem(
+                        value: 'en',
+                        child: Text('English'),
+                      ),
+                      DropdownMenuItem(
+                        value: 'ar',
+                        child: Text('العربية'),
+                      ),
+                    ],
+                    onChanged: (value) {
+                      if (value != null) {
+                        langCubit.changeCurrentLang(value);
+                      }
+                    },
+                  );
                 },
               ),
             ],
@@ -58,24 +64,28 @@ class SettingsViewBody extends StatelessWidget {
           const SizedBox(height: 16),
 
           // Dark Mode Row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
+          BlocBuilder<DarkModeCubit, DarkModeStates>(
+            builder: (BuildContext context, state) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.dark_mode),
-                  const SizedBox(width: 8),
-                  Text(lang.darkMode),
+                  Row(
+                    children: [
+                      const Icon(Icons.dark_mode),
+                      const SizedBox(width: 8),
+                      Text(lang.darkMode),
+                    ],
+                  ),
+                  Switch(
+                    value: state.isLight,
+                    activeColor: Colors.white,
+                    onChanged: (value) {
+                      darkModeCubit.changeAppMode(fromShared: value);
+                    },
+                  ),
                 ],
-              ),
-              Switch(
-                value: darkModeCubit.isLight,
-                activeColor: Colors.white,
-                onChanged: (_) {
-                  darkModeCubit.changeAppMode();
-                },
-              ),
-            ],
+              );
+            },
           ),
         ],
       ),

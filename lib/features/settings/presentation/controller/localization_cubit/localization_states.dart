@@ -1,5 +1,17 @@
-abstract class LocalizationStates {}
+import 'package:flutter/material.dart';
 
-class LocalizationInitialState extends LocalizationStates {}
+abstract class LocalizationStates {
+  final Locale locale;
 
-class AppChangeLangState extends LocalizationStates {}
+  LocalizationStates({required this.locale});
+}
+
+class LocalizationInitialState extends LocalizationStates {
+  LocalizationInitialState({required super.locale});
+}
+
+class AppChangeLangState extends LocalizationStates {
+  AppChangeLangState({required super.locale});
+
+
+}

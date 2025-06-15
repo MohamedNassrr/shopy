@@ -56,7 +56,7 @@ class Shopy extends StatelessWidget {
           return BlocBuilder<LocalizationCubit,LocalizationStates>(
             builder: (BuildContext context, state) {
               return MaterialApp.router(
-                locale: langCubit.currentLocale,
+                locale: langCubit.state.locale,
                 localizationsDelegates: const [
                   S.delegate,
                   GlobalMaterialLocalizations.delegate,
@@ -64,7 +64,7 @@ class Shopy extends StatelessWidget {
                   GlobalCupertinoLocalizations.delegate,
                 ],
                 supportedLocales: S.delegate.supportedLocales,
-                themeMode: darkModeCubit.isLight ? ThemeMode.dark : ThemeMode.light,
+                themeMode: darkModeCubit.state.isLight ? ThemeMode.dark : ThemeMode.light,
                 darkTheme: TAppTheme.darkTheme,
                 theme: TAppTheme.lightTheme,
                 debugShowCheckedModeBanner: false,

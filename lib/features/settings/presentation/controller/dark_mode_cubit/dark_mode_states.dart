@@ -1,9 +1,17 @@
-abstract class DarkModeStates {}
+abstract class DarkModeStates {
+  final bool isLight;
 
-class SettingsInitialStates extends DarkModeStates {}
+  DarkModeStates({required this.isLight});
+}
 
-class AppModeChangedStates extends DarkModeStates {}
+class SettingsInitialStates extends DarkModeStates {
+  SettingsInitialStates({required super.isLight});
 
-class AppLangChangeStates extends DarkModeStates {}
+}
+
+class AppModeChangedStates extends DarkModeStates {
+  AppModeChangedStates({required super.isLight});
+}
+
 
 
