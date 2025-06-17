@@ -17,6 +17,5 @@ void main() async {
   final Locale savedLocale = langCode != null ? Locale(langCode) : const Locale('en');
   serviceLocator();
   await dotenv.load(fileName: ".env");
-
   runApp(Shopy(isDark,savedLocale));
 }

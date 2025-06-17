@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_shop_app/features/settings/presentation/controller/dark_mode_cubit/dark_mode_cubit.dart';
-import 'package:online_shop_app/features/settings/presentation/controller/localization_cubit/localization_cubit.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_cubit.dart';
 import 'package:online_shop_app/generated/l10n.dart';
 
 class SettingsViewBody extends StatelessWidget {
@@ -10,8 +9,7 @@ class SettingsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var lang = S.of(context);
-    var langCubit = context.read<LocalizationCubit>();
-    var darkModeCubit = context.read<DarkModeCubit>();
+    var appSettingCubit = context.read<SettingsCubit>();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -35,7 +33,7 @@ class SettingsViewBody extends StatelessWidget {
                 ],
               ),
               DropdownButton(
-                value: langCubit.currentLocale.languageCode,
+                value: appSettingCubit.currentLocale.languageCode,
                 style: Theme.of(context).textTheme.bodyMedium,
                 items: const [
                   DropdownMenuItem(
@@ -49,7 +47,7 @@ class SettingsViewBody extends StatelessWidget {
                 ],
                 onChanged: (value) {
                   if (value != null) {
-                    langCubit.changeCurrentLang(value);
+                    appSettingCubit.changeCurrentLang(value);
                   }
                 },
               ),
@@ -67,10 +65,10 @@ class SettingsViewBody extends StatelessWidget {
                 ],
               ),
               Switch(
-                value: darkModeCubit.isDark,
+                value: appSettingCubit.isDark,
                 activeColor: Colors.white,
                 onChanged: (_) {
-                  darkModeCubit.changeAppMode();
+                  appSettingCubit.setAppMode();
                 },
               ),
             ],
