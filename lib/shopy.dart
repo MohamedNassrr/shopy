@@ -61,10 +61,8 @@ class Shopy extends StatelessWidget {
         builder: (BuildContext context, state) {
           var darkModeCubit = BlocProvider.of<DarkModeCubit>(context);
           var langCubit = BlocProvider.of<LocalizationCubit>(context);
-          return BlocConsumer<LocalizationCubit,LocalizationStates>(
-            listener: (context, state) {
+          return BlocBuilder<LocalizationCubit,LocalizationStates>(
 
-            },
             builder: (BuildContext context, state) {
               return MaterialApp.router(
                 locale: langCubit.currentLocale,
