@@ -19,8 +19,9 @@ import 'generated/l10n.dart';
 
 class Shopy extends StatelessWidget {
   final bool? isDark;
+  final Locale? lang;
 
-  const Shopy(this.isDark, {super.key});
+  const Shopy(this.isDark,this.lang, {super.key});
 
 
 
@@ -50,7 +51,7 @@ class Shopy extends StatelessWidget {
           ProductCubit(getIt.get<HomeRepoImpl>())..fetchProductData(),
         ),
         BlocProvider(
-          create: (BuildContext context) => LocalizationCubit(),
+          create: (BuildContext context) => LocalizationCubit()..setInitialLang(lang),
         ),
         BlocProvider(
           create: (BuildContext context) => DarkModeCubit()..changeAppMode(fromShared: isDark),
@@ -60,7 +61,10 @@ class Shopy extends StatelessWidget {
         builder: (BuildContext context, state) {
           var darkModeCubit = BlocProvider.of<DarkModeCubit>(context);
           var langCubit = BlocProvider.of<LocalizationCubit>(context);
-          return BlocBuilder<LocalizationCubit,LocalizationStates>(
+          return BlocConsumer<LocalizationCubit,LocalizationStates>(
+            listener: (context, state) {
+
+            },
             builder: (BuildContext context, state) {
               return MaterialApp.router(
                 locale: langCubit.currentLocale,

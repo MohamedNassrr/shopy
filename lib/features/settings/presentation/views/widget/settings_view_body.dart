@@ -56,8 +56,6 @@ class SettingsViewBody extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-
-          // Dark Mode Row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

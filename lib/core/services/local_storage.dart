@@ -17,5 +17,17 @@ class LocalStorage {
 })async {
     await _pref!.setBool(key, value);
   }
+
+
+  static String? getString({required String key}) {
+    return _pref!.getString(key);
+  }
+
+  static Future<void> setString({
+    required String key,
+    required dynamic value,
+  })async {
+    await _pref!.setString(key, value);
+  }
 }
 

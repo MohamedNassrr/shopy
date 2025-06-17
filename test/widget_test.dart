@@ -12,7 +12,7 @@ import 'package:online_shop_app/shopy.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( const Shopy(true));
+    await tester.pumpWidget( const Shopy(true,Locale('en')));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -13,8 +13,10 @@ void main() async {
   await Firebase.initializeApp();
   await LocalStorage.init();
   bool? isDark = LocalStorage.getBool(key: 'isDark');
+  final langCode = LocalStorage.getString(key: 'lang');
+  final Locale savedLocale = langCode != null ? Locale(langCode) : const Locale('en');
   serviceLocator();
   await dotenv.load(fileName: ".env");
 
-  runApp(Shopy(isDark));
+  runApp(Shopy(isDark,savedLocale));
 }
