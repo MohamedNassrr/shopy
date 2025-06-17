@@ -8,34 +8,30 @@ class SettingsCubit extends Cubit<SettingsStates> {
 
   bool isDark = false;
 
-  void setAppMode({bool? fromShared}){
+  Future<void> setAppMode({bool? fromShared}) async{
     if(fromShared != null){
       isDark = fromShared;
-      emit(AppModeChangedStates());
     }else{
       isDark = !isDark;
-      LocalStorage.setBool(key: 'isDark', value: isDark).then((_){
-        emit(AppModeChangedStates());
-      });
+      await LocalStorage.setBool(key: 'isDark', value: isDark);
     }
-
+    emit(AppThemeChangedState());
   }
 
 
 
   Locale currentLocale = const Locale('en');
 
-  void changeCurrentLang( String languageCode) {
+  Future<void> changeCurrentLang( String languageCode) async{
     currentLocale = Locale(languageCode);
-    LocalStorage.setString(key: 'lang', value: currentLocale.languageCode).then((_) {
-      emit(AppChangeLangState());
-    });
+    await LocalStorage.setString(key: 'lang', value: currentLocale.languageCode);
+    emit(AppLocaleChangedState());
   }
 
-  void setInitialLang(Locale? locale) {
+  void setInitialLang(Locale? locale)async  {
     if (locale != null) {
       currentLocale = locale;
-      emit(AppChangeLangState());
+      emit(AppLocaleChangedState());
     }
   }
 }

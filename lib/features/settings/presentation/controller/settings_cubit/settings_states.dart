@@ -2,10 +2,9 @@ abstract class SettingsStates {}
 
 class SettingsInitialStates extends SettingsStates {}
 
-class AppModeChangedStates extends SettingsStates {}
+class AppThemeChangedState extends SettingsStates {}
 
-class AppLangChangeStates extends SettingsStates {}
+class AppLocaleChangedState extends SettingsStates {}
 
-class AppChangeLangState extends SettingsStates {}
 
 
