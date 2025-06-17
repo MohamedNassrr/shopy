@@ -69,7 +69,7 @@ class SettingsViewBody extends StatelessWidget {
                 ],
               ),
               Switch(
-                value: darkModeCubit.isLight,
+                value: darkModeCubit.isDark,
                 activeColor: Colors.white,
                 onChanged: (_) {
                   darkModeCubit.changeAppMode();

@@ -19,7 +19,8 @@ import 'generated/l10n.dart';
 
 class Shopy extends StatelessWidget {
   final bool? isDark;
-  const Shopy({super.key, this.isDark});
+
+  const Shopy(this.isDark, {super.key});
 
 
 
@@ -48,6 +49,12 @@ class Shopy extends StatelessWidget {
           create: (context) =>
           ProductCubit(getIt.get<HomeRepoImpl>())..fetchProductData(),
         ),
+        BlocProvider(
+          create: (BuildContext context) => LocalizationCubit(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => DarkModeCubit()..changeAppMode(fromShared: isDark),
+        ),
       ],
       child: BlocBuilder<DarkModeCubit,DarkModeStates>(
         builder: (BuildContext context, state) {
@@ -64,7 +71,7 @@ class Shopy extends StatelessWidget {
                   GlobalCupertinoLocalizations.delegate,
                 ],
                 supportedLocales: S.delegate.supportedLocales,
-                themeMode: darkModeCubit.isLight ? ThemeMode.dark : ThemeMode.light,
+                themeMode: darkModeCubit.isDark ? ThemeMode.dark : ThemeMode.light,
                 darkTheme: TAppTheme.darkTheme,
                 theme: TAppTheme.lightTheme,
                 debugShowCheckedModeBanner: false,
