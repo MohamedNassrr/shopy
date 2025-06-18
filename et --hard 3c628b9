@@ -1,0 +1,91 @@
+[33mcaff8eb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m refactor
+[33m41ac72b[m add paymentIntentModel
+[33m3c628b9[m refactor main
+[33mb18da5c[m refactor settingCubit
+[33m73b1979[m refactor settingCubit and main dart
+[33maa02c88[m saved localization
+[33m251b95d[m saved localization
+[33m57a89ff[m saved dark/light mode
+[33m4c4013e[m toggling localization(ar/en)
+[33mf5d4ac9[m add localization to cart button sheet feature
+[33m0dc2801[m add localization to profile feature
+[33m0e7f5e9[m add localization to cart feature
+[33m4054139[m add localization to home feature
+[33m089b5d6[m add localization to auth feature
+[33m32b76d3[m impl dark/light mode
+[33m34015c5[m refactoring search view body
+[33m0a33287[m refactoring textTheme
+[33m057ca42[m impl search bar with logic
+[33m2901b82[m refactor to textTheme
+[33m50048d0[m category/product responsive
+[33m23d5104[m remove unused assets
+[33mc3c4b31[m refactor category screen
+[33me8a7085[m category screen done
+[33mc1da87e[m fetch category titles
+[33m687cd50[m refactor
+[33mb791e03[m just commit
+[33m9d6f9e0[m refactor
+[33m88697f3[m DI for catRepo
+[33m143d84c[m add category endpoint
+[33m0074f9f[m add decor/electronics screens
+[33mab394e9[m category cubit
+[33m5d15d32[m add category repos
+[33m1f57b31[m add category repos
+[33maf465d9[m add/refactor category view
+[33mf862c78[m add endPoint to separate files
+[33m17e5ff2[m add credit/paypal view
+[33m8326917[m add payment bottom sheet
+[33mc911887[m refactor appRouter name
+[33m151fab8[m refactor appRouter name
+[33m8b36ab2[m refactor appRouter name
+[33m66f6cc0[m add/refactor custom widget
+[33m954b48e[m refactor button in product screen
+[33m57656f9[m convert price to nearest number(remove dec)
+[33mca15a59[m fix continuous emitting in cart logic
+[33m91a409b[m active cart btn in product details screen
+[33m63301b3[m Merge remote-tracking branch 'origin/master'
+[33mb469b52[m add cart item from home
+[33mde1167d[m ci: add .deepsource.toml
+[33m6a2d0f7[m add dark/light theme
+[33m4ad4918[m show cart items
+[33m236116c[m add snackBar
+[33md04645c[m remove cart appbar
+[33m242ca27[m add cart and  test api
+[33m6a5a186[m add uuid
+[33m8a05de7[m refactor homeview appbar
+[33ma08838d[m refactor homeAppBar
+[33m7071ca9[m return address from googleMapsScreen
+[33mf1a3665[m refactor
+[33m9dd499e[m first commit
+[33m4fbdf2e[m first commit
+[33mbcdc97f[m fix error
+[33m9a7863c[m refactor
+[33me0c5a4f[m refactoring
+[33m92ef485[m add counter and add/minus and remove btn
+[33ma055e03[m refactor on (home,login,register) screens
+[33m054bb16[m add place details model
+[33m646eb03[m add cart screen without counter
+[33ma1cc0f7[m debugging
+[33m5334979[m fetch product details
+[33m1fb1593[m refactoring
+[33m5a63af4[m refactor and add botNavBar
+[33me12c6c8[m add google_maps services
+[33m2132b5b[m refactoring
+[33m85d5338[m refactoring
+[33me6ed4f1[m refactoring home screen
+[33md779fe7[m refactoring
+[33m00692f2[m save logging
+[33mafc4029[m refactor appBar
+[33mcfb322d[m remove botNavBar
+[33me9428eb[m add products
+[33m9a10e93[m add products
+[33m03b1328[m refactoring recent product
+[33m1df73ab[m add botNavBar
+[33m993911a[m add recent product gridList
+[33m5eb2be0[m add carousal slider and categoryList
+[33mc7a8168[m add custom appbar and search bar to home screen
+[33m2573400[m refactor register screen
+[33ma8020ec[m refactor login screen
+[33m167ba7b[m refactor login screen
+[33m437eb02[m finish Auth features
+[33m5a3dd1d[m google auth
