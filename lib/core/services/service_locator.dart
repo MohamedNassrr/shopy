@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:online_shop_app/core/services/api_service.dart';
 import 'package:online_shop_app/core/services/google_auth_services.dart';
+import 'package:online_shop_app/features/Cart/data/repos/stripe_repo_impl.dart';
 import 'package:online_shop_app/features/category/data/repos/cat_repo_impl.dart';
 import 'package:online_shop_app/features/home/data/repos/home_repo_impl.dart';
 
@@ -19,4 +20,6 @@ void serviceLocator() {
   getIt.registerSingleton<CatRepoImpl>(CatRepoImpl(
     getIt.get<ApiService>(),
   ));
+
+  getIt.registerSingleton<StripeRepoImpl>(StripeRepoImpl());
 }

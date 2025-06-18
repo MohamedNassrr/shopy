@@ -17,8 +17,6 @@ import 'package:online_shop_app/features/home/presentation/controller/search_cub
 import 'package:online_shop_app/features/home/presentation/views/home_view.dart';
 import 'package:online_shop_app/features/home/presentation/views/product_detail_view.dart';
 import 'package:online_shop_app/features/home/presentation/views/search_view.dart';
-import 'package:online_shop_app/features/payment/presentation/views/credit_cards_view.dart';
-import 'package:online_shop_app/features/payment/presentation/views/paypal_view.dart';
 
 abstract class AppRouter {
   static const rLoginView = '/';
@@ -28,8 +26,6 @@ abstract class AppRouter {
   static const rGoogleMapsView = '/GoogleMapsView';
   static const rProductDetailsView = '/ProductDetailView';
   static const rSearchView = '/SearchView';
-  static const rCreditView = '/CreditCardsView';
-  static const rPaypalView = '/PaypalView';
   static const rProductCategory = '/ProductCategory';
 
   static final router = GoRouter(
@@ -73,14 +69,6 @@ abstract class AppRouter {
         builder: (context, state) => BlocProvider(
             create: (context) => SearchCubit(getIt.get<HomeRepoImpl>()),
             child: const SearchView()),
-      ),
-      GoRoute(
-        path: rCreditView,
-        builder: (context, state) => const CreditCardsView(),
-      ),
-      GoRoute(
-        path: rPaypalView,
-        builder: (context, state) => const PaypalView(),
       ),
       GoRoute(
         path: rProductCategory,
