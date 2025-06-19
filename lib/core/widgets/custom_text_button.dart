@@ -12,7 +12,7 @@ class CustomTextButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.radius = 4,
     this.isLoading = false,
-    this.pressedColor = false,
+    this.isDisabled = false,
   });
 
   final double? width;
@@ -23,7 +23,7 @@ class CustomTextButton extends StatelessWidget {
   final Color textColor;
   final double radius;
   final bool isLoading;
-  final bool pressedColor;
+  final bool isDisabled;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class CustomTextButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: colors,
+        color: isDisabled ? Colors.grey : colors,
         borderRadius: BorderRadius.circular(radius),
       ),
       child: isLoading
@@ -40,7 +40,7 @@ class CustomTextButton extends StatelessWidget {
               color: Colors.white,
             ))
           : TextButton(
-              onPressed: onPressed,
+              onPressed: isDisabled ? null : onPressed ,
               child: Text(
                 text,
                 style: TextStyle(color: textColor),

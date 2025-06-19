@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/core/widgets/custom_text_button.dart';
 import 'package:online_shop_app/features/Cart/data/repos/stripe_repo_impl.dart';
+import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/payment_cubit/payment_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/payments_bottom_sheet.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_price.dart';
@@ -30,6 +31,7 @@ class OrderSummery extends StatelessWidget {
           const TotalPrice(),
           const TotalProducts(),
           CustomTextButton(
+            isDisabled: context.watch<CartCubit>().totalPrice() == 0,
             onPressed: () {
               showModalBottomSheet(
                 context: context,
