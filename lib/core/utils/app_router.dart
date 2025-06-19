@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:online_shop_app/core/services/service_locator.dart';
+import 'package:online_shop_app/features/Cart/presentation/views/success_payment_view.dart';
 import 'package:online_shop_app/features/auth/presentation/controller/register_cubit/register_cubit.dart';
 import 'package:online_shop_app/features/auth/presentation/views/forget_password_view.dart';
 import 'package:online_shop_app/features/auth/presentation/views/login_view.dart';
@@ -27,6 +28,7 @@ abstract class AppRouter {
   static const rProductDetailsView = '/ProductDetailView';
   static const rSearchView = '/SearchView';
   static const rProductCategory = '/ProductCategory';
+  static const rSuccessPayment = '/SuccessPaymentView';
 
   static final router = GoRouter(
     initialLocation: initialLocation(),
@@ -72,9 +74,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: rProductCategory,
-        builder: (context, state) =>    CategoryProductView(
+        builder: (context, state) => CategoryProductView(
           categoryModel: state.extra as CategoryModel,
         ),
+      ),
+      GoRoute(
+        path: rSuccessPayment,
+        builder: (context, state) => const SuccessPaymentView(),
       ),
     ],
   );

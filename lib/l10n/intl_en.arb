@@ -44,5 +44,8 @@
   "language": "Language",
   "darkMode": "Dark Mode",
   "creditCard": "Continue with Credit card",
-  "paypal": "Continue with Paypal"
+  "paypal": "Continue with Paypal",
+  "transactionSuccessful": "Your Transaction is Successful",
+  "thankYou": "Thank You!",
+  "backToHome": "back to home screen"
 }

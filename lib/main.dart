@@ -11,6 +11,7 @@ void main() async {
   final langCode = LocalStorage.getString(key: 'lang');
   final Locale savedLocale = langCode != null ? Locale(langCode) : const Locale('en');
   Stripe.publishableKey = dotenv.get('STRIPE_PUBLISHABLE_KEY');
+  await Stripe.instance.applySettings();
   runApp(Shopy(isDark,savedLocale));
 }
 

@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authValidationMessage": MessageLookupByLibrary.simpleMessage(
       "email or password isn\'t correct",
     ),
+    "backToHome": MessageLookupByLibrary.simpleMessage("back to home screen"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "cartBottomNav": MessageLookupByLibrary.simpleMessage("Cart"),
     "cartContinueButton": MessageLookupByLibrary.simpleMessage(
@@ -95,6 +96,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "select your delivery address",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "thankYou": MessageLookupByLibrary.simpleMessage("Thank You!"),
     "totalPrice": MessageLookupByLibrary.simpleMessage("Total"),
+    "transactionSuccessful": MessageLookupByLibrary.simpleMessage(
+      "Your Transaction is Successful",
+    ),
   };
 }

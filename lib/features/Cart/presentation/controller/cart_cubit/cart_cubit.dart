@@ -59,7 +59,7 @@ class CartCubit extends Cubit<CartStates> {
     for (var item in cartItem) {
       total += item.productModel.price! * item.quantity;
     }
-    return total;
+    return total ;
   }
 
   int totalProduct(){

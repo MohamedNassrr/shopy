@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -14,6 +15,7 @@ class CustomButton extends StatelessWidget {
     this.iconSize = 15,
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.textColor,
+    this.isLoading = false,
   });
 
   final Function() onTap;
@@ -27,6 +29,7 @@ class CustomButton extends StatelessWidget {
   final Color? iconColor;
   final Color? textColor;
   final MainAxisAlignment mainAxisAlignment;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -39,23 +42,27 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
           color: borderColor,
         ),
-        child: Row(
-          mainAxisAlignment: mainAxisAlignment,
-          spacing: 10,
-          children: [
-            Icon(
-              icon,
-              size: iconSize,
-              color: iconColor,
-            ),
-            Text(
-              text,
-              style: TextStyle(
-                color: textColor,
+        child: isLoading
+            ? const Center(
+                child: CustomCircleIndicator(),
+              )
+            : Row(
+                mainAxisAlignment: mainAxisAlignment,
+                spacing: 10,
+                children: [
+                  Icon(
+                    icon,
+                    size: iconSize,
+                    color: iconColor,
+                  ),
+                  Text(
+                    text,
+                    style: TextStyle(
+                      color: textColor,
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }
