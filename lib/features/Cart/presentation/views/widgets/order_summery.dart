@@ -7,6 +7,7 @@ import 'package:online_shop_app/features/Cart/presentation/controller/payment_cu
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/payments_bottom_sheet.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_price.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/total_products.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_cubit.dart';
 import 'package:online_shop_app/generated/l10n.dart';
 
 class OrderSummery extends StatelessWidget {
@@ -31,6 +32,7 @@ class OrderSummery extends StatelessWidget {
           const TotalPrice(),
           const TotalProducts(),
           CustomTextButton(
+            isDark: context.watch<SettingsCubit>().isDark,
             isDisabled: context.watch<CartCubit>().totalPrice() == 0,
             onPressed: () {
               showModalBottomSheet(
