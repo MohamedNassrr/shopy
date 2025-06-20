@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_cubit.dart';
+import 'package:online_shop_app/features/settings/presentation/views/widget/dark_mode_switching.dart';
+import 'package:online_shop_app/features/settings/presentation/views/widget/language_selection.dart';
+import 'package:online_shop_app/features/settings/presentation/views/widget/signout_bloc_consumer.dart';
 import 'package:online_shop_app/generated/l10n.dart';
 
 class SettingsViewBody extends StatelessWidget {
@@ -20,59 +23,10 @@ class SettingsViewBody extends StatelessWidget {
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 24),
-
-          // Language Row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  const Icon(Icons.language),
-                  const SizedBox(width: 8),
-                  Text(lang.language),
-                ],
-              ),
-              DropdownButton(
-                value: appSettingCubit.currentLocale.languageCode,
-                style: Theme.of(context).textTheme.bodyMedium,
-                items: const [
-                  DropdownMenuItem(
-                    value: 'en',
-                    child: Text('English'),
-                  ),
-                  DropdownMenuItem(
-                    value: 'ar',
-                    child: Text('العربية'),
-                  ),
-                ],
-                onChanged: (value) {
-                  if (value != null) {
-                    appSettingCubit.changeCurrentLang(value);
-                  }
-                },
-              ),
-            ],
-          ),
+          LanguageSelection(lang: lang, appSettingCubit: appSettingCubit),
           const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  const Icon(Icons.dark_mode),
-                  const SizedBox(width: 8),
-                  Text(lang.darkMode),
-                ],
-              ),
-              Switch(
-                value: appSettingCubit.isDark,
-                activeColor: Colors.white,
-                onChanged: (_) {
-                  appSettingCubit.setAppMode();
-                },
-              ),
-            ],
-          ),
+          DarkModeSwitching(lang: lang, appSettingCubit: appSettingCubit),
+          const SignOutBlocConsumer(),
         ],
       ),
     );

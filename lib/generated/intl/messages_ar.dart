@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "addToCart": MessageLookupByLibrary.simpleMessage("اضف الي العربه"),
     "backToHome": MessageLookupByLibrary.simpleMessage(
       "العودة إلى الشاشة الرئيسية",
     ),
@@ -99,10 +100,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختر عنوان التوصيل الخاص بك",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "signOut": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
     "thankYou": MessageLookupByLibrary.simpleMessage("شكرًا لك!"),
     "totalPrice": MessageLookupByLibrary.simpleMessage("الإجمالي"),
     "transactionSuccessful": MessageLookupByLibrary.simpleMessage(
-      "تمت العملية بنجاح",
+      "تمت العمليةالدفع بنجاح",
     ),
   };
 }

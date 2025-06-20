@@ -47,5 +47,7 @@
   "paypal": "Continue with Paypal",
   "transactionSuccessful": "Your Transaction is Successful",
   "thankYou": "Thank You!",
-  "backToHome": "back to home screen"
+  "backToHome": "back to home screen",
+  "signOut": "sign out",
+  "addToCart": "add to cart"
 }

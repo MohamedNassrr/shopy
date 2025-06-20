@@ -448,6 +448,16 @@ class S {
       args: [],
     );
   }
+
+  /// `sign out`
+  String get signOut {
+    return Intl.message('sign out', name: 'signOut', desc: '', args: []);
+  }
+
+  /// `add to cart`
+  String get addToCart {
+    return Intl.message('add to cart', name: 'addToCart', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

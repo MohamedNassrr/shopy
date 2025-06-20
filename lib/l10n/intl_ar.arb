@@ -44,7 +44,9 @@
   "darkMode": "الوضع الليلي",
   "creditCard": "المتابعة باستخدام بطاقة الائتمان",
   "paypal": "المتابعة باستخدام باي بال",
-  "transactionSuccessful": "تمت العملية بنجاح",
+  "transactionSuccessful": "تمت العمليةالدفع بنجاح",
   "thankYou": "شكرًا لك!",
-  "backToHome": "العودة إلى الشاشة الرئيسية"
+  "backToHome": "العودة إلى الشاشة الرئيسية",
+  "signOut": "تسجيل خروج",
+  "addToCart": "اضف الي العربه"
 }
