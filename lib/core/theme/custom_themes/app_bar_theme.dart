@@ -7,6 +7,6 @@ class TAppBarTheme{
   );
 
   static final darkAppBar = const AppBarTheme(
-    backgroundColor: Colors.black,
+    backgroundColor: Color(0xff1c1c1c),
   );
 }

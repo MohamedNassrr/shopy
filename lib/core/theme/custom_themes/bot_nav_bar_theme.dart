@@ -9,6 +9,6 @@ class TBotNavBarTheme{
   );
   static final darkBotNavBar =  const BottomNavigationBarThemeData(
     selectedItemColor: Colors.white,
-    backgroundColor: Colors.black,
+    backgroundColor: Color(0xff1c1c1c),
   );
 }

@@ -21,7 +21,7 @@ class TAppTheme{
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: Colors.white,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: const Color(0xff1c1c1c),
     textTheme: TTextTheme.darkTextTheme,
     elevatedButtonTheme: TElevatedBottomTheme.darkElevatedBottomTheme,
     appBarTheme: TAppBarTheme.darkAppBar,
