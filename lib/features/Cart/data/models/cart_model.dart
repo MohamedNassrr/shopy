@@ -6,6 +6,16 @@ class CartModel {
 
   CartModel({
     required this.productModel,
-    required this.quantity ,
+    required this.quantity,
   });
+
+  factory CartModel.fromJson(Map<String, dynamic> json) => CartModel(
+        productModel: ProductModel.fromJson(json['productModel']),
+        quantity: json['quantity'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'productModel': productModel.toJson(),
+        'quantity': quantity,
+      };
 }
