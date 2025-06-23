@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/features/Cart/presentation/views/widgets/credit_card_bottom_sheet.dart';
-import 'package:online_shop_app/features/Cart/presentation/views/widgets/paypal_bottom_sheet.dart';
 import 'package:online_shop_app/generated/l10n.dart';
 
 class PaymentBottomSheet extends StatelessWidget {
@@ -22,7 +21,7 @@ class PaymentBottomSheet extends StatelessWidget {
           spacing: 15,
           children: [
             CreditCardBottomSheet(lang: lang),
-            PaypalBottomSheet(lang: lang),
+
           ],
         ),
       ),
