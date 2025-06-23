@@ -8,21 +8,24 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Text(
-            S.of(context).cart,
-            style: Theme.of(context).textTheme.bodyMedium,
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              S.of(context).cart,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
-        ),
-        const SizedBox(height: 10),
-        const CartListView(),
-        const SizedBox(height: 2),
-        const OrderSummery(),
-      ],
+          const SizedBox(height: 10),
+          const CartListView(),
+          const SizedBox(height: 2),
+          const OrderSummery(),
+        ],
+      ),
     );
   }
 }
