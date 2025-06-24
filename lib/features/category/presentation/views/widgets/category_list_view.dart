@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:online_shop_app/core/utils/app_router.dart';
 import 'package:online_shop_app/core/widgets/custom_error_message.dart';
 import 'package:online_shop_app/features/category/presentation/controller/category_cubit/category_cubit.dart';
 import 'package:online_shop_app/features/category/presentation/controller/category_cubit/category_states.dart';
+import 'package:online_shop_app/features/home/presentation/views/widgets/category_list_item.dart';
 import 'package:online_shop_app/features/home/presentation/views/widgets/custom_circle_indicator.dart';
 import 'package:online_shop_app/generated/l10n.dart';
 
@@ -14,7 +13,7 @@ class CategoryListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -37,45 +36,8 @@ class CategoryListView extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       final categories = state.categories[index];
-                      return AspectRatio(
-                        aspectRatio: 3/ 2.9,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 7,),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(8),
-                            onTap: () {
-                              GoRouter.of(context).push(
-                                AppRouter.rProductCategory,
-                                extra: categories,
-                              );
-                            },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                            .055,
-                                    width: MediaQuery.of(context).size.width *
-                                        .15,
-                                    decoration: BoxDecoration(
-                                        color: const Color(0xffEDF7FF),
-                                        borderRadius:
-                                            BorderRadius.circular(8)),
-                                    child: Image(
-                                        image: AssetImage(context
-                                            .read<CategoryCubit>()
-                                            .imageIcon[index]))),
-                                Text(
-                                  state.categories[index].name!,
-                                  style:
-                                      Theme.of(context).textTheme.labelMedium,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
+                      final dynamic categoryCubit = context.read<CategoryCubit>().imageIcon[index];
+                      return CategoryListItem(categories: categories, categoryCubit: categoryCubit);
                     },
                   );
                 } else if (state is CategoryFailureStates) {
@@ -93,3 +55,4 @@ class CategoryListView extends StatelessWidget {
     );
   }
 }
+

@@ -12,14 +12,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeStates>(
       builder: (context, state) {
-        var cubit = context.read<HomeCubit>();
+        var homeCubit = context.read<HomeCubit>();
         return Scaffold(
-          body: cubit.screens[cubit.currentIndex],
+          body: homeCubit.screens[homeCubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             onTap: (index) {
-              cubit.changeBottomNavBar(index);
+              homeCubit.changeBottomNavBar(index);
             },
-            currentIndex: cubit.currentIndex,
+            currentIndex: homeCubit.currentIndex,
             items: [
               BottomNavigationBarItem(
                 icon: const Icon(
