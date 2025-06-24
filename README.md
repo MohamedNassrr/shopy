@@ -82,8 +82,8 @@
 - 🧱 Uses modern Flutter tools (Dio, Cubit, Firebase, Stripe)
 - 🧠 Solves common problems: loading states, errors, etc.
 - 📱 Designed to be user-friendly and developer-readable
-- 🧱 Structured using MVVM for better testability and separation of concerns
-
+- 🚀 Uses modern architecture patterns like MVVM and Dependency Injection (GetIt)
+- 🧭 Declarative navigation with GoRouter for better routing control
 ---
 
 ## 🧰 Tech Stack
@@ -97,6 +97,8 @@
 - **Shared Preferences**
 - **Flutter Intl (Localization)**
 - **MVVM Architecture** (Model–View–ViewModel pattern)
+- **GoRouter** (Declarative navigation)
+- **GetIt** (Dependency Injection)
 
 ---
 > I built this app as a hands-on project to sharpen my skills and demonstrate my capabilities as a Flutter developer. Open to feedback and collaboration.
