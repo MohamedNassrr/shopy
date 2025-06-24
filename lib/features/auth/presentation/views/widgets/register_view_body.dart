@@ -27,7 +27,7 @@ class RegisterViewBody extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          var cubit = BlocProvider.of<RegisterCubit>(context);
+          var registerCubit = context.read<RegisterCubit>();
           var registerInputProvider = context.read<RegisterInput>();
           return Center(
             child: SingleChildScrollView(
@@ -44,11 +44,11 @@ class RegisterViewBody extends StatelessWidget {
                         scale: 5.5,
                       ),
                     ),
-                    RegisterTextFormFields(cubit: cubit, registerInput: registerInput,),
+                    RegisterTextFormFields(cubit: registerCubit, registerInput: registerInput,),
                     CustomTextButton(
                       onPressed: () {
                         if (context.read<RegisterInput>().formKey.currentState!.validate()) {
-                          cubit.userRegister(
+                          registerCubit.userRegister(
                             name: registerInputProvider.userNameController.text,
                             email: registerInputProvider.emailController.text,
                             password: registerInputProvider.passwordController.text,
