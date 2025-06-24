@@ -6,6 +6,7 @@ class CustomIconButton extends StatelessWidget {
     required this.onTap,
     required this.icon,
     this.borderColor,
+    this.iconColor = Colors.black,
   });
 
   final Function() onTap;
@@ -14,6 +15,7 @@ class CustomIconButton extends StatelessWidget {
   final double borderRadius = 5;
   final IconData icon;
   final double iconSize = 15;
+  final Color? iconColor;
   final Color? borderColor;
 
   @override
@@ -30,6 +32,7 @@ class CustomIconButton extends StatelessWidget {
         child: Icon(
           icon,
           size: iconSize,
+          color: iconColor,
         ),
       ),
     );

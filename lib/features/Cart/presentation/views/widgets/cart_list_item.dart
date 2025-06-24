@@ -78,6 +78,8 @@ class CartListItem extends StatelessWidget {
                           cartCubit.removeItem(products);
                         },
                         icon: FontAwesomeIcons.trash,
+                        iconColor: Colors.white,
+
                       ),
                     ],
                   ),
