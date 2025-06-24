@@ -67,8 +67,6 @@
 
 ---
 
-### 🌍 Localization
-
 ### 🌍 Localization (Arabic)
 | | |
 |--|--| 
