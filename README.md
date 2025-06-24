@@ -71,8 +71,8 @@
 
 ### 🌍 Localization (Arabic)
 
-![](screenshots/light_home_ar.png)  
-![](screenshots/light_cart_ar.png)
+![](screenshots/light_home_ar.png) | ![](screenshots/light_cart_ar.png)
+
 ---
 
 ## ❓ Why Shopy?
