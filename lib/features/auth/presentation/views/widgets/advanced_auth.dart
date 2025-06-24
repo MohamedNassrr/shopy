@@ -8,14 +8,14 @@ class AdvancedAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<LoginCubit>(context);
+    var loginCubit = context.read<LoginCubit>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       spacing: 20,
       children: [
         InkWell(
           onTap: () {
-            cubit.signInWithGoogle();
+            loginCubit.signInWithGoogle();
           },
           child: Container(
             height: 50,

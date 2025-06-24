@@ -6,7 +6,7 @@ import 'package:online_shop_app/features/settings/presentation/controller/settin
 class SettingsCubit extends Cubit<SettingsStates> {
   SettingsCubit() : super(SettingsInitialStates());
 
-  bool isDark = false;
+  bool isDark = true;
 
   Future<void> setAppMode({bool? fromShared}) async{
     if(fromShared != null){

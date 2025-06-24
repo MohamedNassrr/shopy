@@ -17,12 +17,12 @@ import 'package:online_shop_app/generated/l10n.dart';
 import 'package:provider/provider.dart';
 
 class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+   const LoginViewBody({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     final loginInput = LoginInput();
-
     return Provider.value(
       value: loginInput,
       child: BlocConsumer<LoginCubit, LoginStates>(
@@ -41,7 +41,7 @@ class LoginViewBody extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          var cubit = BlocProvider.of<LoginCubit>(context);
+          var loginCubit = context.read<LoginCubit>();
           return Center(
             child: Padding(
               padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
@@ -69,7 +69,7 @@ class LoginViewBody extends StatelessWidget {
                       colors: primaryColor,
                       onPressed: () {
                         if (context.read<LoginInput>().formKey.currentState!.validate()) {
-                          cubit.userLogin(
+                          loginCubit.userLogin(
                             email:
                                 context.read<LoginInput>().emailController.text,
                             password: context
