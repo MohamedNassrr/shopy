@@ -57,7 +57,7 @@ class RegisterTextFormFields extends StatelessWidget {
                   type: TextInputType.visiblePassword,
                   isPassword: cubit.isPassword,
                   suffix: cubit.suffix,
-                  suffixPressed: cubit.changePasswordVisibilty,
+                  suffixPressed: cubit.changePasswordVisibility,
                   validation: (value) {
                     if (value!.isEmpty) {
                       return S.of(context).registerPasswordValid;
@@ -73,7 +73,7 @@ class RegisterTextFormFields extends StatelessWidget {
                   type: TextInputType.visiblePassword,
                   isPassword: cubit.isPassword,
                   suffix: cubit.suffix,
-                  suffixPressed: cubit.changePasswordVisibilty,
+                  suffixPressed: cubit.changePasswordVisibility,
                   validation: (value) {
                     if (value !=
                         registerInputProvider.passwordController.text) {

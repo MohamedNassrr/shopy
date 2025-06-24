@@ -33,7 +33,6 @@ class LoginCubit extends Cubit<LoginStates> {
     });
   }
 
-  // Sign in with Google
   Future<void> signInWithGoogle() async {
     await authService.signInWithGoogle();
     emit(UserLoginWithGoogleSuccess());
@@ -42,7 +41,6 @@ class LoginCubit extends Cubit<LoginStates> {
     debugPrint(authService.auth.currentUser!.emailVerified.toString());
   }
 
-  // Sign out
   Future<void> signOut() async {
     await authService.signOut();
     emit(UserLogoutWithGoogleSuccess());
@@ -51,7 +49,7 @@ class LoginCubit extends Cubit<LoginStates> {
   IconData suffix = Icons.visibility_outlined;
   bool isPassword = true;
 
-  void changePasswordVisibilty() {
+  void changePasswordVisibility() {
     isPassword = !isPassword;
     suffix =
         isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;

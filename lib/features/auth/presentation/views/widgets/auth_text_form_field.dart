@@ -42,7 +42,7 @@ class AuthTextFormField extends StatelessWidget {
               return null;
             },
             suffix: cubit.suffix,
-            suffixPressed: cubit.changePasswordVisibilty,
+            suffixPressed: cubit.changePasswordVisibility,
             onSubmit: (value) {
               if (loginInputProvider.formKey.currentState!.validate()) {
                 cubit.userLogin(
