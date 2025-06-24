@@ -19,10 +19,13 @@ class ForgetPassViewBody extends StatelessWidget {
       listener: (context, state) {
         if (state is ForgetPassSuccessStates) {
           GoRouter.of(context).pop();
+          SnackBar snackBar =  SnackBar(
+              content: Text(S.of(context).PasswordRestEmail));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       },
       builder: (context, state) {
-        var cubit = BlocProvider.of<ForgetPassCubit>(context);
+        var forgetCubit = context.read<ForgetPassCubit>();
         return Padding(
           padding: const EdgeInsets.all(20),
           child: Form(
@@ -43,7 +46,7 @@ class ForgetPassViewBody extends StatelessWidget {
                   },
                   onSubmit: (value) {
                     if (formKey.currentState!.validate()) {
-                      cubit.changePassword(
+                      forgetCubit.changePassword(
                         email: emailController.text,
                       );
                     }
@@ -52,7 +55,7 @@ class ForgetPassViewBody extends StatelessWidget {
                 CustomTextButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      cubit.changePassword(email: emailController.text);
+                      forgetCubit.changePassword(email: emailController.text);
                     }
                   },
                   isLoading: state is ForgetPassLoadingStates ? true : false,

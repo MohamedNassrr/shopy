@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "PasswordRestEmail": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني",
+    ),
     "addToCart": MessageLookupByLibrary.simpleMessage("اضف الي العربه"),
     "backToHome": MessageLookupByLibrary.simpleMessage(
       "العودة إلى الشاشة الرئيسية",

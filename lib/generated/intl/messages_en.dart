@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "PasswordRestEmail": MessageLookupByLibrary.simpleMessage(
+      "A password reset link has been sent to your email",
+    ),
     "addToCart": MessageLookupByLibrary.simpleMessage("add to cart"),
     "authValidationMessage": MessageLookupByLibrary.simpleMessage(
       "email or password isn\'t correct",

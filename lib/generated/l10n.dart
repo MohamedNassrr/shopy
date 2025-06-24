@@ -458,6 +458,16 @@ class S {
   String get addToCart {
     return Intl.message('add to cart', name: 'addToCart', desc: '', args: []);
   }
+
+  /// `A password reset link has been sent to your email`
+  String get PasswordRestEmail {
+    return Intl.message(
+      'A password reset link has been sent to your email',
+      name: 'PasswordRestEmail',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

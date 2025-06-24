@@ -49,5 +49,6 @@
   "thankYou": "Thank You!",
   "backToHome": "back to home screen",
   "signOut": "sign out",
-  "addToCart": "add to cart"
+  "addToCart": "add to cart",
+  "PasswordRestEmail": "A password reset link has been sent to your email"
 }
