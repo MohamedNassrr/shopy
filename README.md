@@ -11,7 +11,7 @@
 
 ---
 
-## 🚀 Features Overview
+# 🚀 Features Overview
 
 ## 🔐 Authentication
 - Email/Password login & registration (Firebase Auth)
