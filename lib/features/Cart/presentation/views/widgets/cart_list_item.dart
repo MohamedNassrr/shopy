@@ -5,6 +5,7 @@ import 'package:online_shop_app/core/widgets/custom_icon_button.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:online_shop_app/features/Cart/presentation/controller/cart_cubit/cart_states.dart';
 import 'package:online_shop_app/features/home/data/models/product_model/product_model.dart';
+import 'package:online_shop_app/features/settings/presentation/controller/settings_cubit/settings_cubit.dart';
 
 class CartListItem extends StatelessWidget {
   const CartListItem({super.key, required this.products, required this.quantity});
@@ -74,12 +75,11 @@ class CartListItem extends StatelessWidget {
                         icon: Icons.add,
                       ),
                       CustomIconButton(
+                        isDark: context.watch<SettingsCubit>().isDark,
                         onTap: () {
                           cartCubit.removeItem(products);
                         },
                         icon: FontAwesomeIcons.trash,
-                        iconColor: Colors.white,
-
                       ),
                     ],
                   ),

@@ -9,7 +9,7 @@ class GeoCodingService {
 
   Future<List<GeoCodingModel>> getGeoCoding({required double latitude,required double longitude,}) async {
     var response = await dio.get(
-      '$baseUrl?latlng=$latitude,$longitude&key=${dotenv.env['PLACE_KEY']}',
+      '$baseUrl?latlng=$latitude,%20$longitude&key=${dotenv.env['PLACE_KEY']}',
     );
 
     if (response.statusCode == 200) {

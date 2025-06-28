@@ -7,6 +7,7 @@ class CustomIconButton extends StatelessWidget {
     required this.icon,
     this.borderColor,
     this.iconColor = Colors.black,
+    this.isDark = false
   });
 
   final Function() onTap;
@@ -17,6 +18,7 @@ class CustomIconButton extends StatelessWidget {
   final double iconSize = 15;
   final Color? iconColor;
   final Color? borderColor;
+  final bool isDark;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class CustomIconButton extends StatelessWidget {
         child: Icon(
           icon,
           size: iconSize,
-          color: iconColor,
+          color: isDark ? Colors.white: iconColor,
         ),
       ),
     );
