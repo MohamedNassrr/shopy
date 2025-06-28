@@ -57,7 +57,7 @@
 | ![](screenshots/light_cart_empty.png) | ![](screenshots/light_cart.png) |
 | ![](screenshots/light_payment_method.png) | ![](screenshots/light_stripe_view.png) |
 | ![](screenshots/light_thank_you.png) | ![](screenshots/light_settings.png) |
-| ![](screenshots/googleMaps.png) |
+![](screenshots/googleMaps.png)
 
 
 ---
