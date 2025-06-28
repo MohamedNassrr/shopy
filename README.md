@@ -5,6 +5,8 @@
 ![Stripe](https://img.shields.io/badge/Stripe-Payments-blueviolet?logo=stripe)
 ![Localization](https://img.shields.io/badge/Localization-AR%20%7C%20EN-green)
 ![Theme](https://img.shields.io/badge/Theme-Dark%20%26%20Light-critical)
+![Google Maps](https://img.shields.io/badge/Google%20Maps-Integrated-blue?logo=googlemaps)
+
 
 > **Shopy** is a complete e-commerce mobile application built with Flutter and Firebase, packed with real-world features like authentication, payments, search, and map integration.  
 > This app is built from scratch, fully functional, and structured to scale.
@@ -55,6 +57,7 @@
 | ![](screenshots/light_cart_empty.png) | ![](screenshots/light_cart.png) |
 | ![](screenshots/light_payment_method.png) | ![](screenshots/light_stripe_view.png) |
 | ![](screenshots/light_thank_you.png) | ![](screenshots/light_settings.png) |
+| ![](screenshots/googleMaps.png) |
 
 
 ---
